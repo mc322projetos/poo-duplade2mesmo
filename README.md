@@ -1,6 +1,8 @@
 # Alunos
-* Anderson Murillo Tito Lira Leite e Isaac do Nascimento Oliveira
-# RA
-* XXXXXX e 247175, respectivamente
+* Anderson Murillo Tito Lira Leite
+* Isaac do Nascimento Oliveira
+# RAs
+* XXXXXX
+* 247175
 # Cursos
 * Engenharia de Computação (ambos)
