@@ -7,6 +7,8 @@ Caverna     |
 \- atributos|
 \+ metodos  |
 
+## Salas
+
 ## Componente
 
 ## Controle
