@@ -1,29 +1,6 @@
 public class Controle {
     private String command;
 	private Heroi hero;
-
-	// Heroi|
-	// -----|
-	// Atributos:|
-	// \- qntFlecha: int|
-	// \- verificarFlecha(): boolean|
-	// \- equiparFlecha(): void|
-	// \- atirarFlecha(): int|
-	// \- capturarOuro(): @|
-	// Metodos:|
-	// \- mover(i: int, j: int): void|
-	// \@ getPontuacao(): int|
-	// \@ setPontuacao(): void|
-
-// Controle|
-// ---------|
-// Atributos:
-// \- command: String|
-// \- hero: Heroi|
-// Metodos:
-// \- Controle(command: String)|
-// \- receberComando(): void|
-// \- vericarMovimento(): void
 	
 	Controle(Heroi hero) {
 		this.hero = hero;
@@ -33,7 +10,7 @@ public class Controle {
         this.command = command;
     }
 
-	ublic voiid executarovimento(( {
+	public void executarMovimento() {
 		int linhaHeroi = hero.getCoordLinha();
 		int colunaHeroi = hero.getCoordColuna();
 		if (command.equals("w")) {
