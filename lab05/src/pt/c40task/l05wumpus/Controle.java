@@ -71,7 +71,6 @@ public class Controle {
 				}
 			} if (hero.capturarOuro() == true) {
 				pontuacao += 1000;
-				break;
 			}
 		}
 	}
