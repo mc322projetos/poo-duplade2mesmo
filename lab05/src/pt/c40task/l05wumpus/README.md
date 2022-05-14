@@ -83,5 +83,6 @@ Metodos:
 \- Controle(hero: Heroi)|
 \- receberMovimento(command: String): void|
 \- executarMovimento(): void|
+\- pontuar(): void|
 
 ## Montador
