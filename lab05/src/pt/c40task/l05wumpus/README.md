@@ -21,6 +21,7 @@ Atributos:|
 Metodos:|
 \@ Sala()|
 \@ verificarComp(): boolean|
+\@ determinarPrior(); int|
 \@ setComp(): void|
 \@ getComp(): Componente|
  
@@ -31,10 +32,10 @@ Atributos:
 \@ caverna: Caverna|
 \@ coordLinhaSala: int|
 \@ coordColunaSala: int|
-\- getCoordLinha: int|
-\- getCoordColuna: int|
-\@ caverna: Caverna|
 Metodos:|
+\+ getcaverna();
+\+ getCoordLinha: int|
+\+ getCoordColuna: int|
  
 HERDEIROS:
  
@@ -42,12 +43,15 @@ Heroi|
 -----|
 Atributos:|
 \- qntFlecha: int|
-\- verificarFlecha(): boolean|
-\- equiparFlecha(): void|
-\- capturarOuro(): void|
-\- matarWumpus(): int|
-\- capturarOuro(): boolean| 
+\- flechaDisp: boolean|
 Metodos:|
+\- podeFlecha(): boolean|
+\- equiparFlecha(): void|
+\- atirarFlecha(): void|
+\- capturarOuro(): void|
+\- capturarOuro(): boolean|
+\- cairBuraco(): boolean|
+\- matarWumpus(): boolean|
 \- mover(i: int, j: int): void|
 \@ getPontuacao(): int|
 \@ setPontuacao(): void|
@@ -57,20 +61,26 @@ Wumpus|
 Atributos:|
 \ @criarFedores(): void
 
+Fedor|
+-----|
+Atributos:|
+Metodos:|
+
 Buraco|
 ------|
 Atributos:|
 Metodos:|
 \ @criarBrisas(): void|
 
+Brisa|
+Atributos:|
+Metodos:|
+
 Ouro|
 ----|
 Atributos:|
 Metodos:|
 
-Fedor|
------|
-Atributos:|
 
 
 ## Controle
