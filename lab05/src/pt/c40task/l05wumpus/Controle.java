@@ -53,25 +53,23 @@ public class Controle {
 
 	public void pontuar() {
 		int pontuacao = hero.getPontuacao();
-		while (true) {
-			if (command.equals("w") || command.equals("s") || command.equals("a") || command.equals("d")) {
-				pontuacao -= 15; 
-				if (hero.cairBuraco() == 1) {
-					pontuacao -= 1000; 
-				}
-				else if (hero.verificarFlecha() == 1) {
-					pontuacao -= 100;
-				} 
-				if (hero.caverna.getSala(i, j).getComp() == 'W') { 
-					if (hero.matarWumpus() == 0) {
-						pontuacao -= 1000;
-					} else if (hero.matarWumpus() == 1) {
-						pontuacao += 500;
-					}
-				}
-			} if (hero.capturarOuro() == true) {
-				pontuacao += 1000;
+		if (command.equals("w") || command.equals("s") || command.equals("a") || command.equals("d")) {
+			pontuacao -= 15; 
+			if (hero.cairBuraco() == 1) {
+				pontuacao -= 1000; 
 			}
+			else if (hero.verificarFlecha() == 1) {
+				pontuacao -= 100;
+			} 
+			if (hero.caverna.getSala(i, j).getComp() == 'W') { 
+				if (hero.matarWumpus() == 0) {
+					pontuacao -= 1000;
+				} else if (hero.matarWumpus() == 1) {
+					pontuacao += 500;
+				}
+			}
+		} if (hero.capturarOuro() == true) {
+			pontuacao += 1000;
 		}
 	}
 }
