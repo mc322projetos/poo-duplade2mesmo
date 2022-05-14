@@ -1,4 +1,5 @@
 package pt.c40task.l05wumpus;
+import java.util.Scanner;
 
 public class AppWumpus {
 
@@ -25,6 +26,18 @@ public class AppWumpus {
       System.out.println("=== Movimentos");
       System.out.println(movements);
       
+      
+      while (true) {
+         command = keyboard.nextLine();
+         control.receberMovimento(command);
+         if (command != 'q') {
+            control.executarMovimento();
+         } else {
+            break;
+         }
+      }
+         
+
       System.out.println("=== Caverna Intermediaria");
       char partialCave[][] = {
          {'#', '#', 'b', '-'},

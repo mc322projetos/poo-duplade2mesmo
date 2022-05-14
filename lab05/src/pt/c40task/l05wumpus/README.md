@@ -4,17 +4,15 @@
  
 ## Caverna
  
-Caverna     |
+Caverna   |
 ----------|
 Atributos:|
 \- salas: Sala[][]|
 Metodos:|
 \@ criarSalas(): void|
-\@ conectarComponente(): void| 
-//met acima chama o met homonimo da Sala e ela faz a conexao propriamente dita, fiquei na duvida se eh isso
-eh isso msm acho
+\@ conectarComponente(): void|
+\@ getSala(): Sala|
 
- 
 ## Sala
 Sala|
 ----------|
@@ -23,14 +21,18 @@ Atributos:|
 Metodos:|
 \@ Sala()|
 \@ verificarComp(): boolean|
-\@ conectarComponente(): void| 
+\@ setComp(): void|
+\@ getComp(): Componente|
  
 ## Componente
 Componente|
 --------|
 Atributos:
-\@ tipo: Char|
-\@ coordSala: int[]|
+\@ caverna: Caverna|
+\@ coordLinhaSala: int|
+\@ coordColunaSala: int|
+\- getCoordLinha: int|
+\- getCoordColuna: int|
 \@ caverna: Caverna|
 Metodos:|
  
@@ -42,22 +44,44 @@ Atributos:|
 \- qntFlecha: int|
 \- verificarFlecha(): boolean|
 \- equiparFlecha(): void|
+\- capturarOuro(): void|
+\- matarWumpus(): int|
+\- capturarOuro(): boolean| 
 Metodos:|
-\- mover(): void|
+\- mover(i: int, j: int): void|
+\@ getPontuacao(): int|
+\@ setPontuacao(): void|
  
 Wumpus|
 ------|
 Atributos:|
-\ criarFedores(): void
- 
+\ @criarFedores(): void
+
+Buraco|
+------|
+Atributos:|
+Metodos:|
+\ @criarBrisas(): void|
+
+Ouro|
+----|
+Atributos:|
+Metodos:|
+
+Fedor|
+-----|
+Atributos:|
+
+
 ## Controle
 |Controle|
 ---------|
 Atributos:
-\-command: String|
-\-caverna: Sala[][]|
-\-hero: Heroi|
+\- command: String|
+\- hero: Heroi|
 Metodos:
-\@ Controle(command: String)|
+\- Controle(hero: Heroi)|
+\- receberMovimento(command: String): void|
+\- executarMovimento(): void|
 
 ## Montador
