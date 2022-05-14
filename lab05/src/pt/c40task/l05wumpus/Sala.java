@@ -1,98 +1,45 @@
-# Classes implementadas por nós em UML
- 
-<i>@ significa: a ser decidido</i>
- 
-## Caverna
- 
-Caverna   |
-----------|
-Atributos:|
-\- salas: Sala[][]|
-Metodos:|
-\@ criarSalas(): void|
-\@ conectarComponente(): void|
-\@ getSala(): Sala|
+package pt.c40task.l05wumpus;
 
-## Sala
-Sala|
-----------|
-Atributos:|
-\- comp: Componente[]|
-Metodos:|
-\@ Sala()|
-\@ verificarComp(): boolean|
-\@ determinarPrior(); int|
-\@ setComp(): void|
-\@ getComp(): Componente|
- 
-## Componente
-Componente|
---------|
-Atributos:
-\@ caverna: Caverna|
-\@ coordLinhaSala: int|
-\@ coordColunaSala: int|
-Metodos:|
-\+ getcaverna();
-\+ getCoordLinha: int|
-\+ getCoordColuna: int|
- 
-HERDEIROS:
- 
-Heroi|
------|
-Atributos:|
-\- qntFlecha: int|
-\- flechaDisp: boolean|
-Metodos:|
-\- podeFlecha(): boolean|
-\- equiparFlecha(): void|
-\- atirarFlecha(): void|
-\- capturarOuro(): void|
-\- capturarOuro(): boolean|
-\- cairBuraco(): boolean|
-\- matarWumpus(): boolean|
-\- mover(i: int, j: int): void|
-\@ getPontuacao(): int|
-\@ setPontuacao(): void|
- 
-Wumpus|
-------|
-Atributos:|
-\ @criarFedores(): void
+// ## Sala
+// Sala|
+// ----------|
+// Atributos:|
+// \- comp: Componente[]|
+// Metodos:|
+// \@ Sala()|
+// \@ verificarComp(): boolean|
+// \@ determinarPrio(): int|
+// \@ setComp(): void|
+// \@ getComp(): Componente|
 
-Fedor|
------|
-Atributos:|
-Metodos:|
+public class Sala {
+	private Componente[] comp;
+	
+	Sala() {
+		comp = new Componente[4];
+	}
 
-Buraco|
-------|
-Atributos:|
-Metodos:|
-\ @criarBrisas(): void|
-
-Brisa|
-Atributos:|
-Metodos:|
-
-Ouro|
-----|
-Atributos:|
-Metodos:|
-
-
-
-## Controle
-|Controle|
----------|
-Atributos:
-\- command: String|
-\- hero: Heroi|
-Metodos:
-\- Controle(hero: Heroi)|
-\- receberMovimento(command: String): void|
-\- executarMovimento(): void|
-\- pontuar(): void|
-
-## Montador
+	public Componente[] getComp() {
+		return comp;
+	}
+	
+	public int determinarPrior() {
+		int maior_prioridade = 1;
+		for (int i = 0; i < comp.length; i++) {
+			if (comp[i].hero) { // logica certa
+				
+			}
+		}
+	}
+	
+	public void setComp(Componente compo) {
+		int i =  determinarPrior(compo);
+		this.comp[i] = compo;
+	}
+	
+	public void verificarComp() { // se pode colocar na mesma sala
+		for (int i = 0; i < comp.length; i++) {
+			if (comp[i])
+		}
+	}
+} 
