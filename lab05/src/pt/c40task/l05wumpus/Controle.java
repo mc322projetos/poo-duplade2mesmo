@@ -1,3 +1,5 @@
+package pt.c40task.l05wumpus;
+
 public class Controle {
     private String command;
 	private Heroi hero;
@@ -24,28 +26,28 @@ public class Controle {
 		} else if (command.equals("k")) {
 			hero.equiparFlecha();
 		} else if (command.equals("c")) {
-			hero.capturarOuro();
+			hero.capturarOuro(); 
 		}
 	}
-
+	
 	public void pontuar() {
 		int pontuacao = hero.getPontuacao();
 		if (command.equals("w") || command.equals("s") || command.equals("a") || command.equals("d")) {
 			pontuacao -= 15; 
-			if (hero.cairBuraco() == 1) {
+			if (hero.cairBuraco()) {
 				pontuacao -= 1000; 
 			}
-			else if (hero.verificarFlecha() == 1) {
+			else if (hero.podeAtirar()) {
+				hero.atirarFlecha();
 				pontuacao -= 100;
 			} 
 			if (hero.caverna.getSala(i, j).getComp() == 'W') { 
-				if (hero.matarWumpus() == 0) {
+				if (!hero.matarWumpus())
 					pontuacao -= 1000;
-				} else if (hero.matarWumpus() == 1) {
+				else
 					pontuacao += 500;
-				}
 			}
-		} if (hero.capturarOuro() == true) {
+		} if (hero.capturarOuro() ) {
 			pontuacao += 1000;
 		}
 	}
