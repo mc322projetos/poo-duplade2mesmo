@@ -1,45 +1,81 @@
 package pt.c40task.l05wumpus;
-
-// ## Sala
-// Sala|
-// ----------|
-// Atributos:|
-// \- comp: Componente[]|
-// Metodos:|
-// \@ Sala()|
-// \@ verificarComp(): boolean|
-// \@ determinarPrio(): int|
-// \@ setComp(): void|
-// \@ getComp(): Componente|
+import java.util.ArrayList;
 
 public class Sala {
-	private Componente[] comp;
+	private ArrayList<Componente> arrayComp;
+	private Heroi hero;
+	private Wumpus w;
+	private Ouro gold;
+	private Buraco trap;
+	private Brisa breeze;
+	private Fedor fed;
 	
-	Sala() {
-		comp = new Componente[4];
+	Sala(Heroi hero, Wumpus w, Ouro gold, Buraco trap, Brisa breeze, Fedor fed) {
+		arrayComp = new ArrayList<Componente> ();
+		this.hero = hero;
+		this.w = w;
+		this.gold = gold;
+		this.trap = trap;
+		this.breeze = breeze;
+		this.fed = fed;
 	}
 
-	public Componente[] getComp() {
-		return comp;
+	public ArrayList<Componente> getArrayComp() {
+		return(arrayComp);
+	}
+
+	public Heroi getHero() {
+		return hero;
+	}
+
+	public Wumpus getWumpus() {
+		return w;
+	}
+
+	public Ouro getOuro() {
+		return gold;
+	}
+
+	public Buraco getBuraco() {
+		return trap;
+	}
+
+	public Brisa getBrisa() {
+		return breeze;
 	}
 	
-	public int determinarPrior() {
-		int maior_prioridade = 1;
-		for (int i = 0; i < comp.length; i++) {
-			if (comp[i].hero) { // logica certa
-				
-			}
+	public void determinarPrior() {
+		arrayComp.add(gold);
+		arrayComp.add(w);
+		arrayComp.add(trap);
+		arrayComp.add(hero);
+		arrayComp.add(fed);
+		arrayComp.add(breeze);
+	}
+	
+	public boolean ocuparMesmaSala() { // se pode colocar na mesma sala
+		boolean pode = true;
+		int i = 0;
+		if (arrayComp.get(i) == gold && arrayComp.get(i + 1) == w && arrayComp.get(i + 2) == trap) {
+			pode = false;
 		}
+		return pode;
 	}
-	
-	public void setComp(Componente compo) {
-		int i =  determinarPrior(compo);
-		this.comp[i] = compo;
-	}
-	
-	public void verificarComp() { // se pode colocar na mesma sala
-		for (int i = 0; i < comp.length; i++) {
-			if (comp[i])
+
+	public void eliminarComponente() {
+		for (int i = 0; i < arrayComp.size(); i++) {
+			if (hero.OuroCapturado() == true) {
+				if (arrayComp.get(i) == gold) {
+					arrayComp.remove(hero);
+					arrayComp.set(i, hero);
+				}
+			} else if (hero.matarWumpus() == true) {
+				if (arrayComp.get(i) == w) {
+					arrayComp.set(i, gold);
+					arrayComp.remove(hero);
+					arrayComp.set(i - 1, hero);
+				}
+			}
 		}
 	}
 } 
