@@ -17,13 +17,24 @@ Metodos:|
 Sala|
 ----------|
 Atributos:|
-\- comp: Componente[]|
+\- arrayComp: ArrayList<Componente>|
+\- hero: Heroi|
+\- w: Wumpus|
+\- gold: Ouro|
+\- trap: Buraco|
+\- breeze: Brisa|
+\- Fedor: fed|
 Metodos:|
-\@ Sala()|
-\@ verificarComp(): boolean|
-\@ determinarPrior(); int|
-\@ setComp(): void|
-\@ getComp(): Componente|
+\@ Sala(comp: Componente)|
+\@ getArrayComp(): ArrayList<Componente>|
+\@ getHero(): Heroi|
+\@ getWumpus(): Wumpus|
+\@ getOuro(): Ouro|
+\@ getBuraco(): Buraco|
+\@ getBreeze(): Brisa|
+\@ getFedor(): Fedor|
+\@ ocuparMesmaSala(): boolean|
+\@ determinarPrior(): void|
  
 ## Componente
 Componente|
