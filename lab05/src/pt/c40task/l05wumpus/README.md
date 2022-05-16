@@ -35,6 +35,7 @@ Metodos:|
 \@ getFedor(): Fedor|
 \@ ocuparMesmaSala(): boolean|
 \@ determinarPrior(): void|
+\@ eliminarComponente(): void|
  
 ## Componente
 Componente|
