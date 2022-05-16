@@ -20,19 +20,6 @@ public class Sala {
 		this.fed = fed;
 	}
 
-	public ArrayList<Componente> getArrayComp() {
-		return(arrayComp);
-	}
-
-	// estes metodos get voce vai usar?
-	// na Sala tinha um metodo getComp(), que retornava o elem 0 na lista 
-	// (o elemento de maior prioridade), preciso desse metodo
-	// olha a linha 44 do Controle.java e a linha 56 do Componente.java
-	// e se modificar o metodo acima para getArrayComp(int i),
-	// return(arrayComp.get(i));
-	// agora pensando talvez vc tenha achado que esse metodo getComp retornava a lista
-	// toda, mas nao era isso nao murillo, kkkko nome tbm nao ajudou, comp era uma lista da Sala
-
 	public Heroi getHero() {
 		return hero;
 	}
@@ -54,8 +41,6 @@ public class Sala {
 	}
 	
 	public void determinarPrior() { 
-		// nao era melhor colocar isso no construtor?
-		// ta so adicionando no arrayList
 		arrayComp.add(gold);
 		arrayComp.add(w);
 		arrayComp.add(trap);
@@ -64,13 +49,11 @@ public class Sala {
 		arrayComp.add(breeze);
 	}
 	
+	public ArrayList<Componente> getArrayComp(int i) {
+		return(arrayComp.get(i));
+	}
+	
 	public boolean ocuparMesmaSala() { // se pode colocar na mesma sala
-		// o que vc acha de usar um metodo de verificar se as classes sao iguais
-		// ai nao precisaria salvar cada comp como atributo
-		// acho que pode usar essa ideia no eliminarComponente()
-		// se for de tal classe, entao se capturarOuro bla bla bla
-		// acabei de perceber que nao funcionaria, pois so daria pra chamar
-		// metodo que cuja assinatura tem na classe mae
 		boolean pode = true;
 		int i = 0;
 		if (arrayComp.get(i) == gold && arrayComp.get(i + 1) == w && arrayComp.get(i + 2) == trap) {
@@ -92,6 +75,8 @@ public class Sala {
 					arrayComp.remove(hero);
 					arrayComp.set(i - 1, hero);
 				}
+			} else if (hero.executarAcao() == false) {
+				arrayComp.remove(hero);
 			}
 		}
 	}
