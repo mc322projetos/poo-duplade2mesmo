@@ -26,15 +26,15 @@ Atributos:|
 \- Fedor: fed|
 Metodos:|
 \@ Sala(comp: Componente)|
-\@ getArrayComp(): ArrayList<Componente>|
 \@ getHero(): Heroi|
 \@ getWumpus(): Wumpus|
 \@ getOuro(): Ouro|
 \@ getBuraco(): Buraco|
 \@ getBreeze(): Brisa|
 \@ getFedor(): Fedor|
-\@ ocuparMesmaSala(): boolean|
 \@ determinarPrior(): void|
+\@ getArrayComp(): ArrayList<Componente>|
+\@ ocuparMesmaSala(): boolean|
 \@ eliminarComponente(): void|
  
 ## Componente
