@@ -41,13 +41,15 @@ public class Controle {
 				hero.atirarFlecha();
 				pontuacao -= 100;
 			} 
-			if (hero.caverna.getSala(i, j).getComp() == 'W') { // mudar para metodo
+			if (hero.acharWumpus()) {
 				if (!hero.matarWumpus())
 					pontuacao -= 1000;
 				else
 					pontuacao += 500;
 			}
-		} if (hero.capturarOuro() ) {
+		} if (hero.acharOuro()) { // ve se concorda, eh que assim, eh regra do jogo
+			// que se achar ouro o heroi deve captura-lo
+			// mas e se apertar outro botao
 			pontuacao += 1000;
 		}
 	}

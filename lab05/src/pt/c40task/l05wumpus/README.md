@@ -56,15 +56,17 @@ Heroi|
 Atributos:|
 \- qntFlecha: int|
 \- flechaDisp: boolean|
+\- pontuacao: int|
 Metodos:|
-\- podeFlecha(): boolean|
-\- equiparFlecha(): void|
-\- atirarFlecha(): void|
-\- capturarOuro(): void|
-\- capturarOuro(): boolean|
-\- cairBuraco(): boolean|
-\- matarWumpus(): boolean|
-\- mover(i: int, j: int): void|
+\+ podeFlecha(): boolean|
+\+ equiparFlecha(): void|
+\+ atirarFlecha(): void|
+\+ capturarOuro(): void|
+\+ acharOuro(): boolean|
+\+ cairBuraco(): boolean|
+\+ acharWumpus(): boolean|
+\+ matarWumpus(): boolean|
+\+ mover(i: int, j: int): void|
 \@ getPontuacao(): int|
 \@ setPontuacao(): void|
  
