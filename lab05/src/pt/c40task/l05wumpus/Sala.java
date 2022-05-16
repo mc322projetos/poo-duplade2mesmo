@@ -24,6 +24,15 @@ public class Sala {
 		return(arrayComp);
 	}
 
+	// estes metodos get voce vai usar?
+	// na Sala tinha um metodo getComp(), que retornava o elem 0 na lista 
+	// (o elemento de maior prioridade), preciso desse metodo
+	// olha a linha 44 do Controle.java e a linha 56 do Componente.java
+	// e se modificar o metodo acima para getArrayComp(int i),
+	// return(arrayComp.get(i));
+	// agora pensando talvez vc tenha achado que esse metodo getComp retornava a lista
+	// toda, mas nao era isso nao
+
 	public Heroi getHero() {
 		return hero;
 	}
@@ -78,4 +87,5 @@ public class Sala {
 			}
 		}
 	}
+
 } 
