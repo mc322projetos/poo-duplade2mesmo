@@ -31,7 +31,7 @@ public class Sala {
 	// e se modificar o metodo acima para getArrayComp(int i),
 	// return(arrayComp.get(i));
 	// agora pensando talvez vc tenha achado que esse metodo getComp retornava a lista
-	// toda, mas nao era isso nao
+	// toda, mas nao era isso nao murillo, kkkko nome tbm nao ajudou, comp era uma lista da Sala
 
 	public Heroi getHero() {
 		return hero;
