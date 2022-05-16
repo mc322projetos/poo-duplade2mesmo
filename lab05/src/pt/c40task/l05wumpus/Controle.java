@@ -41,7 +41,7 @@ public class Controle {
 				hero.atirarFlecha();
 				pontuacao -= 100;
 			} 
-			if (hero.caverna.getSala(i, j).getComp() == 'W') { 
+			if (hero.caverna.getSala(i, j).getComp() == 'W') { // mudar para metodo
 				if (!hero.matarWumpus())
 					pontuacao -= 1000;
 				else
