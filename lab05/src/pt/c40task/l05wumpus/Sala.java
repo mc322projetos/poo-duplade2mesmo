@@ -18,9 +18,6 @@ public class Sala {
 		this.trap = trap;
 		this.breeze = breeze;
 		this.fed = fed;
-	}
-	
-	public void determinarPrior() { 
 		arrayComp.add(gold);
 		arrayComp.add(w);
 		arrayComp.add(trap);
