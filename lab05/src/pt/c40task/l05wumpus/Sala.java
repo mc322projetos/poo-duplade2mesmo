@@ -19,26 +19,6 @@ public class Sala {
 		this.breeze = breeze;
 		this.fed = fed;
 	}
-
-	public Heroi getHero() {
-		return hero;
-	}
-
-	public Wumpus getWumpus() {
-		return w;
-	}
-
-	public Ouro getOuro() {
-		return gold;
-	}
-
-	public Buraco getBuraco() {
-		return trap;
-	}
-
-	public Brisa getBrisa() {
-		return breeze;
-	}
 	
 	public void determinarPrior() { 
 		arrayComp.add(gold);
