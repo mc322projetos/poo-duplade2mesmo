@@ -23,7 +23,7 @@ Atributos:|
 \- gold: Ouro|
 \- trap: Buraco|
 \- breeze: Brisa|
-\- Fedor: fed|
+\- fed: Fedor|
 Metodos:|
 \@ Sala(comp: Componente)|
 \@ determinarPrior(): void|
@@ -42,6 +42,7 @@ Metodos:|
 \+ getcaverna();
 \+ getCoordLinha: int|
 \+ getCoordColuna: int|
+\+ executarAcao(): boolean|
  
 HERDEIROS:
  
@@ -55,18 +56,15 @@ Metodos:|
 \+ podeFlecha(): boolean|
 \+ equiparFlecha(): void|
 \+ atirarFlecha(): void|
-\+ capturarOuro(): void|
-\+ acharOuro(): boolean|
 \+ cairBuraco(): boolean|
-\+ acharWumpus(): boolean|
-\+ matarWumpus(): boolean|
+\+ executarAcao(): boolean|
 \+ mover(i: int, j: int): void|
 \@ getPontuacao(): int|
 \@ setPontuacao(): void|
  
 Wumpus|
 ------|
-Atributos:|
+Metodos:|
 \ @criarFedores(): void
 
 Fedor|
