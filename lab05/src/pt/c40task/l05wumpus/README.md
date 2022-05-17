@@ -25,8 +25,7 @@ Atributos:|
 \- breeze: Brisa|
 \- fed: Fedor|
 Metodos:|
-\@ Sala(comp: Componente)|
-\@ determinarPrior(): void|
+\@ Sala(hero: Heroi, w: Wumpus, gold: Ouro, trap: Buraco, breeze: Brisa, fed: Fedor)|
 \@ getMaiorPrior(i: int): Componente|
 \@ podeMesmaSala(): boolean|
 \@ eliminarComponente(): void|
