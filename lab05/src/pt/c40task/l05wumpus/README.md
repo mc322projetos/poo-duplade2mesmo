@@ -59,8 +59,8 @@ Metodos:|
 \+ cairBuraco(): boolean|
 \+ executarAcao(): boolean|
 \+ mover(i: int, j: int): void|
-\@ getPontuacao(): int|
-\@ setPontuacao(): void|
+\+ getPontuacao(): int|
+\+ setPontuacao(): void|
  
 Wumpus|
 ------|
