@@ -37,7 +37,7 @@ public class Controle {
 			if (hero.cairBuraco()) {
 				pontuacao -= 1000; 
 			}
-			else if (hero.podeAtirar()) {
+			else if (hero.podeFlecha()) {
 				hero.atirarFlecha();
 				pontuacao -= 100;
 			} 
@@ -47,11 +47,9 @@ public class Controle {
 				else
 					pontuacao += 500;
 			}
-		} if (hero.capturarRecompensa() == true) { // eh que esse metodo precisa ser do componente, se n n consigo usar
-			// ele na Sala, e tipo eu acho q se o jogador n pegou o ouro paciencia, uma hora ele vai precisar pegar, a nao
-			// ser que ele saia do jogo.
-			// o que a gente tem que tratar na verdade eh se o jogador aperta algum botao que n seja do comando do jogo
+		} if (hero.capturarRecompensa() == true) {
 			pontuacao += 1000;
 		}
+		setPontuacao(pontuacao);
 	}
 }
