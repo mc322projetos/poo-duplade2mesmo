@@ -29,11 +29,11 @@ public class Sala {
 		arrayComp.add(breeze);
 	}
 	
-	public ArrayList<Componente> getArrayComp(int i) {
+	public Componente getMaiorPrior(int i) {
 		return(arrayComp.get(i));
 	}
 	
-	public boolean ocuparMesmaSala() { // se pode colocar na mesma sala
+	public boolean podeMesmaSala() { // se pode colocar na mesma sala
 		boolean pode = true;
 		int i = 0;
 		if (arrayComp.get(i) == gold && arrayComp.get(i + 1) == w && arrayComp.get(i + 2) == trap) {
