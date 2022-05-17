@@ -27,7 +27,7 @@ public class Controle {
 			hero.equiparFlecha();
 		} else if (command.equals("c")) {
 			hero.capturarOuro(); 
-		}
+		} 		
 	}
 	
 	public void pontuar() {
