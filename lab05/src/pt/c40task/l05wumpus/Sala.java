@@ -44,7 +44,7 @@ public class Sala {
 
 	public void eliminarComponente() { //
 		for (int i = 0; i < arrayComp.size(); i++) {
-			if (hero.OuroCapturado() == true) {
+			if (hero.capturarRecompensa() == true) {
 				if (arrayComp.get(i) == gold) {
 					arrayComp.remove(hero);
 					arrayComp.set(i, hero);
@@ -60,5 +60,4 @@ public class Sala {
 			}
 		}
 	}
-
 } 
