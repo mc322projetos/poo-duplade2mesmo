@@ -39,7 +39,7 @@ public class Sala {
 		return pode;
 	}
 
-	public void eliminarComponente() { //
+	public void eliminarComponente() {
 		for (int i = 0; i < arrayComp.size(); i++) {
 			if (hero.capturarRecompensa() == true) {
 				if (arrayComp.get(i) == gold) {
