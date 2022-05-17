@@ -5,8 +5,8 @@ public class Heroi extends Componente{
     private int qntFlecha;
     private boolean flechaPronta;
 
-    public void setPontuacao(int i) {
-        pontuacao = i;
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
     }
 
     public int getPontuacao() {
@@ -40,13 +40,7 @@ public class Heroi extends Componente{
     }
 
     public boolean lutarContraWumpus() {
-        int i = coordLinhaSala;
-        int j = coordColunaSala;
-        if (super.getCaverna().getSala(i, j).getMaiorPrior(0) == 'W') {
-            Random random = new Random();
-            return random.nextBoolean();
-        }
-        return false;
+        super.lutarContraWumpus();
     }
 }
  
