@@ -57,6 +57,7 @@ Metodos:|
 \+ equiparFlecha(): void|
 \+ atirarFlecha(): void|
 \+ cairBuraco(): boolean|
+\+ acharWumpus(): boolean|
 \+ executarAcao(): boolean|
 \+ mover(i: int, j: int): void|
 \+ getPontuacao(): int|
