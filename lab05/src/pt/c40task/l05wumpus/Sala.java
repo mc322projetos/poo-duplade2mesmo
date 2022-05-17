@@ -55,8 +55,6 @@ public class Sala {
 					arrayComp.remove(hero);
 					arrayComp.set(i - 1, hero);
 				}
-			} else if (hero.executarAcao() == false) {
-				arrayComp.remove(hero);
 			}
 		}
 	}
