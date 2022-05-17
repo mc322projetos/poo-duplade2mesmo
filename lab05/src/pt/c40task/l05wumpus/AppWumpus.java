@@ -64,3 +64,4 @@ public static void executaJogo(String arquivoCaverna, String arquivoSaida,
 }
 
 }
+     
