@@ -6,6 +6,7 @@ public class Componente {
     protected int coordLinhaSala;
     protected int coordColunaSala;
 
+
     public Caverna getCaverna() {
         return caverna;
     }
@@ -16,5 +17,7 @@ public class Componente {
     public int getCoordColuna() {
         return coordColunaSala;
     }
+
+    public boolean executarAcao() {}
 
 }
