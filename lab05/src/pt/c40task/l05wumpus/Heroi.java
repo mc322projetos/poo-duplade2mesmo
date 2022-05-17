@@ -25,7 +25,7 @@ public class Heroi extends Componente{
     }
 
     public boolean acharWumpus() {
-        return hero.caverna.getSala(i, j).getComp() == 'W';
+        return hero.caverna.getSala(i, j).getrrayComp(0) == 'W';
     }
 
     public boolean matarWumpus() {
@@ -34,7 +34,7 @@ public class Heroi extends Componente{
     }
 
     public boolean acharOuro() {
-        return hero.caverna.getSala(i, j).getComp() == 'o';
+        return hero.caverna.getSala(i, j).getArrayComp(0) == 'o';
     }
     
     public void capturarOuro() {
