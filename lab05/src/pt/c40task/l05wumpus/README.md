@@ -27,8 +27,8 @@ Atributos:|
 Metodos:|
 \@ Sala(comp: Componente)|
 \@ determinarPrior(): void|
-\@ getArrayComp(i: int): ArrayList<Componente>|
-\@ ocuparMesmaSala(): boolean|
+\@ getArrayComp(i: int): Componente|
+\@ podeMesmaSala(): boolean|
 \@ eliminarComponente(): void|
  
 ## Componente
