@@ -1,11 +1,21 @@
+package pt.c40task.l05wumpus;
+
 public class Heroi extends Componente{
+    private int pontuacao;
     private int qntFlecha;
     private boolean flechaPronta;
-    private int pontuacao;
+
+    public void setPontuacao(int i) {
+        pontuacao = i;
+    }
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
 
     public void equiparFlecha() {
         qntFlecha -= 1;
-        flechapronta = true;
+        flechaPronta = true;
     }
 
     public int flechasDisp() {
@@ -23,22 +33,20 @@ public class Heroi extends Componente{
         flechaPronta = false;
     
     }
-
-    public boolean acharWumpus() {
-        return hero.caverna.getSala(i, j).getrrayComp(0) == 'W';
-    }
-
-    public boolean matarWumpus() {
-        Random random = new Random();
-        return random.nextBoolean();
-    }
-
-    public boolean acharOuro() {
-        return hero.caverna.getSala(i, j).getArrayComp(0) == 'o';
-    }
     
-    public void capturarOuro() {
+    public boolean capturarOuro() {
+        return (super.getCaverna().getSala(i, j).getMaiorPrior(0) == 'o');
 
     }
-    
+
+    public boolean lutarContraWumpus() {
+        int i = coordLinhaSala;
+        int j = coordColunaSala;
+        if (super.getCaverna().getSala(i, j).getMaiorPrior(0) == 'W') {
+            Random random = new Random();
+            return random.nextBoolean();
+        }
+        return false;
+    }
 }
+ 
