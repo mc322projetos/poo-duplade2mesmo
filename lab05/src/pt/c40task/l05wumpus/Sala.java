@@ -49,7 +49,7 @@ public class Sala {
 					arrayComp.remove(hero);
 					arrayComp.set(i, hero);
 				}
-			} else if (hero.matarWumpus() == true) {
+			} else if (hero.executarAcao == true) {
 				if (arrayComp.get(i) == w) {
 					arrayComp.set(i, gold);
 					arrayComp.remove(hero);
