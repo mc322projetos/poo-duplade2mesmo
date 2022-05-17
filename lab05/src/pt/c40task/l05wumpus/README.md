@@ -27,7 +27,7 @@ Atributos:|
 Metodos:|
 \@ Sala(comp: Componente)|
 \@ determinarPrior(): void|
-\@ getArrayComp(i: int): Componente|
+\@ getMaiorPrior(i: int): Componente|
 \@ podeMesmaSala(): boolean|
 \@ eliminarComponente(): void|
  
