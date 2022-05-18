@@ -9,8 +9,7 @@ Caverna   |
 Atributos:|
 \- salas: Sala[][]|
 Metodos:|
-\@ criarSalas(): void|
-\@ conectarComponente(): void|
+\@ Caverna()|
 \@ getCaverna(): Sala[][]|
 
 ## Sala
