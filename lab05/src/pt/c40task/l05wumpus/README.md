@@ -11,7 +11,7 @@ Atributos:|
 Metodos:|
 \@ criarSalas(): void|
 \@ conectarComponente(): void|
-\@ getSala(): Sala|
+\@ getCaverna(): Sala[][]|
 
 ## Sala
 Sala|
