@@ -16,13 +16,21 @@ public class Controle {
 		int linhaHeroi = hero.getCoordLinha();
 		int colunaHeroi = hero.getCoordColuna();
 		if (command.equals("w")) {
-			hero.mover(linhaHeroi - 1, colunaHeroi);
+			if (linhaHeroi - 1 >= 0 && linhaHeroi - 1 < 3) {
+				hero.mover(linhaHeroi - 1, colunaHeroi);
+			}
 		} else if (command.equals("s")) {
-			hero.mover(linhaHeroi + 1, colunaHeroi);
+			if (linhaHeroi + 1 > 0 && linhaHeroi + 1 <= 3) {
+				hero.mover(linhaHeroi + 1, colunaHeroi);
+			}
 		} else if (command.equals("a")) {
-			hero.mover(linhaHeroi, colunaHeroi - 1);
+			if (colunaHeroi - 1 >= 0 && colunaHeroi - 1 < 3) {
+				hero.mover(linhaHeroi, colunaHeroi - 1);
+			}
 		} else if (command.equals("d")) {
-			hero.mover(linhaHeroi, colunaHeroi + 1);
+			if (colunaHeroi + 1 > 0 && colunaHeroi + 1 <= 3) {
+				hero.mover(linhaHeroi, colunaHeroi + 1);
+			}
 		} else if (command.equals("k")) {
 			hero.equiparFlecha();
 		} else if (command.equals("c")) {
