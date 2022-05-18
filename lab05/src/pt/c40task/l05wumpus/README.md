@@ -24,7 +24,8 @@ Atributos:|
 \- breeze: Brisa|
 \- fed: Fedor|
 Metodos:|
-\@ Sala(hero: Heroi, w: Wumpus, gold: Ouro, trap: Buraco, breeze: Brisa, fed: Fedor)|
+\@ Sala()|
+\@ addCompArrayL(hero: Heroi, W: Wumpus, gold: Ouro, trap: Buraco, breeze: Brisa, fed: Fedor): void|
 \@ getMaiorPrior(i: int): Componente|
 \@ podeMesmaSala(): boolean|
 \@ eliminarComponente(): void|
@@ -37,7 +38,7 @@ Atributos:
 \@ coordLinhaSala: int|
 \@ coordColunaSala: int|
 Metodos:|
-\+ getcaverna();
+\+ getCaverna();
 \+ getCoordLinha: int|
 \+ getCoordColuna: int|
  
