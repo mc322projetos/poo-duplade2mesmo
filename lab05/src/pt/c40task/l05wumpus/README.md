@@ -41,7 +41,6 @@ Metodos:|
 \+ getcaverna();
 \+ getCoordLinha: int|
 \+ getCoordColuna: int|
-\+ executarAcao(): boolean|
  
 HERDEIROS:
  
@@ -57,7 +56,6 @@ Metodos:|
 \+ atirarFlecha(): void|
 \+ cairBuraco(): boolean|
 \+ acharWumpus(): boolean|
-\+ executarAcao(): boolean|
 \+ mover(i: int, j: int): void|
 \+ getPontuacao(): int|
 \+ setPontuacao(): void|

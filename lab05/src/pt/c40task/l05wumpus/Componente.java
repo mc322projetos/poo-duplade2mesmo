@@ -1,12 +1,15 @@
 package pt.c40task.l05wumpus;
-import java.util.Random;
 
 public class Componente {
-    private Caverna caverna;
-    protected int coordLinhaSala;
-    protected int coordColunaSala;
+    private Caverna caverna; // e se caverna for static,
+    // ai eu inicializava no construtor
+    // ao inves de receber como parametro
+    // e criasse um metodo static getCaverna()
+    // talvez nao possa, o montador que conecta o comp a caverna
+    private int coordLinhaSala;
+    private int coordColunaSala;
 
-    Componente(Caverna caverna, int coordLinhaSala, int coordColunaSala) { // criei o construtor, pq se n n da pra usar os atributos da classe
+    Componente(Caverna caverna, int coordLinhaSala, int coordColunaSala) {
         this.caverna = caverna;
         this.coordLinhaSala = coordLinhaSala;
         this.coordColunaSala = coordColunaSala;
@@ -15,23 +18,23 @@ public class Componente {
     public Caverna getCaverna() {
         return caverna;
     }
+    
+    public static char getTipo() {}
 
     public int getCoordLinha() {
         return coordLinhaSala;
     } 
+
     public int getCoordColuna() {
         return coordColunaSala;
     }
-
-    public boolean lutarContraWumpus() {
-        int i = coordLinhaSala;
-        int j = coordColunaSala;
-        if (caverna.getSala(i, j).getMaiorPrior(1) == W) { // tem um problema aqui, a gente precisa dar um jeito de fazer essa verificacao
-            // sem usar o objeto W
-            Random random = new Random();
-            return random.nextBoolean();
-        }
-        return false;
+    
+    public void setCoordLinha(int coordLinhaSala) {
+    	this.coordLinhaSala = coordLinhaSala;
+    }
+    
+    public void setCoordColuna(int coordColunaSala) {
+    	this.coordColunaSala = coordColunaSala;
     }
 
 }

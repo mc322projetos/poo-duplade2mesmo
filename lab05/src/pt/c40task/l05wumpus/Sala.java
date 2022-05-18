@@ -1,10 +1,9 @@
 package pt.c40task.l05wumpus;
 import java.util.ArrayList;
-
-public class Sala {
+ublic class Sala {
 	private ArrayList<Componente> arrayComp;
 	private Heroi hero;
-	private Wumpus w;
+    private Wumpus w;
 	private Ouro gold;
 	private Buraco trap;
 	private Brisa breeze;
@@ -33,20 +32,23 @@ public class Sala {
 	public boolean podeMesmaSala() { // se pode colocar na mesma sala
 		boolean pode = true;
 		int i = 0;
+		// esses && estao certos? sao 4 combinacoes possiveis de impossibilidades:
+		// os tres numa mesma sala mais combinacao de 3 escolhe 2 que dá 3
 		if (arrayComp.get(i) == gold && arrayComp.get(i + 1) == w && arrayComp.get(i + 2) == trap) {
 			pode = false;
 		}
 		return pode;
 	}
 
-	public void eliminarComponente() {
+	public void eliminarComponente() { // esse metodo so eh chamado quando o usuario executa
+		// um comando que esta conforme o que tem na sala
 		for (int i = 0; i < arrayComp.size(); i++) {
-			if (hero.capturarRecompensa() == true) {
+			if (hero.acharOuro() == true) {
 				if (arrayComp.get(i) == gold) {
 					arrayComp.remove(hero);
 					arrayComp.set(i, hero);
 				}
-			} else if (hero.executarAcao() == true) {
+			} else if (hero.matarWumpus() == true) {
 				if (arrayComp.get(i) == w) {
 					arrayComp.set(i, gold);
 					arrayComp.remove(hero);

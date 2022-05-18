@@ -11,7 +11,7 @@ public class Controle {
     public void receberMovimento(String command) {
         this.command = command;
     }
-
+    
 	public void executarMovimento() {
 		int linhaHeroi = hero.getCoordLinha();
 		int colunaHeroi = hero.getCoordColuna();
@@ -37,7 +37,7 @@ public class Controle {
 			if (hero.cairBuraco()) {
 				pontuacao -= 1000; 
 			}
-			else if (hero.podeFlecha()) {
+			else if (hero.podeAtirar()) {
 				hero.atirarFlecha();
 				pontuacao -= 100;
 			} 
@@ -47,9 +47,10 @@ public class Controle {
 				else
 					pontuacao += 500;
 			}
-		} if (hero.capturarRecompensa() == true) {
+		} if (hero.acharOuro() == true) {
+			hero.capturarOuro();
 			pontuacao += 1000;
 		}
-		setPontuacao(pontuacao);
+		hero.setPontuacao(pontuacao);
 	}
 }
