@@ -1,55 +1,56 @@
 package pt.c40task.l05wumpus;
 import java.util.ArrayList;
-ublic class Sala {
+
+public class Sala {
 	private ArrayList<Componente> arrayComp;
 	private Heroi hero;
-    private Wumpus w;
+	private Wumpus W;
 	private Ouro gold;
 	private Buraco trap;
 	private Brisa breeze;
 	private Fedor fed;
 	
-	Sala(Heroi hero, Wumpus w, Ouro gold, Buraco trap, Brisa breeze, Fedor fed) {
+	Sala() {
 		arrayComp = new ArrayList<Componente> ();
+	}
+
+	public void addCompArrayL(Heroi hero, Wumpus W, Ouro gold, Buraco trap, Brisa breeze, Fedor fed) {
 		this.hero = hero;
-		this.w = w;
+		this.W = W;
 		this.gold = gold;
 		this.trap = trap;
 		this.breeze = breeze;
 		this.fed = fed;
 		arrayComp.add(gold);
-		arrayComp.add(w);
+		arrayComp.add(W);
 		arrayComp.add(trap);
 		arrayComp.add(hero);
 		arrayComp.add(fed);
 		arrayComp.add(breeze);
 	}
 	
-	public Componente getMaiorPrior(int i) {
+	public ArrayList<Componente> getMaiorPrior(int i) {
 		return(arrayComp.get(i));
 	}
 	
 	public boolean podeMesmaSala() { // se pode colocar na mesma sala
 		boolean pode = true;
 		int i = 0;
-		// esses && estao certos? sao 4 combinacoes possiveis de impossibilidades:
-		// os tres numa mesma sala mais combinacao de 3 escolhe 2 que dá 3
 		if (arrayComp.get(i) == gold && arrayComp.get(i + 1) == w && arrayComp.get(i + 2) == trap) {
 			pode = false;
 		}
 		return pode;
 	}
 
-	public void eliminarComponente() { // esse metodo so eh chamado quando o usuario executa
-		// um comando que esta conforme o que tem na sala
+	public void eliminarComponente() {
 		for (int i = 0; i < arrayComp.size(); i++) {
-			if (hero.acharOuro() == true) {
+			if (hero.capturarRecompensa() == true) {
 				if (arrayComp.get(i) == gold) {
 					arrayComp.remove(hero);
 					arrayComp.set(i, hero);
 				}
-			} else if (hero.matarWumpus() == true) {
-				if (arrayComp.get(i) == w) {
+			} else if (hero.executarAcao() == true) {
+				if (arrayComp.get(i) == W) {
 					arrayComp.set(i, gold);
 					arrayComp.remove(hero);
 					arrayComp.set(i - 1, hero);
