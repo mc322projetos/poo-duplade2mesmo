@@ -8,6 +8,6 @@ public class Ouro extends Componente{
 	}
 	
 	public static char getTipo() {
-        return tipo;
-    }
+        	return tipo;
+    	}
 }
