@@ -15,7 +15,7 @@ public class Componente {
         this.coordColunaSala = coordColunaSala;
     }
 
-    public Caverna getCaverna() {
+    public Caverna getCaverna() { // esse metodo getCaverna() tem que fazer parte da Caverna, n faz sentido colocar ele aqui, criei la na Caverna
         return caverna;
     }
     
