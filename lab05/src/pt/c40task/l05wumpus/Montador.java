@@ -40,7 +40,7 @@ public class Montador {
         int nHeroi = 0;
         int nWumpus = 0;
 
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < cave.length; i++) {
             linha = Character.getNumericValue(cave[i][0].charAt(0)) - 1;
             coluna = Character.getNumericValue(cave[i][1].charAt(0)) - 1;
             if (cave[i][2].equals("P")) {

@@ -18,11 +18,12 @@ public class AppWumpus {
 	
 	    Montador mont = new Montador();
 	    mont.iniciarLeituraCSV(cave);
+		Controle control = new Controle(mont.getHeroi());
 	    if (mont.getValidezCaverna()) {
 	        System.out.println("=== Caverna");
-	        for (int l = 0; l < cave.length; l++) {
-	            for (int c = 0; c < cave[l].length; c++)
-	                System.out.print(cave[l][c] + ((c < cave[l].length-1) ? ", " : ""));
+	        for (int l = 0; l < control.getCaverna().length; l++) {
+	            for (int c = 0; c < control.getCaverna()[l].length; c++)
+	                System.out.print(control.getCaverna()[l][c] + ((c < control.getCaverna()[l].length-1 ? ", " : "")));
 	            System.out.println();
 	        }
 	    }
@@ -32,7 +33,6 @@ public class AppWumpus {
 	    }
 	    
 	    String movements = tk.retrieveMovements();
-	    Controle control = new Controle(mont.getHeroi());
 	
 	    if (movements.length() != 0) {
 	        System.out.println("=== Movimentos");

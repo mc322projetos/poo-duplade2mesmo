@@ -4,7 +4,7 @@ public class Controle {
     private String command;
 	private Heroi hero;
 	char[][] caverna = {
-		{'-', '-', '-', '-'},
+		{'P', '-', '-', '-'},
 		{'-', '-', '-', '-'},
 		{'-', '-', '-', '-'},
 		{'-', '-', '-', '-'},
