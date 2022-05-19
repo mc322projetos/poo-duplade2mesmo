@@ -1,6 +1,6 @@
 package pt.c40task.l05wumpus;
 
-public class Buraco extends Componente{
+public class Buraco extends Componente {
 	
 	Buraco (Caverna caverna, int coordLinhaSala, int coordColunaSala) {
 	    super(caverna, coordLinhaSala, coordColunaSala);
@@ -12,20 +12,20 @@ public class Buraco extends Componente{
 		int linha = super.getCoordLinha();
 		int coluna = super.getCoordColuna();
 		Brisa brisa;
-		if (linha + 1 <= 3) {
-			brisa = new Brisa(super.getCaverna(), linha + 1, coluna);
-			super.getCaverna().conectarComponente(brisa);
-		}
-		if (linha - 1 > 0) {
+		if (linha - 1 > 0) { // w
 			brisa = new Brisa(super.getCaverna(), linha - 1, coluna);
 			super.getCaverna().conectarComponente(brisa);
 		}
-		if (coluna + 1 <= 3) {
-			brisa = new Brisa(super.getCaverna(), linha, coluna + 1);
+		if (linha + 1 <= 3) { // s
+			brisa = new Brisa(super.getCaverna(), linha + 1, coluna);
 			super.getCaverna().conectarComponente(brisa);
 		}
-		if (coluna - 1 >= 0) {
+		if (coluna - 1 >= 0) { // a
 			brisa = new Brisa(super.getCaverna(), linha, coluna - 1);
+			super.getCaverna().conectarComponente(brisa);
+		}
+		if (coluna + 1 <= 3) { // d
+			brisa = new Brisa(super.getCaverna(), linha, coluna + 1);
 			super.getCaverna().conectarComponente(brisa);
 		}
 }

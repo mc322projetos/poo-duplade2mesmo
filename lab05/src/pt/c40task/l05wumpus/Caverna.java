@@ -19,12 +19,16 @@ public class Caverna {
 		return caverna[i][j];
 	}
 
-	public void conectarComponente(Componente comp) {
+	public boolean conectarComponente(Componente comp) {
+		// retorna true se deu erro;
 		int i = comp.getCoordLinha();
     	int j = comp.getCoordColuna();
-		if (caverna[i][j].podeMesmaSala(comp))
-			caverna[i][j].conectaComponente(comp);
+		if (caverna[i][j].conectarComponente(comp)) {
+			return false; 
+		}
+		else {
+			return true;
+		}
 	}
-
 }
 

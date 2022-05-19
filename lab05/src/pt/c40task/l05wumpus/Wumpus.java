@@ -15,21 +15,22 @@ public class Wumpus extends Componente{
 		int linha = super.getCoordLinha();
 		int coluna = super.getCoordColuna();
 		Fedor fedor;
-		if (linha + 1 <= 3) {
-			fedor = new Fedor(super.getCaverna(), linha + 1, coluna);
-			super.getCaverna().conectarComponente(fedor);
-		}
-		if (linha - 1 > 0) {
+		boolean erro; // nao ha necessidade de retorna-lo
+		if (linha - 1 >= 0) { // w
 			fedor = new Fedor(super.getCaverna(), linha - 1, coluna);
-			super.getCaverna().conectarComponente(fedor);
+			erro = super.getCaverna().conectarComponente(fedor);
 		}
-		if (coluna + 1 <= 3) {
-			fedor = new Fedor(super.getCaverna(), linha, coluna + 1);
-			super.getCaverna().conectarComponente(fedor);
+		if (linha + 1 <= 3) { // s
+			fedor = new Fedor(super.getCaverna(), linha + 1, coluna);
+			erro = super.getCaverna().conectarComponente(fedor);
 		}
-		if (coluna - 1 >= 0) {
+		if (coluna - 1 >= 0) { // a
 			fedor = new Fedor(super.getCaverna(), linha, coluna - 1);
-			super.getCaverna().conectarComponente(fedor);
+			erro = super.getCaverna().conectarComponente(fedor);
+		}
+		if (coluna + 1 <= 3) { // d
+			fedor = new Fedor(super.getCaverna(), linha, coluna + 1);
+			erro = super.getCaverna().conectarComponente(fedor);
 		}
 	}
 }

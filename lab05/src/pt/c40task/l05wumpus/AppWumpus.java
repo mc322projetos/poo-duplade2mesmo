@@ -15,58 +15,53 @@ public static void executaJogo(String arquivoCaverna, String arquivoSaida,
     Toolkit tk = Toolkit.start(arquivoCaverna, arquivoSaida, arquivoMovimentos);
     
     String cave[][] = tk.retrieveCave();
-    System.out.println("=== Caverna");
-    for (int l = 0; l < cave.length; l++) {
-        for (int c = 0; c < cave[l].length; c++)
-            System.out.print(cave[l][c] + ((c < cave[l].length-1) ? ", " : ""));
-        System.out.println();
+
+    Montador mont = new Montador();
+    mont.iniciarLeituraCSV(cave);
+    if (mont.getValidezCaverna()) {
+        System.out.println("=== Caverna");
+        for (int l = 0; l < cave.length; l++) {
+            for (int c = 0; c < cave[l].length; c++)
+                System.out.print(cave[l][c] + ((c < cave[l].length-1) ? ", " : ""));
+            System.out.println();
+        }
+    }
+    else {
+        System.out.println("Caverna invalida");
+        return;
     }
     
     String movements = tk.retrieveMovements();
-    System.out.println("=== Movimentos");
-    System.out.println(movements);
+    Controle control = new Controle(mont.getHeroi());
 
-    Caverna caverna = new Caverna();
-    Heroi hero = new Heroi(caverna, coordLinhaSala, coordColunaSala);
-
-    Controle control = new Controle(hero);
-    
-    while (true) {
-        Scanner keyboard = new Scanner(System.in);
-        String command = keyboard.nextLine();
-        control.receberMovimento(command);
-        if (command.equals("q")) {
-            control.executarMovimento();
-            control.pontuar();
-        } else {
-            break;
+    if (movements.length() != 0) {
+        System.out.println("=== Movimentos");
+        System.out.println(movements);
+        
+    } else {
+        while (true) {
+            Scanner keyboard = new Scanner(System.in);
+            String command = keyboard.nextLine();
+            if (!command.equals("q")) {
+                control.receberMovimento(command);
+                if(control.executarMovimento());
+                    control.pontuar();
+                System.out.println("=== Caverna Intermediaria");
+                char partialCave[][] = control.getCaverna();
+                int score = control.getHeroi().getPontuacao();
+                char status = 'x'; // 'w' para venceu; 'n' para perdeu; 'x' intermediárias
+                tk.writeBoard(partialCave, score, status);
+            } else {
+                System.out.println("=== Última Caverna");
+                char finalCave[][] = control.getCaverna();
+                int score = control.getHeroi().getPontuacao();
+                char status = 'n'; // 'w' para venceu; 'n' para perdeu; 'x' intermediárias
+                tk.writeBoard(finalCave, score, status);
+                tk.stop();
+                break;
+            }
         }
     }
-        
-
-    System.out.println("=== Caverna Intermediaria");
-    char partialCave[][] = {
-        {'#', '#', 'b', '-'},
-        {'#', 'b', '-', '-'},
-        {'b', '-', '-', '-'},
-        {'p', '-', '-', '-'}
-    };
-    int score = -120;
-    char status = 'x'; // 'w' para venceu; 'n' para perdeu; 'x' intermediárias
-    tk.writeBoard(partialCave, score, status);
-
-    System.out.println("=== Última Caverna");
-    char finalCave[][] = {
-        {'#', '#', 'b', '-'},
-        {'#', 'b', '#', 'f'},
-        {'b', '-', '-', 'w'},
-        {'#', '-', '-', '-'}
-    };
-    score = -1210;
-    status = 'n'; // 'w' para venceu; 'n' para perdeu; 'x' intermediárias
-    tk.writeBoard(finalCave, score, status);
-    
-    tk.stop();
 }
 
 }
