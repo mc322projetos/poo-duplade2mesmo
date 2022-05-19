@@ -1,13 +1,11 @@
 package pt.c40task.l05wumpus;
 
 public class Componente {
-    private Caverna caverna; // e se caverna for static,
-    // ai eu inicializava no construtor
-    // ao inves de receber como parametro
-    // e criasse um metodo static getCaverna()
-    // talvez nao possa, o montador que conecta o comp a caverna
+    private Caverna caverna;
     private int coordLinhaSala;
     private int coordColunaSala;
+    protected char tipo;
+    protected char prior;
 
     Componente(Caverna caverna, int coordLinhaSala, int coordColunaSala) {
         this.caverna = caverna;
@@ -15,11 +13,17 @@ public class Componente {
         this.coordColunaSala = coordColunaSala;
     }
 
-    public Caverna getCaverna() { // esse metodo getCaverna() tem que fazer parte da Caverna, n faz sentido colocar ele aqui, criei la na Caverna
+    public Caverna getCaverna() {
         return caverna;
     }
     
-    public char getTipo() {}
+    public char getTipo() {
+        return tipo;
+    }
+
+    public int getPrior() {
+        return prior;
+    }
 
     public int getCoordLinha() {
         return coordLinhaSala;

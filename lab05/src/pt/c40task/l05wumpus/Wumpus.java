@@ -1,15 +1,12 @@
 package pt.c40task.l05wumpus;
 
 public class Wumpus extends Componente{
-    private static char tipo  = 'W';
-	
+
 	Wumpus (Caverna caverna, int coordLinhaSala, int coordColunaSala) {
 	    super(caverna, coordLinhaSala, coordColunaSala);
+		super.tipo = 'W';
+		super.prior = 1;
 	}
-	
-	public char getTipo() {
-        return tipo;
-    }
 	
 	public void criarFedores() {
 		// Os Componentes primários (buraco e wumpus) que possuem componentes secundários associados a eles (brisa e fedor),

@@ -1,6 +1,8 @@
 package pt.c40task.l05wumpus;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Sala {
 	private ArrayList<Componente> arrayComp;
@@ -19,12 +21,12 @@ public class Sala {
 		arrayComp.add(comp);
 	}
 
-	public void sort() {
-
+	public Componente getMaiorPrior() {
+		return(arrayComp.get(0));
 	}
-	
-	public Componente getMaiorPrior(int i) {
-		return arrayComp.get(i);
+
+	public void sort() {
+		Collections.sort(arrayComp, Comparator.comparing(Componente::getPrior));
 	}
 	
 	public boolean podeMesmaSala(Componente comp) {
@@ -43,7 +45,7 @@ public class Sala {
 					arrayComp.set(i, hero);
 				}
 			} else if (hero.matarWumpus() == true) {
-				if (arrayComp.get(i) == W) { // ta faltando remover o W
+				if (arrayComp.get(i) == W) {
 					arrayComp.set(i, gold);
 					arrayComp.remove(hero);
 					arrayComp.set(i - 1, hero);

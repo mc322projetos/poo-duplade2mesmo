@@ -3,13 +3,14 @@ package pt.c40task.l05wumpus;
 import java.util.Random;
 
 public class Heroi extends Componente{
-    private static char tipo = 'h';
     private int pontuacao;
     private int qntFlecha;
     private boolean flechaPronta;
 
     Heroi (Caverna caverna, int coordLinhaSala, int coordColunaSala) {
         super(caverna, coordLinhaSala, coordColunaSala);
+        super.tipo = 'P';
+        super.prior = 2;
     }
     
     public int getPontuacao() {
@@ -50,7 +51,7 @@ public class Heroi extends Componente{
     public boolean acharOuro() {
     	int i = super.getCoordLinha();
     	int j = super.getCoordColuna();
-    	return super.getCaverna().getSala(i, j).getMaiorPrior(0).getTipo() == 'O';
+    	return super.getCaverna().getSala(i, j).getMaiorPrior().getTipo() == 'O';
     }
     
     public void capturarOuro() {
@@ -59,13 +60,13 @@ public class Heroi extends Componente{
     public boolean cairBuraco() {
         int i = super.getCoordLinha();
     	int j = super.getCoordColuna();
-    	return super.getCaverna().getSala(i, j).getMaiorPrior(0).getTipo() == 'B';
+    	return super.getCaverna().getSala(i, j).getMaiorPrior().getTipo() == 'B';
     }
     
     public boolean acharWumpus() {
     	int i = super.getCoordLinha();
     	int j = super.getCoordColuna();
-    	return super.getCaverna().getSala(i, j).getMaiorPrior(1).getTipo() == 'W';
+    	return super.getCaverna().getSala(i, j).getMaiorPrior().getTipo() == 'W';
     }
     
     public boolean matarWumpus() {
