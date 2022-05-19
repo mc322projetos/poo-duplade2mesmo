@@ -19,7 +19,7 @@ public class Componente {
         return caverna;
     }
     
-    public static char getTipo() {}
+    public char getTipo() {}
 
     public int getCoordLinha() {
         return coordLinhaSala;

@@ -1,13 +1,13 @@
 package pt.c40task.l05wumpus;
 
 public class Buraco extends Componente{
-    private static char tipo;
+    private static char tipo = 'B';
+	
 	Buraco (Caverna caverna, int coordLinhaSala, int coordColunaSala) {
 	    super(caverna, coordLinhaSala, coordColunaSala);
-	    tipo = 'B';
 	}
 	
-	public static char getTipo() {
+	public char getTipo() {
         return tipo;
     }
 	

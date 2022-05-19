@@ -1,13 +1,13 @@
 package pt.c40task.l05wumpus;
 
 public class Wumpus extends Componente{
-    private static char tipo;
+    private static char tipo  = 'W';
+	
 	Wumpus (Caverna caverna, int coordLinhaSala, int coordColunaSala) {
 	    super(caverna, coordLinhaSala, coordColunaSala);
-	    tipo = 'W';
 	}
 	
-	public static char getTipo() {
+	public char getTipo() {
         return tipo;
     }
 	
