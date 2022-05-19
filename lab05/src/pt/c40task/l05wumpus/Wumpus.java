@@ -12,5 +12,24 @@ public class Wumpus extends Componente{
 		// Os Componentes primários (buraco e wumpus) que possuem componentes secundários associados a eles (brisa e fedor),
         // são responsáveis por criar objetos referentes a esses componentes e solicitar à Caverna que os inclua em suas respectivas coordenadas
         // (calculadas pelo Componente primário).
+		int linha = super.getCoordLinha();
+		int coluna = super.getCoordColuna();
+		Fedor fedor;
+		if (linha + 1 <= 3) {
+			fedor = new Fedor(super.getCaverna(), linha + 1, coluna);
+			super.getCaverna().conectarComponente(fedor);
+		}
+		if (linha - 1 > 0) {
+			fedor = new Fedor(super.getCaverna(), linha - 1, coluna);
+			super.getCaverna().conectarComponente(fedor);
+		}
+		if (coluna + 1 <= 3) {
+			fedor = new Fedor(super.getCaverna(), linha, coluna + 1);
+			super.getCaverna().conectarComponente(fedor);
+		}
+		if (coluna - 1 >= 0) {
+			fedor = new Fedor(super.getCaverna(), linha, coluna - 1);
+			super.getCaverna().conectarComponente(fedor);
+		}
 	}
 }

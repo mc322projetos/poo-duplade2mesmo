@@ -9,8 +9,23 @@ public class Buraco extends Componente{
 	}
 	
 	public void criarBrisas() { // continuar e depois verificar, a logica eh a mesma do criarFedores()
-		if (linhaHeroi - 1 >= 0 && linhaHeroi - 1 < 3) {}
-		if (linhaHeroi + 1 > 0 && linhaHeroi + 1 <= 3) {
-
-	}
+		int linha = super.getCoordLinha();
+		int coluna = super.getCoordColuna();
+		Brisa brisa;
+		if (linha + 1 <= 3) {
+			brisa = new Brisa(super.getCaverna(), linha + 1, coluna);
+			super.getCaverna().conectarComponente(brisa);
+		}
+		if (linha - 1 > 0) {
+			brisa = new Brisa(super.getCaverna(), linha - 1, coluna);
+			super.getCaverna().conectarComponente(brisa);
+		}
+		if (coluna + 1 <= 3) {
+			brisa = new Brisa(super.getCaverna(), linha, coluna + 1);
+			super.getCaverna().conectarComponente(brisa);
+		}
+		if (coluna - 1 >= 0) {
+			brisa = new Brisa(super.getCaverna(), linha, coluna - 1);
+			super.getCaverna().conectarComponente(brisa);
+		}
 }
