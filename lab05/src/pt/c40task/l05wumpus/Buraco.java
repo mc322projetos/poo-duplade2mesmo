@@ -8,7 +8,7 @@ public class Buraco extends Componente{
 		super.prior = 1;
 	}
 	
-	public void criarBrisas() {
+	public void criarBrisas() { // continuar e depois verificar, a logica eh a mesma do criarFedores()
 		if (linhaHeroi - 1 >= 0 && linhaHeroi - 1 < 3) {}
 		if (linhaHeroi + 1 > 0 && linhaHeroi + 1 <= 3) {
 

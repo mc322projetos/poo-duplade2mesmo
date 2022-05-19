@@ -19,8 +19,7 @@ public class Caverna {
 		return caverna[i][j];
 	}
 
-	public void conectarComponente(Componente comp) { // deixa as coords como
-		// parametro ou cria variaveis i, j aqui dentro do metodo, no caso ja criei
+	public void conectarComponente(Componente comp) {
 		int i = comp.getCoordLinha();
     	int j = comp.getCoordColuna();
 		if (caverna[i][j].podeMesmaSala(comp))
