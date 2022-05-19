@@ -28,4 +28,5 @@ public class Buraco extends Componente {
 			brisa = new Brisa(super.getCaverna(), linha, coluna + 1);
 			super.getCaverna().conectarComponente(brisa);
 		}
+	}
 }

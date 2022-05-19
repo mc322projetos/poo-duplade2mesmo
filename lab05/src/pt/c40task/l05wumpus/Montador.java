@@ -1,7 +1,5 @@
 package pt.c40task.l05wumpus;
 
-import java.util.Scanner;
-
 public class Montador {
     private Caverna caverna;
     private Heroi hero;
@@ -75,6 +73,8 @@ public class Montador {
         }
 
         if (nBuraco < 2)
-            erro = false;
+            erro = true;
+        if (nWumpus != 1)
+            erro = true;
     }
 }
