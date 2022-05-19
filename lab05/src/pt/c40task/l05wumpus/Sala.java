@@ -9,12 +9,13 @@ public class Sala {
 	private Heroi hero;
 	private Wumpus W;
 	private Ouro gold;
-	private Buraco trap;
-	private Brisa breeze;
-	private Fedor fed;
-	
+
 	Sala() {
 		arrayComp = new ArrayList<Componente> ();
+	}
+
+	public void sort() {
+		Collections.sort(arrayComp, Comparator.comparing(Componente::getPrior));
 	}
 
 	public void conectaComponente(Componente comp) {
@@ -25,10 +26,6 @@ public class Sala {
 		return(arrayComp.get(0));
 	}
 
-	public void sort() {
-		Collections.sort(arrayComp, Comparator.comparing(Componente::getPrior));
-	}
-	
 	public boolean podeMesmaSala(Componente comp) {
 		char[] igualPrior = {'O', 'B', 'W'};
 		if (Arrays.asList(igualPrior).contains(comp.getTipo()))
@@ -37,16 +34,21 @@ public class Sala {
 		return true;
 	}
 
-	public void eliminarComponente() {
+	public void eliminarComponente() { // alterar isso para nao depender da inicializacao
+		// previa de O e W isolados (fora do array)
+		// percorra o array procurando pelos tipos 'P', O' e 'W',
+		// armazene o indice
+		// armazene o heroi no atributo hero,
+		// ouro no gold
 		for (int i = 0; i < arrayComp.size(); i++) {
 			if (hero.acharOuro() == true) {
-				if (arrayComp.get(i) == gold) {
+				if (arrayComp.get(i) == gold) { // se o tipo for 'O'
 					arrayComp.remove(hero);
 					arrayComp.set(i, hero);
 				}
 			} else if (hero.matarWumpus() == true) {
-				if (arrayComp.get(i) == W) {
-					arrayComp.set(i, gold);
+				if (arrayComp.get(i) == W) { // se o tipo for 'W'
+					arrayComp.set(i, gold); // set usando o gold armazenado
 					arrayComp.remove(hero);
 					arrayComp.set(i - 1, hero);
 				}

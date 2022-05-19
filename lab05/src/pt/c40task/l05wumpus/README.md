@@ -78,12 +78,14 @@ Metodos:|
 
 Brisa|
 Atributos:|
-Metodos:|
+Metodos:
+\+ Brisa(caverna: Caverna, coordLinhaSala: int, coordColunaSala: int)|
 
 Ouro|
 ----|
 Atributos:|
-Metodos:|
+Metodos:
+\+ Ouro(caverna: Caverna, coordLinhaSala: int, coordColunaSala: int)|
 
 
 
