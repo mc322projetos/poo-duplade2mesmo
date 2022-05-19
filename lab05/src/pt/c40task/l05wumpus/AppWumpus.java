@@ -25,13 +25,19 @@ public static void executaJogo(String arquivoCaverna, String arquivoSaida,
     String movements = tk.retrieveMovements();
     System.out.println("=== Movimentos");
     System.out.println(movements);
-    
+
+    Caverna caverna = new Caverna();
+    Heroi hero = new Heroi(caverna, coordLinhaSala, coordColunaSala);
+
+    Controle control = new Controle(hero);
     
     while (true) {
-        command = keyboard.nextLine();
+        Scanner keyboard = new Scanner(System.in);
+        String command = keyboard.nextLine();
         control.receberMovimento(command);
-        if (command != 'q') {
+        if (command.equals("q")) {
             control.executarMovimento();
+            control.pontuar();
         } else {
             break;
         }
