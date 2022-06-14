@@ -1,6 +1,6 @@
 package model;
 
-public class Labirinto implements InformaView {
+public class Labirinto {
 	private Celula maze[][];
 	
 	Labirinto() {
@@ -12,28 +12,7 @@ public class Labirinto implements InformaView {
 		}
 	}
 	
-	public boolean play() {
-		if () {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean mudou() {
-		if () {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public int[] oQueMudou() {
-		int i, j, k;
-		int[] move = new int[3];
-		move[0] = i;
-		move[1] = j;
-		move[2] = k;
-		return move;
+	public Celula[][] getMaze() {
+		return maze;
 	}
 }
