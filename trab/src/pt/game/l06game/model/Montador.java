@@ -9,11 +9,11 @@ public class Montador {
 	private Toca fimLabirinto;
 	
 	Montador() {
-		this.cat = new Gato(0, maze);
-		this.bola = new BolaDeLa(maze);
-		this.dog = new Cachorro(maze);
-		this.fish = new Peixe(maze);
-		this.fimLabirinto = new Toca(maze);
+		this.cat = new Gato(maze, 0, 'C');
+		this.bola = new BolaDeLa(maze, 'B');
+		this.dog = new Cachorro(maze, 'D');
+		this.fish = new Peixe(maze, 'F');
+		this.fimLabirinto = new Toca(maze, 'T');
 		this.maze = new Labirinto();
 	}
 }
