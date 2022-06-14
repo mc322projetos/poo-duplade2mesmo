@@ -22,4 +22,3 @@ public class Gato extends Atores {
 		return tipo;
 	}
 }
-}
