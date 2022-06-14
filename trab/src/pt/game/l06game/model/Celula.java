@@ -1,6 +1,11 @@
 package model;
+import java.util.ArrayList;
 
 public class Celula {
-	private Atores actors;
+	private ArrayList<Atores> arrayActors;
+	
+	
+	Celula() {
+		arrayActors = new ArrayList<Atores> ();
+	}
 }
-
