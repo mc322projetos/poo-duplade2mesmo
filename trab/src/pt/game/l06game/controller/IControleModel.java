@@ -1,3 +1,5 @@
+package pt.game.l06game.controller;
+
 public interface IControleModel {
     /**
      * Informa o Controle que um peixe foi capturado.
