@@ -16,4 +16,16 @@ public class Montador {
 		this.fimLabirinto = new Toca(maze, 'T');
 		this.maze = new Labirinto();
 	}
+	
+	public Celula[][] criarJogo() {
+		Celula[][] labirinto = maze.getMaze();
+		for (int i = 0; i < 19; i++) {
+			for (int j = 0; j < 19; j++) {
+				if (labirinto[i][j] == labirinto[0][0]) {
+					labirinto[i][j] = 
+				}
+			}
+		}
+		return labirinto;
+	}
 }
