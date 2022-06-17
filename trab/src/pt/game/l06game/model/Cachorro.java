@@ -1,14 +1,19 @@
 package model;
 
-public class Cachorro extends Atores {
+public class Cachorro implements Atores {
 	private char tipo;
+	private Labirinto maze;
 	
 	Cachorro(Labirinto maze, char tipo) {
-		super(maze);
+		this.maze = maze;
 		this.tipo = tipo;
 	}
 	
 	public char getTipo() {
 		return tipo;
+	}
+	
+	public int[] mover() {
+		
 	}
 }
