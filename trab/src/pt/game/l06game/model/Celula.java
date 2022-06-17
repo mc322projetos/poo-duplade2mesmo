@@ -1,15 +1,11 @@
 package model;
+import java.util.ArrayList;
 
 public class Celula {
-	private Atores[] arrayActors;
-	
+	private ArrayList<Atores> arrayActors;
 	
 	Celula() {
-		arrayActors = new Atores[4];
-	}
-	
-	public Atores[] getAtores() {
-		return arrayActors;
+		arrayActors = new ArrayList<Atores> ();
 	}
 	
 	public boolean podeMesmaCelulaIni() {
