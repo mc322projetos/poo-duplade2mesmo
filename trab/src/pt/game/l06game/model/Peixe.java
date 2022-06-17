@@ -1,10 +1,11 @@
 package model;
 
-public class Peixe extends Atores {
+public class Peixe {
 	private char tipo;
+	private Labirinto maze;
 	
 	Peixe(Labirinto maze, char tipo) {
-		super(maze);
+		this.maze = maze;
 		this.tipo = tipo;
 	}
 	
