@@ -1,10 +1,11 @@
 package model;
 
-public class Toca extends Atores {
+public class Toca {
 	private char tipo;
+	private Labirinto maze;
 	
 	Toca(Labirinto maze, char tipo) {
-		super(maze);
+		this.maze = maze;
 		this.tipo = tipo;
 	}
 	
