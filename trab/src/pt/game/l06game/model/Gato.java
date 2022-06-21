@@ -1,4 +1,5 @@
 package model;
+import pt.game.l06game.controller.*;
 
 public class Gato implements Atores {
 	private int qtdPeixes;
@@ -23,12 +24,8 @@ public class Gato implements Atores {
 		return tipo;
 	}
 	
-	public int[] mover() { // preciso das coordenadas de movimento dadas pelo control na interface requerida para passar
-		// para o labirinto e ele decidir se o gato pode se mover ou n, que no caso eh esse i,j
-		int[] movimento = new int[2];
-		movimento[0] = i;
-		movimento[1] = j;
-		return movimento;
+	public void mover(String command) { 
+		maze.verificarMovimento(command);
 	}
 	
 	public void capturar() {
