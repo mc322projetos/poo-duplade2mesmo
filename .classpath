@@ -3,5 +3,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry excluding="pt/c40task/l05wumpus/" kind="src" path="lab05/src"/>
 	<classpathentry kind="src" path="lab05/src/pt/c40task/l05wumpus"/>
+	<classpathentry kind="src" path="trab/src/pt/game/l06game/main"/>
+	<classpathentry excluding="main/" kind="src" path="trab/src/pt/game/l06game"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
