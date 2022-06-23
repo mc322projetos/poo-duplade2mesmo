@@ -139,3 +139,4 @@ public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+}
