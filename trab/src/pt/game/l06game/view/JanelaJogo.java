@@ -34,21 +34,31 @@ public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 	private ActionListener control;
 	private JLabel label;
 	private ImageIcon icon;
+	private ImageIcon smile;
+	private ImageIcon nervous;
+	private ImageIcon pain;
+	private ImageIcon dizzy;
 	
 	public JanelaJogo() {
 		super();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(500, 500);
-		setLayout(null);
-		this.addKeyListener(this);
-		icon = new ImageIcon();
-		label = new JLabel();
-		label.setBounds(0, 0, 100, 100);
-		label.setBackground(Color.red);
-		label.setOpaque(true);
-		
-		this.add(label);
-		this.setVisible(true);
+		setLayout(new FlowLayout()); // mouse
+		label = new JLabel(); // mouse
+		label.addMouseListener(this);// mouse
+		smile = new ImageIcon(arquivo); // mouse
+		nervous = new ImageIcon(arquivo); // mouse
+		pain = new ImageIcon(arquivo); // mouse
+		dizzy = new ImageIcon(arquivo); // mouse
+		label.setIcon(smile); // mouse
+		this.add(label); // mouse
+		pack(); // mouse
+		setLocationRelativeTo(null); // mouse
+		this.addKeyListener(this); // teclado
+		label.setBounds(0, 0, 100, 100); // mouse e teclado
+		label.setBackground(Color.red); // mouse e teclado
+		label.setOpaque(true); // teclado
+		this.setVisible(true); // mouse e teclado
 	}
 	
 	public void subscribe(ActionListener l) {
@@ -135,31 +145,30 @@ public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		label.setBackground(Color.yellow);
+		label.setIcon(pain);
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		label.setBackground(Color.green);
+		label.setIcon(dizzy);
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		label.setBackground(Color.blue);
+		label.setIcon(nervous);
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		label.setBackground(Color.red);
+		label.setIcon(smile);
 	}
 }
