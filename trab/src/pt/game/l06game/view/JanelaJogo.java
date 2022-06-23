@@ -1,6 +1,8 @@
 package view;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -8,8 +10,10 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 	/*
@@ -28,11 +32,23 @@ public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 	private Container options;
 	private Container maze;
 	private ActionListener control;
+	private JLabel label;
+	private ImageIcon icon;
 	
 	public JanelaJogo() {
 		super();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(500, 500);
+		setLayout(null);
 		this.addKeyListener(this);
+		icon = new ImageIcon();
+		label = new JLabel();
+		label.setBounds(0, 0, 100, 100);
+		label.setBackground(Color.red);
+		label.setOpaque(true);
+		
+		this.add(label);
+		this.setVisible(true);
 	}
 	
 	public void subscribe(ActionListener l) {
@@ -40,7 +56,7 @@ public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 	}
 	
 	public void visual() {
-		setSize(); // colocar tamanho
+		setSize(500, 200); // colocar tamanho
 
 		pane = getContentPane();
 		pane.setLayout(new BoxLayout(pane, ));
@@ -103,6 +119,19 @@ public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void keyTyped(KeyEvent e) {
+		switch(e.getKeyChar()) {
+			case 'a': label.setLocation(label.getX() - 10, label.getY());
+				break;
+			case 'w': label.setLocation(label.getX(), label.getY() - 10);
+				break;
+			case 'd': label.setLocation(label.getX() + 10, label.getY());
+				break;
+			case 's': label.setLocation(label.getX(), label.getY() + 10);
+				break;
+		}
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -130,12 +159,6 @@ public class JanelaJogo extends JFrame implements KeyListener, MouseListener{
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
