@@ -6,4 +6,4 @@
 * Anderson Murillo Tito Lira Leite 248221
 * Isaac do Nascimento Oliveira 247175
 # Link slides prévia
-> [Slides Prévia](duplade2mesmo.pdf)
+> [Slides Prévia](https://github.com/mc322projetos/poo-duplade2mesmo/blob/main/jogo/assets/duplade2mesmo.pdf)
