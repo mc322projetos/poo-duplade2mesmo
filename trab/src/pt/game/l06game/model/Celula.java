@@ -1,18 +1,20 @@
-package model;
+package com.mygdx.game.model;
+
 import java.util.ArrayList;
 
 public class Celula {
-	private ArrayList<Atores> arrayActors;
+	private Atores ator;
+	private ArrayList<Atores> arrayAtores;
 	
 	Celula() {
-		arrayActors = new ArrayList<Atores> ();
+		arrayAtores = new ArrayList<Atores> ();
 	}
 	
-	public boolean podeMesmaCelulaIni() {
-		return false;
+	public void add(Atores ator) {
+		arrayAtores.add(ator);
 	}
 	
-	public boolean podeMesmaCelula() {
-		
+	public char getType() {
+		return ator.getType();
 	}
 }
