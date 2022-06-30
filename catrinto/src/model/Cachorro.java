@@ -14,6 +14,6 @@ public class Cachorro implements Atores {
 	}
 	
 	public int[] mover() {
-		return [0, 0];
+		
 	}
 }

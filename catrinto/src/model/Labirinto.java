@@ -15,4 +15,9 @@ public class Labirinto {
 	public Celula[][] getMaze() {
 		return maze;
 	}
+
+	public void verificarMovimento() {
+		// TODO Auto-generated method stub
+		
+	}
 }
