@@ -15,7 +15,7 @@ public class Options extends JPanel implements ActionListener { // mudar para JP
     
     public Options () {
         
-        ImageIcon cat = new ImageIcon("trab/src/pt/game/l06game/viewObser/cat.png");
+        ImageIcon cat = new ImageIcon("../../assets/cat.png");
 
         JLabel label = new JLabel();
         label.setVerticalAlignment(JLabel.TOP); // muda a pos de icon+text
