@@ -26,7 +26,7 @@ public class JanelaJogo extends JFrame implements KeyListener{
     // JLabel dog1 = new JLabel(new ImageIcon(getClass().getResource("cerberus.png")));
     // JLabel dog2 = new JLabel(new ImageIcon(getClass().getResource("cerberus.png")));
     // JLabel dog3 = new JLabel(new ImageIcon(getClass().getResource("cerberus.png")));
-    private int contador = 100; // onde será feita a contagem do tempo em segundos
+    private int contador = 100; // onde serï¿½ feita a contagem do tempo em segundos
     private boolean rodando = false;
     
     public JanelaJogo() {
@@ -90,6 +90,7 @@ public class JanelaJogo extends JFrame implements KeyListener{
         this.setVisible(true);
         
         /*ImageIcon image = new ImageIcon("../../assets/cat.png");
+        ImageIcon image = new ImageIcon("cat.png");
         this.setIconImage(image.getImage());
         this.getContentPane().setBackground(Color.WHITE); // new Color(0,0,0)
         
@@ -97,8 +98,6 @@ public class JanelaJogo extends JFrame implements KeyListener{
         cat.setIcon(image);
         
         maze = new Maze();
-        maze.add(cat);
-        maze.getComponent(0).setBounds(750, 300, 50, 50);
 
         this.addKeyListener(this);
         options = new Options();
