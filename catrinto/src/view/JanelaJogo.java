@@ -18,7 +18,7 @@ public class JanelaJogo extends JFrame implements KeyListener{
         this.setSize(1000, 600);
         // this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
         // this.setLayout(null);
-        ImageIcon image = new ImageIcon("../../assets/cat.png");
+        ImageIcon image = new ImageIcon("cat.png");
         this.setIconImage(image.getImage());
         this.getContentPane().setBackground(Color.WHITE); // new Color(0,0,0)
         
@@ -26,8 +26,6 @@ public class JanelaJogo extends JFrame implements KeyListener{
         cat.setIcon(image);
         
         maze = new Maze();
-        maze.add(cat);
-        maze.getComponent(0).setBounds(750, 300, 50, 50);
 
         this.addKeyListener(this);
         options = new Options();
