@@ -1,19 +1,29 @@
 package model;
 
-public class Cachorro implements Atores {
+public class Cachorro extends Atores {
 	private char tipo;
 	private Labirinto maze;
+	private int linhaCachorro;
+	private int colunaCachorro;
 	
-	Cachorro(Labirinto maze, char tipo) {
+	public Cachorro(Labirinto maze, char tipo, int linhaCachorro, int colunaCachorro) {
+		this.linhaCachorro = linhaCachorro;
+		this.colunaCachorro = colunaCachorro;
 		this.maze = maze;
 		this.tipo = tipo;
 	}
 	
-	public char getTipo() {
-		return tipo;
+	
+	
+	public boolean matarGato() {
+		if (maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'C' && maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'G') {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
-	public int[] mover() {
-		
+	public char getType() {
+		return tipo;
 	}
 }

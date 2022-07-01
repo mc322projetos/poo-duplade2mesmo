@@ -8,9 +8,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import controller.Controle;
+import model.Gato;
+
 public class Teclado extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 994885871166873944L;
 	JLabel label = new JLabel();
+	Controle control;
 	
 	public Teclado() {
 		this.setTitle("CatRinto");
@@ -41,7 +45,7 @@ public class Teclado extends JFrame implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 		switch(e.getKeyChar()) {
 			case 'a':
-				// if (controle.movimentar('a'))
+				if (control.movimentar('a'))
 
 					// public void movimentar(char move) {
 						// model.getCat().mover(move)
@@ -52,10 +56,19 @@ public class Teclado extends JFrame implements KeyListener {
 				label.setLocation(label.getX() - 10, label.getY());
 			break;
 			case 'w': label.setLocation(label.getX(), label.getY() - 10);
+				if (control.movimentar('w')) {
+					
+				}
 				break;
 			case 'd': label.setLocation(label.getX() + 10, label.getY());
+				if (control.movimentar('d')) {
+					
+				}
 				break;
 			case 's': label.setLocation(label.getX(), label.getY() + 10);
+				if (control.movimentar('s')) {
+					
+				}
 				break;
 		}
 	}
