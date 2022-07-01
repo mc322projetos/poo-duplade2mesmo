@@ -23,43 +23,47 @@ public class JanelaJogo extends JFrame implements KeyListener{
     Maze maze;
     JLabel cat, timer;
     Timer tm;
-    private int contador = 0; // onde será feita a contagem do tempo em segundos
+    // JLabel dog1 = new JLabel(new ImageIcon(getClass().getResource("cerberus.png")));
+    // JLabel dog2 = new JLabel(new ImageIcon(getClass().getResource("cerberus.png")));
+    // JLabel dog3 = new JLabel(new ImageIcon(getClass().getResource("cerberus.png")));
+    private int contador = 100; // onde será feita a contagem do tempo em segundos
     private boolean rodando = false;
     
     public JanelaJogo() {
+    	// CRIACAO DA JANELA
     	JFrame.setDefaultLookAndFeelDecorated(true);
         this.setTitle("CatRinto");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // this.setResizable(false);
         this.setSize(1000, 600);
         this.setAlwaysOnTop(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         // this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
         // this.setLayout(null);
         
-        
-        timer = new JLabel("00:00:00");
+        // CRIACAO DO TIMER
+        timer = new JLabel("Tempo Restante: 100");
         timer.setFont(new Font(timer.getName(), Font.PLAIN, 80));
         this.add(timer, BorderLayout.CENTER);
         
+        // CRIACAO DO PAINEL QUE VAI TER O TIMER
         JPanel painel = new JPanel();
         painel.setLayout(new GridLayout(2, 1));
         
+        // CRIACAO DOS BOTOES E RODANDO O TIMER
         JButton btIniciar = new JButton("Iniciar");
         btIniciar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		if (!rodando) {
-	    			Timer tm = new Timer();
+        			tm = new Timer();
 	    			rodando = true;
 	        		tm.scheduleAtFixedRate(new TimerTask() {
 	        			@Override
 	        			public void run() {
-	        				contador += 1;
-	        				int seg = contador % 60;
-	        				int min = contador / 60;
-	        				int hora = min / 60;
-	        				min %= 60; // para ficar somente os minutos no contador
-	        				timer.setText(String.format("%02d:%02d:%02d", hora, min, seg)); // alterar o label com a contagem do tempo
+	        				contador -= 1;
+	        				// int hora = min / 60;
+	        				// min %= 60; // para ficar somente os minutos no contador
+	        				timer.setText(String.format("Tempo Restante: %02d", contador)); // alterar o label com a contagem do tempo
 	        			}
 	        		}, 1000, 1000); // 1000 ms = 1 s
         		}
@@ -72,15 +76,15 @@ public class JanelaJogo extends JFrame implements KeyListener{
         		if (rodando) {
         			tm.cancel(); // para o timer;
         			rodando = false;
-        			contador = 0;
+        			contador = 100;
         		}
         	}
         }
         );
         
+        // COLOCANDO OS BOTOES COM O TIMER NO PAINEL
         painel.add(btIniciar);
         painel.add(btParar);
-        
         this.add(painel, BorderLayout.EAST);
         this.pack();
         this.setVisible(true);
