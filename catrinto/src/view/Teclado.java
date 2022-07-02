@@ -8,13 +8,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import controller.Controle;
+import controller.MovimentoGato;
 import model.Gato;
 
 public class Teclado extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 994885871166873944L;
 	JLabel label = new JLabel();
-	Controle control;
+	MovimentoGato control;
 	
 	public Teclado() {
 		this.setTitle("CatRinto");

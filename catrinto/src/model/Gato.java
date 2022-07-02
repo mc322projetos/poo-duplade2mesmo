@@ -34,7 +34,7 @@ public class Gato extends Atores{
 	}
 	
 	public boolean verificarMovimento(char move) {
-		if (labirinto.moveAttempt(move) == true) {
+		if (labirinto.moverGato(move) == true) {
 			return true;
 		} else {
 			return false;

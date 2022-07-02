@@ -63,4 +63,9 @@ public class Montador {
 			}
 		}
 	}
+	
+	
+	public char[][] getMapaInicial() {
+		return mazeChar;
+	}
 }

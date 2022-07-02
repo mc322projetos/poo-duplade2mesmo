@@ -14,7 +14,29 @@ public class Cachorro extends Atores {
 	}
 	
 	
+	public int getCoordLinha() {
+		return linhaCachorro;
+	}
 	
+	public int getCoordColuna() {
+		return colunaCachorro;
+	}
+	
+	public void setCoordLinha(int coordLinha) {
+		this.linhaCachorro = coordLinha;
+	}
+	
+	public void setCoordColuna(int coordColuna) {
+		this.colunaCachorro = coordColuna;
+	}
+	
+	public boolean verificarMovimento() {
+		if (maze.moverCachorro() == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
 	public boolean matarGato() {

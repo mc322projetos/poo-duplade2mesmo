@@ -11,7 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Options extends JPanel implements ActionListener { // mudar para JPanel
-    private JButton play, quit;
+	private static final long serialVersionUID = -4962687257542826320L;
+	private JButton play, quit;
     
     public Options () {
         

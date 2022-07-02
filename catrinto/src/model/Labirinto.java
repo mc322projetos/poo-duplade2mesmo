@@ -3,6 +3,7 @@ package model;
 public class Labirinto {
 	private Celula maze[][];
 	private Gato cat;
+	private Cachorro dog;
 	
 	public Labirinto() {
 		this.maze = new Celula[20][20];
@@ -21,31 +22,47 @@ public class Labirinto {
 		maze[i][j].add(ator);
 	}
 
-	public boolean moveAttempt(char c) {
-		int linha = cat.getCoordLinha();
-		int coluna = cat.getCoordColuna();
+	public boolean moverGato(char move) {
+		int linhaGato = cat.getCoordLinha();
+		int colunaGato = cat.getCoordColuna();
 		boolean podeMover = false;
-		if (c == 'w') {
-			if (maze[linha - 1][coluna].getType() != 'W') {
+		if (move == 'w') {
+			if (maze[linhaGato - 1][colunaGato].getType() != 'W') {
 				podeMover = true;
-				cat.setCoordLinha(linha - 1);
+				cat.setCoordLinha(linhaGato - 1);
 			}
-		} else if (c == 's') {
-			if (maze[linha + 1][coluna].getType() != 'W') {
+		} else if (move == 's') {
+			if (maze[linhaGato + 1][colunaGato].getType() != 'W') {
 				podeMover = true;
-				cat.setCoordLinha(linha + 1);
+				cat.setCoordLinha(linhaGato + 1);
 			}
-		} else if (c == 'a') {
-			if (maze[linha][coluna - 1].getType() != 'W') {
+		} else if (move == 'a') {
+			if (maze[linhaGato][colunaGato - 1].getType() != 'W') {
 				podeMover = true;
-				cat.setCoordColuna(coluna - 1);
+				cat.setCoordColuna(colunaGato - 1);
 			}
-		} else if (c == 'd') {
-			if (maze[linha][coluna + 1].getType() != 'W') {
+		} else if (move == 'd') {
+			if (maze[linhaGato][colunaGato + 1].getType() != 'W') {
 				podeMover = true;
-				cat.setCoordColuna(coluna + 1);
+				cat.setCoordColuna(colunaGato + 1);
 			}
 		}
 		return podeMover;
+	}
+	
+	public boolean ganhouJogo() {
+		int linhaGato = cat.getCoordLinha();
+		int colunaGato = cat.getCoordColuna();
+		if (linhaGato == 19 && colunaGato == 19) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean moverCachorro() {
+		int linha = dog.getCoordLinha();
+		int coluna = dog.getCoordLinha();
+		boolean podeMover = false;
+		
 	}
 }
