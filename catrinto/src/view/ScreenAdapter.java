@@ -1,46 +1,49 @@
 package view;
 
-import java.util.ArrayList;
+import java.awt.Component;
+import java.awt.Image;
 
-import javax.swing.JComponent;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public abstract class ScreenAdapter {
-	private static JFrame frame = new JFrame(); 
-	// murillo, coloquei static mas nao sei se ta certo
-	// queria que cada herdeira tivesse um ponteiro para um JFrame, 
-	// só que para um mesmo JFrame e que opera na classe mae
+	private JFrame frame;
+	private View view;
 	
-	private JPanel pane;
-	protected ArrayList<JComponent> components;
+	private JPanel panel;
 	
-	ScreenAdapter() {
+	ScreenAdapter(View view) {
+		this.view = view;
+
+		frame = view.getFrame();
+		// frame.removeAll();
+		// gostaria que esses metodos do frame nao fossem chamados varias vezes
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(1000, 600);
+		frame.setTitle("CatRinto");
+		// frame.setIconImage(new Image("catrinto/src/view/cat.png")); // nao lembro como coloca o icone da frame
+		frame.setAlwaysOnTop(true);
 		frame.setVisible(true);
+
+		panel = new JPanel();
 	}
 	
-	protected void addComponent(JComponent component) {
-		components.add(component);
-		pane.add(component);
+	protected void changeScreen(int screen) {
+		view.changeScreen(screen);
+	}
+
+	protected void addToFrame(Component component) {
+		frame.add(component);
 	}
 	
-	protected JPanel getPane() {
-		return pane;
+	protected JPanel getPanel() {
+		return panel;
 	}
 	
 	protected void show() {
-		frame.add(pane);
-		pane.setVisible(true);
-		for (JComponent component: components) {
-			pane.add(component);
-			component.setOpaque(true);
-		}
-	}
-	
-	public void dispose() {
-		pane.setVisible(false);
-		pane.removeAll();
-		frame.remove(pane);
+		frame.add(panel);
+		panel.setVisible(true);
 	}
 	
 }
