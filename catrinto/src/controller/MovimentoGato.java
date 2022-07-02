@@ -2,10 +2,10 @@ package controller;
 
 import model.Gato;
 
-public class Controle {
+public class MovimentoGato {
 	Gato cat;
 	
-	public Controle(Gato cat) {
+	public MovimentoGato(Gato cat) {
 		this.cat = cat;
 	}
 	
