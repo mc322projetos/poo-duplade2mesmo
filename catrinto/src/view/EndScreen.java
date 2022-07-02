@@ -11,37 +11,39 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuScreen extends ScreenAdapter implements ActionListener{
-	JButton play;
-	JLabel logo;
+public class EndScreen extends ScreenAdapter implements ActionListener{
+	JButton restart;
 
-	public MenuScreen() {
-//		super.dispose();
+	EndScreen() {
+		super.dispose();
 		
 		JPanel pane = super.getPane();
 		pane.setBackground(Color.WHITE);
 		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 		
-		logo = new JLabel("CatRinto", new ImageIcon("cat.png"), 0);
+		JLabel logo = new JLabel("Você perdeu :(", new ImageIcon("Game_Over.png"), 0);
 		logo.setFont(new Font("Roboto", Font.ITALIC, 30));
 		logo.setVerticalTextPosition(JLabel.BOTTOM);
         logo.setHorizontalTextPosition(JLabel.CENTER);
         logo.setIconTextGap(10);
         
-		play = new JButton("Play");
-		play.setAlignmentX(JButton.CENTER);
-		play.addActionListener(this);
+        int timeTaken; // pegar tempo MainScreen (ou do HUD)
+        JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
+        
+		restart = new JButton("Play");
+		restart.setAlignmentX(JButton.CENTER);
+		restart.addActionListener(this);
 		
 		super.addComponent(logo);
-		super.addComponent(play);
+		super.addComponent(restart);
 		
 		super.show();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == play)
-            System.out.println("COMECOU");
+		if (e.getSource() == restart)
+            System.out.println("ACABOU");
             // controle.play();
 		
 	}

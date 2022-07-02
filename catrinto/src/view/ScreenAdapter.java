@@ -19,6 +19,11 @@ public abstract class ScreenAdapter {
 		frame.setVisible(true);
 	}
 	
+	public void addToFrame(HUD hud) {
+		frame.add(hud);
+		
+	}
+	
 	protected void addComponent(JComponent component) {
 		components.add(component);
 		pane.add(component);
@@ -42,5 +47,6 @@ public abstract class ScreenAdapter {
 		pane.removeAll();
 		frame.remove(pane);
 	}
+
 	
 }
