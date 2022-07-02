@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="lab05/src/pt/c40task/l05wumpus"/>
 	<classpathentry kind="src" path="trab/src/pt/game/l06game/main"/>
 	<classpathentry excluding="main/" kind="src" path="trab/src/pt/game/l06game"/>
+	<classpathentry kind="src" path="catrinto/src/main"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -12,35 +12,30 @@ public class MainScreen extends ScreenAdapter {
 	Montador builder; 
 	HUD hud;
 	
-	MainScreen() {
-		super.dispose();
+	MainScreen(View view) {
+		super(view);
 		
 		super.addToFrame(hud);
-		JPanel pane = super.getPane();
-		pane.setLayout(new GridLayout(20, 20));
-		generate(pane);
+
+		JPanel panel = super.getPanel();
+		panel.setLayout(new GridLayout(20, 20));
+		generate(panel);
 		
 		super.show();
 		
 	}
 	
 	private void generate(JPanel pane) {
-		ImageIcon empty = new ImageIcon("empty.png");
-	    ImageIcon wall = new ImageIcon("wall.png");
-	    ImageIcon cat = new ImageIcon("cat.png");
-	    ImageIcon dog = new ImageIcon("dog.png");
-	    ImageIcon fish = new ImageIcon("fish.png");
-
 	    int n = 20;
 	    char charMap[][] = builder.getMapaInicial();
       
 	    for (int i = 0; i < n; i++)
 	    	for (int j = 0; j < n; j++)
 	    		switch(charMap[i][j]) {
-                	case 0: 
+                	case 'E': 
                 		pane.add(new JLabel(new ImageIcon("empty.png")));
                 		break;
-                	case 1:
+                	case 'W':
                 		pane.add(new JLabel(new ImageIcon("wall.png")));
                 		break;
                   // case 2:

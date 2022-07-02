@@ -15,14 +15,14 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 	JButton play;
 	JLabel logo;
 
-	public MenuScreen() {
-//		super.dispose();
+	public MenuScreen(View view) {
+		super(view);
 		
-		JPanel pane = super.getPane();
-		pane.setBackground(Color.WHITE);
-		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+		JPanel panel = super.getPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		logo = new JLabel("CatRinto", new ImageIcon("cat.png"), 0);
+		logo = new JLabel("CatRinto", new ImageIcon("catrinto/src/view/cat.png"), 0);
 		logo.setFont(new Font("Roboto", Font.ITALIC, 30));
 		logo.setVerticalTextPosition(JLabel.BOTTOM);
         logo.setHorizontalTextPosition(JLabel.CENTER);
@@ -32,16 +32,17 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 		play.setAlignmentX(JButton.CENTER);
 		play.addActionListener(this);
 		
-		super.addComponent(logo);
-		super.addComponent(play);
-		
+		panel.add(logo);
+		panel.add(play);
+
 		super.show();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == play)
-            System.out.println("COMECOU");
+		if (e.getSource() == play) {
+            super.changeScreen(1);
+		}
             // controle.play();
 		
 	}

@@ -14,10 +14,10 @@ import javax.swing.JPanel;
 public class EndScreen extends ScreenAdapter implements ActionListener{
 	JButton restart;
 
-	EndScreen() {
-		super.dispose();
-		
-		JPanel pane = super.getPane();
+	EndScreen(View view) {
+		super(view);
+
+		JPanel pane = super.getPanel();
 		pane.setBackground(Color.WHITE);
 		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 		
@@ -34,8 +34,8 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 		restart.setAlignmentX(JButton.CENTER);
 		restart.addActionListener(this);
 		
-		super.addComponent(logo);
-		super.addComponent(restart);
+		super.addToPanel(logo);
+		super.addToPanel(restart);
 		
 		super.show();
 	}
@@ -43,7 +43,7 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == restart)
-            System.out.println("ACABOU");
+            super.changeScreen(0);
             // controle.play();
 		
 	}
