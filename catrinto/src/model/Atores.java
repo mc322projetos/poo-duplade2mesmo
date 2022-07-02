@@ -1,5 +1,6 @@
 package model;
 
-public interface Atores {
-	public void mover();
+public abstract class Atores {
+	
+	public abstract char getType();
 }

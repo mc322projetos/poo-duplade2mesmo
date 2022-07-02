@@ -1,11 +1,17 @@
 // falta arrumar o caminho dos pacotes
 
-// import viewObser.JanelaJogo;
+import java.awt.EventQueue;
+
 import view.JanelaJogo;
 
 public class AppCatRinto {
 	
 	public static void main(String args[]) {
-		new JanelaJogo();
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				new JanelaJogo();
+			}
+		});
 	}
 }
