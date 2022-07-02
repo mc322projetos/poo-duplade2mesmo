@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Component;
+
 public class Montador {
 	private Labirinto maze;
 	private Gato cat;
