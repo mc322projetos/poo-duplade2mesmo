@@ -14,34 +14,31 @@ import java.awt.event.KeyListener;
 import controller.Montador;
 import controller.MovimentoGato;
 import model.Gato;
+import model.Labirinto;
 
 public class MainScreen extends ScreenAdapter implements KeyListener {
+	Labirinto maze;
 	JPanel panel;
 	Montador builder;
 	HUD hud;
 	JLabel catLabel = new JLabel(new ImageIcon
 	(new ImageIcon("catrinto/src/view/cat.png").getImage().getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH)));
-	Gato cat;
+	Gato cat = new Gato(maze, 'G', 0, 0);
 	MovimentoGato movimentoGato = new MovimentoGato(cat);
 
 	MainScreen(View view) {
 		super(view);
 		setMontador(super.getView().getControl().getMontador());
+
 		panel = super.getPanel();
 		panel.setLayout(new GridLayout(20, 20, 0, 0));
 		panel.setMaximumSize(new Dimension(400, 400));
-		panel.setBounds(500, 300, 400, 400);
 		generate();
-		super.getFrame().setLayout(null);
+
 		hud = new HUD();
-		hud.setBounds(500, 550, 200, 20);
 		super.getFrame().remove(panel);
 		super.addToFrame(hud);
 		super.addToFrame(panel);
-		super.addToFrame(catLabel);
-		catLabel.setBounds(200, 300, 20, 20);
-		super.getFrame().addKeyListener(this);
-		
 	}
 	
 	public void setCountdown(int time) {
@@ -85,13 +82,11 @@ public class MainScreen extends ScreenAdapter implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 

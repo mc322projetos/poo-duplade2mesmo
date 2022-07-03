@@ -29,8 +29,6 @@ public class Labirinto {
 			{'E', 'E', 'E', 'E', 'W', 'E', 'E', 'W', 'W', 'W', 'E', 'W', 'W', 'W', 'E', 'E', 'E', 'E', 'W', 'E'},
 			{'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'T'}		
 	};
-	private Cachorro dog;
-	private ArrayList<Integer[]> arrayCelulasVazias;
 	
 	public Labirinto(Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
 		this.maze = new Celula[20][20];

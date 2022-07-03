@@ -23,6 +23,8 @@ public class Cronometro {
 					contador -= 1;
 					if (contador == 0) {
 						tm.cancel();
+						rodando = false;
+						contador = 100;
 						control.tempoAcabou();
 					}
 					control.setCountdown(contador);
