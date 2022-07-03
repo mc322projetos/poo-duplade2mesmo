@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -11,24 +12,35 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import controller.Montador;
+import controller.MovimentoGato;
+import model.Gato;
 
 public class MainScreen extends ScreenAdapter implements KeyListener {
 	JPanel panel;
 	Montador builder;
 	HUD hud;
+	JLabel catLabel = new JLabel(new ImageIcon
+	(new ImageIcon("catrinto/src/view/cat.png").getImage().getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH)));
+	Gato cat;
+	MovimentoGato movimentoGato = new MovimentoGato(cat);
+
 	MainScreen(View view) {
 		super(view);
 		setMontador(super.getView().getControl().getMontador());
-
 		panel = super.getPanel();
 		panel.setLayout(new GridLayout(20, 20, 0, 0));
 		panel.setMaximumSize(new Dimension(400, 400));
+		panel.setBounds(500, 300, 400, 400);
 		generate();
-
+		super.getFrame().setLayout(null);
 		hud = new HUD();
+		hud.setBounds(500, 550, 200, 20);
 		super.getFrame().remove(panel);
 		super.addToFrame(hud);
 		super.addToFrame(panel);
+		super.addToFrame(catLabel);
+		catLabel.setBounds(200, 300, 20, 20);
+		super.getFrame().addKeyListener(this);
 		
 	}
 	
@@ -56,8 +68,7 @@ public class MainScreen extends ScreenAdapter implements KeyListener {
                 		panel.add(new JLabel(new ImageIcon("catrinto/src/view/wall.png")));
                 		break;
 					case 'G' :
-						panel.add(new JLabel(new ImageIcon
-						(new ImageIcon("catrinto/src/view/cat.png").getImage().getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH))));
+						panel.add(catLabel);
 						break;
 					default:
 						panel.add(new JLabel(new ImageIcon("catrinto/src/view/empty.png")));
@@ -86,7 +97,27 @@ public class MainScreen extends ScreenAdapter implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		switch(e.getKeyChar()) {
+			case 'a':
+				 //if (movimentoGato.movimentar('a')) {
+					catLabel.setLocation(catLabel.getX() - 1, catLabel.getY());
+					break;
+				// }
+			case 'w':
+				// if (movimentoGato.movimentar('w')) {
+					catLabel.setLocation(catLabel.getX(), catLabel.getY() - 1);
+					break;
+				// }
+			case 'd':
+				// if (movimentoGato.movimentar('d')) {
+					catLabel.setLocation(catLabel.getX() + 1, catLabel.getY());
+					break;
+				// }
+			case 's':
+				// if (movimentoGato.movimentar('s')) {
+					catLabel.setLocation(catLabel.getX(), catLabel.getY() + 1);
+					break;
+				// }
+		}
 	}
 }
