@@ -5,7 +5,7 @@ import java.util.TimerTask;
 
 public class Cronometro {
 	Timer tm;
-	private int contador = 100;
+	private int contador;
 	private boolean rodando = false;
 	Control control;
 
@@ -14,6 +14,7 @@ public class Cronometro {
 	}
 
 	public void start() {
+		contador = 100;
 		if (!rodando) {
 			tm = new Timer();
 			rodando = true;
@@ -31,5 +32,9 @@ public class Cronometro {
 				}		
 			}, 1000, 1000);
 		}
+	}
+
+	public int getTempoRestante() {
+		return 100 - contador;
 	}
 }

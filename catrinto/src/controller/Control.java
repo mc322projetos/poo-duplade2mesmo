@@ -16,9 +16,9 @@ public class Control{
 
     // @Override
     public void play() {
-        montador = new Montador();
+        montador = new Montador(this);
         model = montador.getLabirinto();
-        view.changeScreen(1);
+        view.changeScreen(1, false);
         timer.start();
 
     }
@@ -33,7 +33,7 @@ public class Control{
 
 
     public void tempoAcabou() {
-        view.changeScreen(2);
+        view.changeScreen(2, false);
     }
 
     public void setCountdown(int contador) {
@@ -45,7 +45,22 @@ public class Control{
 	}
 
     public boolean moveAttempt(char key) {
-        return model.moverGato(key);
+        if (model.moverGato(key)) {
+            if (model.ganhouJogo())
+                this.win();
+            return true;
+        }
+        else
+            return false;
+            
     }
+
+    public void win() {
+        view.changeScreen(2, true);
+    }
+
+	public Cronometro getTimer() {
+		return timer;
+	}
     
 }

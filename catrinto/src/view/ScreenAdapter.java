@@ -35,7 +35,7 @@ public abstract class ScreenAdapter {
 	
 	protected void changeScreen(int screen) {
 		frame.getContentPane().removeAll();
-		view.changeScreen(screen);
+		view.changeScreen(screen, false);
 		frame.revalidate();
 		frame.repaint();
 	}

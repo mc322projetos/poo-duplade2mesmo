@@ -3,9 +3,13 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
+import controller.Control;
+
 public class Labirinto {
+	private Control control;
 	private Celula maze[][];
 	private Gato cat;
+	private Cachorro dog;
 	private ArrayList<int[]> emptyCells = new ArrayList<int[]> ();
 	char[][] mazeChar = {
 			{'G', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E'},
@@ -30,7 +34,8 @@ public class Labirinto {
 			{'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'T'}		
 	};
 	
-	public Labirinto(Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
+	public Labirinto(Control control2, Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
+		this.dog = dog;
 		this.cat = cat;
 		this.maze = new Celula[20][20];
 		for (int i = 0; i < 20; i++) {
@@ -61,28 +66,32 @@ public class Labirinto {
 	public boolean moverGato(char move) {
 		int linhaGato = cat.getCoordLinha();
 		int colunaGato = cat.getCoordColuna();
+		int novaLinhaGato = 0, novaColunaGato = 0;
+
 		boolean podeMover = false;
 		if (move == 'w') {
-			if (maze[linhaGato - 1][colunaGato].getType() != 'W') {
-				podeMover = true;
-				cat.setCoordLinha(linhaGato - 1);
-			}
+			novaLinhaGato = linhaGato - 1;
+			novaColunaGato = colunaGato;
 		} else if (move == 's') {
-			if (maze[linhaGato + 1][colunaGato].getType() != 'W') {
-				podeMover = true;
-				cat.setCoordLinha(linhaGato + 1);
-			}
+			novaLinhaGato = linhaGato + 1;
+			novaColunaGato = colunaGato;
 		} else if (move == 'a') {
-			if (maze[linhaGato][colunaGato - 1].getType() != 'W') {
-				podeMover = true;
-				cat.setCoordColuna(colunaGato - 1);
-			}
+			novaLinhaGato = linhaGato;
+			novaColunaGato = colunaGato - 1;
 		} else if (move == 'd') {
-			if (maze[linhaGato][colunaGato + 1].getType() != 'W') {
-				podeMover = true;
-				cat.setCoordColuna(colunaGato + 1);
-			}
+			novaLinhaGato = linhaGato;
+			novaColunaGato = colunaGato + 1;
 		}
+
+		if (maze[novaLinhaGato][novaColunaGato].getType() != 'W') {
+			podeMover = true;
+			cat.setCoordLinha(novaLinhaGato);
+			cat.setCoordColuna(novaColunaGato);
+		}
+		// if (maze[novaLinhaGato][novaColunaGato].getType() == 'C') {
+		// 	dog.matarGato(novaLinhaGato, novaColunaGato);
+		// }
+
 		return podeMover;
 	}
 	

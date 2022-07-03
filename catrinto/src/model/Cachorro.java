@@ -39,7 +39,7 @@ public class Cachorro extends Atores {
 	}
 	
 	
-	public boolean matarGato() {
+	public boolean matarGato(int linhaGato, int colunaGato) {
 		if (maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'C' && maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'G') {
 			return true;
 		} else {

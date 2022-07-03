@@ -19,7 +19,7 @@ public class View {
 		return frame;
 	}
 	
-	public void changeScreen(int screen) {
+	public void changeScreen(int screen, boolean ganhou) {
 		switch(screen) {
 			case 0:
 				new MenuScreen(this);
@@ -28,7 +28,7 @@ public class View {
 				mainScreen = new MainScreen(this);
 				break;
 			case 2:
-				new EndScreen(this);
+				new EndScreen(this, ganhou);
 				break;
 		}
 	}
