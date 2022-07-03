@@ -9,6 +9,7 @@ public class Wall extends Atores{
 		this.tipo = tipo;
 	}
 	
+	@Override
 	public char getType() {
 		return tipo;
 	}

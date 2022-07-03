@@ -13,6 +13,7 @@ public class Gato extends Atores{
 		this.coordColuna = coordColuna;
 	}
 	
+	@Override
 	public char getType() {
 		return tipo;
 	}

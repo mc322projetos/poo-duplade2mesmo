@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Atores {
-	
-	public abstract char getType();
+public class Atores {
+
+	public char getType() {
+		return 0;
+	}
 }

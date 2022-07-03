@@ -2,7 +2,7 @@
 
 import java.awt.EventQueue;
 
-import view.View;
+import controller.Control;
 
 public class AppCatRinto {
 	
@@ -10,7 +10,7 @@ public class AppCatRinto {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				new View();
+				new Control();
 			}
 		});
 	}

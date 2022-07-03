@@ -2,27 +2,44 @@ package view;
 
 import javax.swing.JFrame;
 
+import controller.Control;
+
 public class View {
 	JFrame frame;
+	public Control control;
+	private MainScreen mainScreen;
 
-	public View() {
-
+	public View(Control control) {
+		this.control = control;
 		frame = new JFrame();
 		new MenuScreen(this);
+	}
+
+	public JFrame getFrame() {
+		return frame;
 	}
 	
 	public void changeScreen(int screen) {
 		switch(screen) {
 			case 0:
 				new MenuScreen(this);
+				break;
 			case 1:
-				new MainScreen(this);
+				mainScreen = new MainScreen(this);
+				mainScreen.setMontador(control.getMontador());
+				break;
 			case 2:
 				new EndScreen(this);
+				break;
 		}
 	}
 
-    public JFrame getFrame() {
-        return frame;
+	public void setCountdown(int time) {
+		mainScreen.setCountdown(time);
+	}
+
+    public Control getControl() {
+        return control;
     }
+
 }

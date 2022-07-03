@@ -35,15 +35,14 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 		panel.add(logo);
 		panel.add(play);
 
-		super.show();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == play) {
+            super.getView().getControl().play();
             super.changeScreen(1);
 		}
-            // controle.play();
 		
 	}
 	

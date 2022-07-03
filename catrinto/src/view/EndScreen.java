@@ -17,27 +17,27 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 	EndScreen(View view) {
 		super(view);
 
-		JPanel pane = super.getPanel();
-		pane.setBackground(Color.WHITE);
-		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
-		
-		JLabel logo = new JLabel("Você perdeu :(", new ImageIcon("Game_Over.png"), 0);
+		JPanel panel = super.getPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		JLabel logo = new JLabel("Você perdeu :(", new ImageIcon("catrinto/src/view/Game_Over.png"), 0);
+		logo.setSize(100, 100);
 		logo.setFont(new Font("Roboto", Font.ITALIC, 30));
 		logo.setVerticalTextPosition(JLabel.BOTTOM);
         logo.setHorizontalTextPosition(JLabel.CENTER);
         logo.setIconTextGap(10);
         
-        int timeTaken; // pegar tempo MainScreen (ou do HUD)
+        int timeTaken = 100; // pegar tempo MainScreen (ou do HUD)
         JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
         
 		restart = new JButton("Play");
 		restart.setAlignmentX(JButton.CENTER);
 		restart.addActionListener(this);
 		
-		super.addToPanel(logo);
-		super.addToPanel(restart);
+		panel.add(logo);
+		panel.add(tempo);
+		panel.add(restart);
 		
-		super.show();
 	}
 
 	@Override

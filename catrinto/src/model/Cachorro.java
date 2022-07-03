@@ -46,7 +46,8 @@ public class Cachorro extends Atores {
 			return false;
 		}
 	}
-	
+
+	@Override
 	public char getType() {
 		return tipo;
 	}

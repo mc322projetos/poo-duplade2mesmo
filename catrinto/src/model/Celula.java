@@ -1,19 +1,12 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Celula {
 	private Atores ator;
-	private ArrayList<Atores> arrayAtores;
 	
-	Celula() {
-		arrayAtores = new ArrayList<Atores> ();
+	Celula(Atores ator) {
+		this.ator = ator;
 	}
-	
-	public void add(Atores ator) {
-		arrayAtores.add(ator);
-	}
-	
+
 	public char getType() {
 		return ator.getType();
 	}
