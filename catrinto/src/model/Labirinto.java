@@ -29,6 +29,8 @@ public class Labirinto {
 			{'E', 'E', 'E', 'E', 'W', 'E', 'E', 'W', 'W', 'W', 'E', 'W', 'W', 'W', 'E', 'E', 'E', 'E', 'W', 'E'},
 			{'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'T'}		
 	};
+	private Cachorro dog;
+	private ArrayList<Integer[]> arrayCelulasVazias;
 	
 	public Labirinto(Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
 		this.maze = new Celula[20][20];
@@ -122,6 +124,32 @@ public class Labirinto {
 		ArrayList<int[]> emptyCells = getEmptySpaces();
 		Random r = new Random();
 		int[] celulaSorteada = emptyCells.get(r.nextInt(emptyCells.size()));
+	}
+
+	
+	private ArrayList<Integer> getEmptySpaces() {
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 20; j++) {
+				if (maze[i][j].getType() == 'C') {
+					if (maze[i - 1][j].getType() == 'E') {
+						arrayCelulasVazias.add(0, [i - 1]);
+					} if (maze[i + 1][j].getType() == 'E') {
+						arrayCelulasVazias.add(1, i - 1);
+					} if (maze[i][j - 1].getType() == 'E') {
+						arrayCelulasVazias.add(2, j + 1);
+					} if (maze[i][j + 1].getType() == 'E') {
+						arrayCelulasVazias.add(3, j - 1);
+					}
+				}
+			}
+		}
+		return arrayCelulasVazias;
+	}
+	
+	private int sortearMovimento() {
+		ArrayList<Integer> lugaresVazios = getEmptySpaces();
+		Random r = new Random();
+		int celulaSorteada = arrayCelulasVazias.get(r.nextInt(lugaresVazios.size()));
 		return celulaSorteada;
 	}
 	
@@ -136,5 +164,9 @@ public class Labirinto {
 	public int[] getDogMove() {
 		int newCoord[] = sortearMovimento();
 		return newCoord;
+		int linhaCachorro = dog.getCoordLinha();
+		int colunaCachorro = dog.getCoordColuna();
+		int celulaSorteada = sortearMovimento();
+		
 	}
 }
