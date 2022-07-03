@@ -30,7 +30,7 @@ public abstract class ScreenAdapter {
 		panel.setVisible(true);
 		
 		frame.revalidate();
-		frame.repaint();
+		// frame.repaint();
 	}
 	
 	protected void changeScreen(int screen) {

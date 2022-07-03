@@ -26,7 +26,6 @@ public class View {
 				break;
 			case 1:
 				mainScreen = new MainScreen(this);
-				mainScreen.setMontador(control.getMontador());
 				break;
 			case 2:
 				new EndScreen(this);

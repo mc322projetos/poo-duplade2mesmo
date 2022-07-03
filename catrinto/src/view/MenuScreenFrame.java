@@ -11,14 +11,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuScreen extends ScreenAdapter implements ActionListener{
-	JButton play;
+public class MenuScreenFrame implements ActionListener{
+    ScreenAdapterFrame screenAdapterFrame;
+    JButton play;
 	JLabel logo;
 
-	public MenuScreen(View view) {
-		super(view);
-		
-		JPanel panel = super.getPanel();
+    public MenuScreenFrame(ScreenAdapterFrame screenAdapterFrame) {
+        this.screenAdapterFrame = screenAdapterFrame;
+        
+		JPanel panel = screenAdapterFrame.getPanel();
 		panel.setBackground(Color.WHITE);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
@@ -34,19 +35,16 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 		
 		panel.add(logo);
 		panel.add(play);
+    }
 
-		super.getFrame().repaint();
-
-	}
-
-	@Override
+    @Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == play) {
-            super.getView().getControl().play();
-            super.changeScreen(1);
+            screenAdapterFrame.getView().getControl().play();
+            screenAdapterFrame.changeScreen(1);
 			
 		}
 		
 	}
-	
+
 }

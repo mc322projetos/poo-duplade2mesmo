@@ -17,6 +17,7 @@ public class Control{
     // @Override
     public void play() {
         montador = new Montador();
+        model = montador.getLabirinto();
         view.changeScreen(1);
         timer.start();
 
@@ -42,5 +43,9 @@ public class Control{
 	public Montador getMontador() {
 		return montador;
 	}
+
+    public boolean moveAttempt(char key) {
+        return model.moverGato(key);
+    }
     
 }

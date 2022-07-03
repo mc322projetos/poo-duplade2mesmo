@@ -31,12 +31,14 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
         JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
         
 		restart = new JButton("Play");
-		restart.setAlignmentX(JButton.CENTER);
+		// restart.setAlignmentX(JButton.CENTER);
 		restart.addActionListener(this);
 		
 		panel.add(logo);
 		panel.add(tempo);
 		panel.add(restart);
+		
+		super.getFrame().revalidate();
 		
 	}
 
