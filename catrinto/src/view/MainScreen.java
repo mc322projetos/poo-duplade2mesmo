@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
@@ -23,6 +24,8 @@ public class MainScreen extends ScreenAdapter {
 		
 		
 		setMontador(super.getView().getControl().getMontador());
+		super.getFrame().getContentPane().setBackground(Color.CYAN);
+
 		panel = super.getPanel();
 		panel.setLayout(new GridLayout(20, 20, 0, 0));
 		panel.setMaximumSize(new Dimension(400, 400));
@@ -42,6 +45,7 @@ public class MainScreen extends ScreenAdapter {
 		// pane.setLayout(null);
 		// pane.add(panel, 0);
 		panel.setBounds(300, 60, 410, 410);
+		panel.setBackground(Color.GRAY);
 		// pane.add(hud, 0);
 		hud.setBounds(425, 10, 150, 25);
 		// pane.add(catLabel, 1);

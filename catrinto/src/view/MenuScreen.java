@@ -1,9 +1,11 @@
 package view;
 
+import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,23 +14,24 @@ import javax.swing.JPanel;
 
 public class MenuScreen extends ScreenAdapter implements ActionListener{
 	JButton play;
-	JLabel logo;
+	JLabel logo; 
 
 	public MenuScreen(View view) {
 		super(view);
 		
 		JPanel panel = super.getPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.CYAN);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		
+
 		logo = new JLabel("CatRinto", new ImageIcon("catrinto/src/view/cat.png"), 0);
+		logo.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 		logo.setFont(new Font("Roboto", Font.ITALIC, 30));
 		logo.setVerticalTextPosition(JLabel.BOTTOM);
         logo.setHorizontalTextPosition(JLabel.CENTER);
         logo.setIconTextGap(10);
         
 		play = new JButton("Play");
-		play.setAlignmentX(JButton.CENTER);
+		play.setAlignmentX(JButton.CENTER_ALIGNMENT);
 		play.addActionListener(this);
 		
 		panel.add(logo);
