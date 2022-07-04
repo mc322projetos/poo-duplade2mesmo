@@ -3,6 +3,7 @@ package view;
 import javax.swing.JFrame;
 
 import controller.Control;
+import model.Labirinto;
 
 public class View {
 	JFrame frame;
@@ -40,5 +41,9 @@ public class View {
     public Control getControl() {
         return control;
     }
+
+	public MainScreen getMainScreen() {
+		return mainScreen;
+	}
 
 }

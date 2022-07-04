@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +37,7 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 			panel.add(tempo);
 			panel.add(restart);
 		} else {
-			JLabel logoGanhou = new JLabel("Você ganhou :)", new ImageIcon("catrinto/src/view/Game_Over.png"), 0);
+			JLabel logoGanhou = new JLabel("Você ganhou :)", new ImageIcon("catrinto/src/view/Game_over.png"), 0);
 			logoGanhou.setSize(100, 100);
 			logoGanhou.setFont(new Font("Roboto", Font.ITALIC, 30));
 			logoGanhou.setVerticalTextPosition(JLabel.BOTTOM);

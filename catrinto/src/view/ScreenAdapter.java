@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.Component;
+import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -19,14 +21,14 @@ public abstract class ScreenAdapter {
 		frame.getContentPane().removeAll();
 		// gostaria que esses metodos do frame nao fossem chamados varias vezes
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+		// frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 		frame.setSize(1000, 600);
 		frame.setTitle("CatRinto");
 		// frame.setIconImage(new Image("catrinto/src/view/cat.png")); // nao lembro como coloca o icone da frame
 		frame.setVisible(true);
 		
 		panel = new JPanel();
-		frame.add(panel);
+		frame.add(panel, BorderLayout.CENTER);
 		panel.setVisible(true);
 		
 		frame.revalidate();

@@ -34,20 +34,15 @@ public class CatLabel extends JLabel implements KeyListener{
                 case 'a':
                         this.setLocation(this.getX() - 20, this.getY());
                         break;
-                    // }
                 case 'w':
                         this.setLocation(this.getX(), this.getY() - 20);
                         break;
-                    // }
                 case 'd':
                         this.setLocation(this.getX() + 20, this.getY());
                         break;
-                    // }
                 case 's':
-                    // if (movimentoGato.movimentar('s')) {
                         this.setLocation(this.getX(), this.getY() + 20);
                         break;
-                    // }
             }
 	}
 }

@@ -5,28 +5,24 @@ import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import controller.Montador;
-import controller.MovimentoGato;
-import model.Gato;
 import model.Labirinto;
 
 public class MainScreen extends ScreenAdapter {
 	Labirinto maze;
-	JLayeredPane pane;
 	JPanel panel;
 	Montador builder;
 	HUD hud;
 	CatLabel catLabel;
-	Gato cat = new Gato(maze, 'G', 0, 0);
-	MovimentoGato movimentoGato = new MovimentoGato(cat);
+	DogLabel dogLabel;
 
 	MainScreen(View view) {
 		super(view);
+		
+		
 		setMontador(super.getView().getControl().getMontador());
-
 		panel = super.getPanel();
 		panel.setLayout(new GridLayout(20, 20, 0, 0));
 		panel.setMaximumSize(new Dimension(400, 400));
@@ -34,10 +30,11 @@ public class MainScreen extends ScreenAdapter {
 
 		hud = new HUD();
 		catLabel = new CatLabel(this);
+		dogLabel  = new DogLabel(this);
 		
 		super.getFrame().remove(panel);
-		super.getFrame().getHeight();
 		super.addToFrame(catLabel);
+		// super.addToFrame(dogLabel);
 		super.addToFrame(hud);
 		super.addToFrame(panel);
 		
@@ -50,6 +47,8 @@ public class MainScreen extends ScreenAdapter {
 		// pane.add(catLabel, 1);
 		catLabel.setBounds(305, 65, 20, 20);
 		// super.addToFrame(pane);
+
+		// dogLabel.setBounds(350, 65, 20, 20);
 		super.getFrame().setLayout(null);
 
 		catLabel.requestFocus();
@@ -80,9 +79,6 @@ public class MainScreen extends ScreenAdapter {
                 	case 'W':
                 		panel.add(new JLabel(new ImageIcon("catrinto/src/view/wall.png")));
                 		break;
-					// case 'G' :
-					// 	panel.add(catLabel);
-					// 	break;
 					default:
 						panel.add(new JLabel(new ImageIcon("catrinto/src/view/empty.png")));
                 		break;
@@ -94,6 +90,10 @@ public class MainScreen extends ScreenAdapter {
                   //     break;
               }
       
+	}
+
+	public void moverCachorro(int old_i, int old_j, int i, int j) {
+		dogLabel.moverCachorro(old_i, old_j, i, j);
 	}
 
 }

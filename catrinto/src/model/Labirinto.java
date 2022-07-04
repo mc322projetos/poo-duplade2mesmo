@@ -34,7 +34,8 @@ public class Labirinto {
 			{'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'T'}		
 	};
 	
-	public Labirinto(Control control2, Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
+	public Labirinto(Control control, Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
+		this.control = control;
 		this.dog = dog;
 		this.cat = cat;
 		this.maze = new Celula[20][20];
@@ -106,28 +107,24 @@ public class Labirinto {
 	}
 	
 	private ArrayList<int[]> getEmptySpaces() {
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 20; j++) {
-				if (maze[i][j].getType() == 'C') {
-					if (maze[i - 1][j].getType() == 'E') {
-						int[] moveUp = {i - 1, j};
-						emptyCells.add(moveUp);
-					} if (maze[i + 1][j].getType() == 'E') {
-						int[] moveDown = {i + 1, j};
-						emptyCells.add(moveDown);
-					} if (maze[i][j - 1].getType() == 'E') {
-						int[] moveLeft = {i, j - 1};
-						emptyCells.add(moveLeft);
-					} if (maze[i][j + 1].getType() == 'E') {
-						int[] moveRight = {i, j + 1};
-						emptyCells.add(moveRight);
-					}
-				}
-			}
+		int i = dog.getCoordLinha();
+		int j = dog.getCoordColuna();
+		if (maze[i - 1][j].getType() == 'E') {
+			int[] moveUp = {i - 1, j};
+			emptyCells.add(moveUp);
+		} if (maze[i + 1][j].getType() == 'E') {
+			int[] moveDown = {i + 1, j};
+			emptyCells.add(moveDown);
+		} if (maze[i][j - 1].getType() == 'E') {
+			int[] moveLeft = {i, j - 1};
+			emptyCells.add(moveLeft);
+		} if (maze[i][j + 1].getType() == 'E') {
+			int[] moveRight = {i, j + 1};
+			emptyCells.add(moveRight);
 		}
 		return emptyCells;
 	}
-	
+			
 	private int[] sortearMovimento() {
 		ArrayList<int[]> emptyCells = getEmptySpaces();
 		Random r = new Random();
@@ -135,12 +132,11 @@ public class Labirinto {
 		return celulaSorteada;
 	}
 	
-	public boolean moverCachorro() {
+	public void moverCachorro() {
 		int[] newCoord = sortearMovimento();
-		if (newCoord != null) {
-			return true;
-		}
-		return false;
+		control.moverCachorro(dog.getCoordLinha(), dog.getCoordColuna(), newCoord[0], newCoord[1]);
+		dog.setCoordLinha(newCoord[0]);
+		dog.setCoordColuna(newCoord[1]);
 	}
 
 	public int[] getDogMove() {

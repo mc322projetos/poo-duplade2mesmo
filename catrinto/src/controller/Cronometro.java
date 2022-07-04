@@ -22,6 +22,7 @@ public class Cronometro {
 				@Override
 				public void run() {
 					contador -= 1;
+					control.getMaze().moverCachorro();
 					if (contador == 0) {
 						tm.cancel();
 						rodando = false;
@@ -32,6 +33,10 @@ public class Cronometro {
 				}		
 			}, 1000, 1000);
 		}
+	}
+	
+	public int getContador() {
+		return contador;
 	}
 
 	public int getTempoRestante() {

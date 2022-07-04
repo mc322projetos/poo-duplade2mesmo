@@ -30,15 +30,6 @@ public class Cachorro extends Atores {
 		this.colunaCachorro = coordColuna;
 	}
 	
-	public boolean verificarMovimento() {
-		if (maze.moverCachorro() == true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	
 	public boolean matarGato(int linhaGato, int colunaGato) {
 		if (maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'C' && maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'G') {
 			return true;
