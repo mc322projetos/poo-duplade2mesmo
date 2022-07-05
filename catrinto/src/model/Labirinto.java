@@ -82,9 +82,11 @@ public class Labirinto {
 		} else if (move == 'd') {
 			novaLinhaGato = linhaGato;
 			novaColunaGato = colunaGato + 1;
+		} else {
+			return false;
 		}
 
-		if (maze[novaLinhaGato][novaColunaGato].getType() != 'W') {
+		if (maze[novaLinhaGato][novaColunaGato].getType() != 'W' && maze[novaLinhaGato][novaColunaGato] != null) {
 			podeMover = true;
 			cat.setCoordLinha(novaLinhaGato);
 			cat.setCoordColuna(novaColunaGato);
