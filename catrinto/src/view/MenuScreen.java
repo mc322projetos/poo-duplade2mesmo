@@ -36,9 +36,6 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 		
 		panel.add(logo);
 		panel.add(play);
-		// panel.getParent().setLayout(null);
-		// panel.setBounds(new Rectangle(0, 0, 20, 20));
-		// panel.repaint();
 
 		super.getFrame().repaint();
 

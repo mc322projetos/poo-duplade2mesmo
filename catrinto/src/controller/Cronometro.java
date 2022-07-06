@@ -14,7 +14,7 @@ public class Cronometro {
 	}
 
 	public void start() {
-		contador = 100;
+		contador = 20;
 		if (!rodando) {
 			tm = new Timer();
 			rodando = true;
@@ -26,7 +26,7 @@ public class Cronometro {
 					if (contador == 0) {
 						tm.cancel();
 						rodando = false;
-						contador = 100;
+						contador = 20;
 						control.tempoAcabou();
 					}
 					control.setCountdown(contador);
@@ -40,7 +40,7 @@ public class Cronometro {
 	}
 
 	public int getTempoLevado() {
-		return 100 - contador;
+		return 20 - contador;
 	}
 
     public void cancel() {

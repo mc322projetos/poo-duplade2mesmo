@@ -1,29 +1,24 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import controller.Control;
 
 public class Labirinto {
 	private Control control;
 	private Celula maze[][];
 	private Gato cat;
-	private Cachorro dog;
-	private ArrayList<int[]> emptyCells = new ArrayList<int[]> ();
 	char[][] mazeChar = {
 			{'G', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E'},
 			{'E', 'W', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'E', 'E', 'W', 'E', 'W', 'E', 'W', 'W', 'W', 'E'},
-			{'E', 'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'W', 'E', 'E', 'W', 'C', 'E'},
+			{'E', 'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'W', 'E', 'E', 'W', 'E', 'E'},
 			{'E', 'E', 'E', 'W', 'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'W', 'E', 'W'},
 			{'E', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'E', 'E', 'E', 'W'},
 			{'E', 'E', 'W', 'W', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'W', 'E', 'W'},
-			{'E', 'E', 'W', 'C', 'W', 'W', 'E', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'W', 'E', 'E', 'W', 'W'},
+			{'E', 'E', 'W', 'E', 'W', 'W', 'E', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'W', 'E', 'E', 'W', 'W'},
 			{'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'W', 'W', 'E', 'E', 'E'},
 			{'W', 'W', 'E', 'W', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'E', 'E', 'W', 'E', 'E', 'W', 'W', 'E'},
 			{'E', 'W', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E', 'W', 'E'},
 			{'E', 'E', 'E', 'W', 'W', 'W', 'W', 'W', 'E', 'W', 'W', 'W', 'W', 'W', 'E', 'E', 'W', 'E', 'W', 'E'},
-			{'W', 'W', 'E', 'E', 'W', 'E', 'W', 'E', 'C', 'E', 'E', 'E', 'E', 'W', 'E', 'W', 'E', 'W', 'E', 'E'},
+			{'W', 'W', 'E', 'E', 'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'W', 'E', 'W', 'E', 'E'},
 			{'W', 'W', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'W'},
 			{'W', 'E', 'E', 'W', 'W', 'W', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'W', 'W', 'E', 'W', 'W'},
 			{'W', 'E', 'W', 'W', 'W', 'E', 'W', 'E', 'W', 'E', 'E', 'E', 'W', 'W', 'W', 'E', 'E', 'E', 'E', 'E'},
@@ -34,9 +29,8 @@ public class Labirinto {
 			{'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'T'}		
 	};
 	
-	public Labirinto(Control control, Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
+	public Labirinto(Control control, Gato cat, Wall wall, Empty empty, Toca toca) {
 		this.control = control;
-		this.dog = dog;
 		this.cat = cat;
 		this.maze = new Celula[20][20];
 		for (int i = 0; i < 20; i++) {
@@ -45,8 +39,6 @@ public class Labirinto {
 					maze[i][j] = new Celula(cat);
 				} else if (mazeChar[i][j] == 'W') {
 					maze[i][j] = new Celula(wall);
-				} else if (mazeChar[i][j] == 'C') {
-					maze[i][j] = new Celula(dog);
 				} else if (mazeChar[i][j] == 'E') {
 					maze[i][j] = new Celula(empty);
 				} else if (mazeChar[i][j] == 'T') {
@@ -91,9 +83,6 @@ public class Labirinto {
 			cat.setCoordLinha(novaLinhaGato);
 			cat.setCoordColuna(novaColunaGato);
 		}
-		// if (maze[novaLinhaGato][novaColunaGato].getType() == 'C') {
-		// 	dog.matarGato(novaLinhaGato, novaColunaGato);
-		// }
 
 		return podeMover;
 	}
@@ -106,45 +95,5 @@ public class Labirinto {
 		} else {
 			return false;
 		}
-	}
-	
-	private ArrayList<int[]> getEmptySpaces() {
-		int i = dog.getCoordLinha();
-		int j = dog.getCoordColuna();
-		if (maze[i - 1][j].getType() == 'E') {
-			int[] moveUp = {i - 1, j};
-			emptyCells.add(moveUp);
-		} if (maze[i + 1][j].getType() == 'E') {
-			int[] moveDown = {i + 1, j};
-			emptyCells.add(moveDown);
-		} if (maze[i][j - 1].getType() == 'E') {
-			int[] moveLeft = {i, j - 1};
-			emptyCells.add(moveLeft);
-		} if (maze[i][j + 1].getType() == 'E') {
-			int[] moveRight = {i, j + 1};
-			emptyCells.add(moveRight);
-		}
-		return emptyCells;
-	}
-			
-	private int[] sortearMovimento() {
-		ArrayList<int[]> emptyCells = getEmptySpaces();
-		Random r = new Random();
-		int[] celulaSorteada = emptyCells.get(r.nextInt(emptyCells.size()));
-		return celulaSorteada;
-	}
-	
-	public void moverCachorro() {
-		if (control.isRunning()) {
-			int[] newCoord = sortearMovimento();
-			control.moverCachorro(dog.getCoordLinha(), dog.getCoordColuna(), newCoord[0], newCoord[1]);
-			dog.setCoordLinha(newCoord[0]);
-			dog.setCoordColuna(newCoord[1]);
-		}
-	}
-
-	public int[] getDogMove() {
-		int newCoord[] = sortearMovimento();
-		return newCoord;	
 	}
 }

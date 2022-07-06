@@ -18,12 +18,10 @@ public abstract class ScreenAdapter {
 
 		frame = view.getFrame();
 		frame.getContentPane().removeAll();
-		// gostaria que esses metodos do frame nao fossem chamados varias vezes
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.setSize(1000, 600);
 		frame.setTitle("CatRinto");
-		// frame.setIconImage(new Image("catrinto/src/view/cat.png")); // nao lembro como coloca o icone da frame
 		frame.setVisible(true);
 		
 		panel = new JPanel();
@@ -32,7 +30,6 @@ public abstract class ScreenAdapter {
 		frame.add(panel);
 		
 		frame.revalidate();
-		// frame.repaint();
 	}
 	
 	protected void changeScreen(int screen) {

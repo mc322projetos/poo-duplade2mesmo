@@ -6,13 +6,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HUD extends JPanel {
+	private static final long serialVersionUID = 2797793417643101209L;
 	JLabel countdownLabel;
 
 	HUD() {
 		this.setLayout(new FlowLayout());
 		countdownLabel = new JLabel();
 		this.add(countdownLabel);
-		setCountdown(100);
+		setCountdown(20);
 		
 	}
 	

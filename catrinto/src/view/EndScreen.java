@@ -50,7 +50,6 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == restart)
             super.changeScreen(0);
-            // controle.play();
 		
 	}
 	
