@@ -46,8 +46,10 @@ public class Control{
 
     public boolean moveAttempt(char key) {
         if (model.moverGato(key)) {
-            if (model.ganhouJogo())
+            if (model.ganhouJogo()) {
+                timer.cancel();
                 this.win();
+            }
             return true;
         }
         else
@@ -69,6 +71,10 @@ public class Control{
 
     public Labirinto getMaze() {
         return model;
+    }
+
+    public boolean isRunning() {
+        return timer.getRodando();
     }
     
 }

@@ -39,7 +39,16 @@ public class Cronometro {
 		return contador;
 	}
 
-	public int getTempoRestante() {
+	public int getTempoLevado() {
 		return 100 - contador;
+	}
+
+    public void cancel() {
+		rodando = false;
+		tm.cancel();
+    }
+
+	public boolean getRodando() {
+		return rodando;
 	}
 }

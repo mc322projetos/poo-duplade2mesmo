@@ -133,10 +133,12 @@ public class Labirinto {
 	}
 	
 	public void moverCachorro() {
-		int[] newCoord = sortearMovimento();
-		control.moverCachorro(dog.getCoordLinha(), dog.getCoordColuna(), newCoord[0], newCoord[1]);
-		dog.setCoordLinha(newCoord[0]);
-		dog.setCoordColuna(newCoord[1]);
+		if (control.isRunning()) {
+			int[] newCoord = sortearMovimento();
+			control.moverCachorro(dog.getCoordLinha(), dog.getCoordColuna(), newCoord[0], newCoord[1]);
+			dog.setCoordLinha(newCoord[0]);
+			dog.setCoordColuna(newCoord[1]);
+		}
 	}
 
 	public int[] getDogMove() {
