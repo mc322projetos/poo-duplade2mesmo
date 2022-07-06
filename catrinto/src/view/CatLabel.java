@@ -11,7 +11,7 @@ public class CatLabel extends JLabel implements KeyListener{
 
     CatLabel(MainScreen mainScreen) {
         super(new ImageIcon
-        (new ImageIcon("catrinto/src/view/cat.png").getImage().getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH)));
+        (new ImageIcon("src/view/cat.png").getImage().getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH)));
         this.mainScreen = mainScreen;
 
     }
@@ -29,7 +29,7 @@ public class CatLabel extends JLabel implements KeyListener{
 	@Override
 	public void keyTyped(KeyEvent e) {
         char key = e.getKeyChar();
-        if (mainScreen.getView().getControl().moveAttempt(key))
+        if (mainScreen.getView().getControl().moveAttempt(key)) {
             switch(e.getKeyChar()) {
                 case 'a':
                         this.setLocation(this.getX() - 20, this.getY());
@@ -43,6 +43,11 @@ public class CatLabel extends JLabel implements KeyListener{
                 case 's':
                         this.setLocation(this.getX(), this.getY() + 20);
                         break;
+                default:
+                    	break;
+            } if (mainScreen.getView().getControl().win()) {
+                mainScreen.getView().changeScreen(2, true);
             }
+        } 
 	}
 }

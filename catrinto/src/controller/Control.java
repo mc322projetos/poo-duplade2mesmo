@@ -7,6 +7,7 @@ public class Control{
     Labirinto model; // classe principal do modelo
     View view;
     Cronometro timer;
+    boolean ganhou = false;
     Montador montador;
 
     public Control() {
@@ -18,7 +19,7 @@ public class Control{
     public void play() {
         montador = new Montador(this);
         model = montador.getLabirinto();
-        view.changeScreen(1, false);
+        view.changeScreen(1, ganhou);
         timer.start();
 
     }
@@ -57,8 +58,8 @@ public class Control{
             
     }
 
-    public void win() {
-        view.changeScreen(2, true);
+    public boolean win() {
+        return model.ganhouJogo();
     }
 
 	public Cronometro getTimer() {

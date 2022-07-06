@@ -78,13 +78,16 @@ public class MainScreen extends ScreenAdapter {
 	    	for (int j = 0; j < n; j++)
 	    		switch(charMap[i][j]) {
                 	case 'E': 
-                		panel.add(new JLabel(new ImageIcon("catrinto/src/view/empty.png")));
+                		panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
                 		break;
                 	case 'W':
-                		panel.add(new JLabel(new ImageIcon("catrinto/src/view/wall.png")));
+                		panel.add(new JLabel(new ImageIcon("src/view/wall.png")));
                 		break;
+                	// case 'T':
+                		// panel.add(new JLabel(new ImageIcon("src/view/linhaChegada.png")));
+						// break;
 					default:
-						panel.add(new JLabel(new ImageIcon("catrinto/src/view/empty.png")));
+						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
                 		break;
                   // case 2:
                   //     maze.add(dog);

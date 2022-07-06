@@ -23,9 +23,9 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		if (ganhou)
-		resultado = new JLabel("Você ganhou :)", new ImageIcon("catrinto/src/view/youWin.png"), 0);
+			resultado = new JLabel("Você ganhou :)", new ImageIcon("catrinto/src/view/youWin.png"), 0);
 		else
-		resultado = new JLabel("Você perdeu :(", new ImageIcon("catrinto/src/view/Game_Over.png"), 0);
+			resultado = new JLabel("Você perdeu :(", new ImageIcon("catrinto/src/view/Game_Over.png"), 0);
 		
 		resultado.setSize(100, 100);
 		resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
