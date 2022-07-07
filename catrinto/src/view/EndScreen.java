@@ -19,31 +19,50 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 		super(view);
 
 		JPanel panel = super.getPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.CYAN);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		if (ganhou)
-			resultado = new JLabel("VocÃª ganhou :)", new ImageIcon("catrinto/src/view/youWin.png"), 0);
-		else
-			resultado = new JLabel("VocÃª perdeu :(", new ImageIcon("catrinto/src/view/Game_Over.png"), 0);
-		
-		resultado.setSize(100, 100);
-		resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
-		resultado.setVerticalTextPosition(JLabel.BOTTOM);
-		resultado.setHorizontalTextPosition(JLabel.CENTER);
-		resultado.setIconTextGap(10);
+		if (ganhou == true) {
+			resultado = new JLabel("Você ganhou :)", new ImageIcon("src/view/youWin.png"), 0);
+			resultado.setSize(100, 100);
+			resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
+			resultado.setVerticalTextPosition(JLabel.BOTTOM);
+			resultado.setHorizontalTextPosition(JLabel.CENTER);
+			resultado.setIconTextGap(10);
+			
+			int timeTaken = view.getControl().getTimer().getTempoLevado();
+			JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
+			
+			restart = new JButton("Play Again");
+			restart.addActionListener(this);
+			// restart.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 
-		int timeTaken = view.getControl().getTimer().getTempoLevado();
-		JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
+			panel.add(resultado);
+			panel.add(tempo);
+			panel.add(restart);
+			super.getFrame().setContentPane(panel);
+			super.getFrame().revalidate();
+			super.getFrame().repaint();
+		}
+		else {
+			resultado = new JLabel("Você perdeu :(", new ImageIcon("src/view/Game_Over.png"), 0);
+			resultado.setSize(100, 100);
+			resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
+			resultado.setVerticalTextPosition(JLabel.BOTTOM);
+			resultado.setHorizontalTextPosition(JLabel.CENTER);
+			resultado.setIconTextGap(10);
+			
+			restart = new JButton("Play Again");
+			restart.addActionListener(this);
+			// restart.setAlignmentX(JLabel.CENTER);
 
-		restart = new JButton("Play");
-		restart.addActionListener(this);
+			panel.add(resultado);
+			panel.add(restart);
+			super.getFrame().setContentPane(panel);
+			super.getFrame().revalidate();
+			super.getFrame().repaint();
 
-		panel.add(resultado);
-		panel.add(tempo);
-		panel.add(restart);
-		super.getFrame().revalidate();
-		super.getFrame().repaint();
+		}
 	}
 
 	@Override

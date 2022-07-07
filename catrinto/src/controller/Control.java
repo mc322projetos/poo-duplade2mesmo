@@ -4,11 +4,11 @@ import model.Labirinto;
 import view.View;
 
 public class Control{
-    Labirinto model; // classe principal do modelo
-    View view;
-    Cronometro timer;
-    boolean ganhou = false;
-    Montador montador;
+    private Labirinto model; // classe principal do modelo
+    private View view;
+    private Cronometro timer;
+    private boolean ganhou = false;
+    private Montador montador;
 
     public Control() {
         view = new View(this);
@@ -33,8 +33,8 @@ public class Control{
     }
 
 
-    public void tempoAcabou() {
-        view.changeScreen(2, false);
+    public void tempoAcabou(boolean ganhou) {
+        view.changeScreen(2, ganhou);
     }
 
     public void setCountdown(int contador) {
@@ -48,7 +48,6 @@ public class Control{
     public boolean moveAttempt(char key) {
         if (model.moverGato(key)) {
             if (model.ganhouJogo()) {
-                timer.cancel();
                 this.win();
             }
             return true;
@@ -71,7 +70,7 @@ public class Control{
     }
 
     public boolean isRunning() {
-        return timer.getRodando();
-    }
+       return timer.getRodando();
+   }
     
 }

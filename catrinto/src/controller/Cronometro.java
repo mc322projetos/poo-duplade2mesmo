@@ -4,10 +4,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Cronometro {
-	Timer tm;
+	private Timer tm;
 	private int contador;
+	private int tempoLevado;
 	private boolean rodando = false;
-	Control control;
+	private Control control;
 
 	Cronometro(Control control) {
 		this.control = control;
@@ -22,12 +23,17 @@ public class Cronometro {
 				@Override
 				public void run() {
 					contador -= 1;
-					// control.getMaze().moverCachorro();
 					if (contador == 0) {
 						tm.cancel();
 						rodando = false;
 						contador = 20;
-						control.tempoAcabou();
+						control.tempoAcabou(false);
+					} else if (control.win()) {
+						tm.cancel();
+						rodando = false;
+						tempoLevado = 20 - contador;
+						contador = 20;
+						control.tempoAcabou(true);
 					}
 					control.setCountdown(contador);
 				}		
@@ -40,13 +46,8 @@ public class Cronometro {
 	}
 
 	public int getTempoLevado() {
-		return 20 - contador;
+		return tempoLevado;
 	}
-
-    public void cancel() {
-		rodando = false;
-		tm.cancel();
-    }
 
 	public boolean getRodando() {
 		return rodando;
