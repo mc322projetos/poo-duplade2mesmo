@@ -17,6 +17,7 @@ public class MainScreen extends ScreenAdapter {
 	Montador builder;
 	HUD hud;
 	CatLabel catLabel;
+	DogLabel dogLabel;
 
 	MainScreen(View view) {
 		super(view);
@@ -32,6 +33,7 @@ public class MainScreen extends ScreenAdapter {
 
 		hud = new HUD();
 		catLabel = new CatLabel(this);
+		dogLabel  = new DogLabel(this);
 		
 		super.getFrame().remove(panel);
 		super.addToFrame(catLabel);
@@ -71,10 +73,18 @@ public class MainScreen extends ScreenAdapter {
                 	case 'W':
                 		panel.add(new JLabel(new ImageIcon("src/view/wall.png")));
                 		break;
+                	case 'T':
+                		panel.add(new JLabel(new ImageIcon("src/view/linhaChegada.png")));
+						break;					
 					default:
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
                 		break;
               }
-      
+	}
+
+
+
+	public void moverCachorro(int old_i, int old_j, int i, int j) {
+		dogLabel.moverCachorro(old_i, old_j, i, j);
 	}
 }

@@ -72,5 +72,10 @@ public class Control{
     public boolean isRunning() {
        return timer.getRodando();
    }
+
+   public void moverCachorro(int old_i, int old_j, int i, int j) {
+    view.getMainScreen().moverCachorro(old_i, old_j, i, j);
+}
+
     
 }

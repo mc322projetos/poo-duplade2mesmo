@@ -1,11 +1,17 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import controller.Control;
 
 public class Labirinto {
 	private Control control;
 	private Celula maze[][];
 	private Gato cat;
+	private Cachorro dog;
+	private ArrayList<int[]> emptyCells = new ArrayList<int[]> ();
+
 	char[][] mazeChar = {
 			{'G', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E'},
 			{'E', 'W', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'E', 'E', 'W', 'E', 'W', 'E', 'W', 'W', 'W', 'E'},
@@ -96,4 +102,40 @@ public class Labirinto {
 			return false;
 		}
 	}
+
+	private ArrayList<int[]> getEmptySpaces() {
+		int i = dog.getCoordLinha();
+		int j = dog.getCoordColuna();
+		if (maze[i - 1][j].getType() == 'E') {
+			int[] moveUp = {i - 1, j};
+			emptyCells.add(moveUp);
+		} if (maze[i + 1][j].getType() == 'E') {
+			int[] moveDown = {i + 1, j};
+			emptyCells.add(moveDown);
+		} if (maze[i][j - 1].getType() == 'E') {
+			int[] moveLeft = {i, j - 1};
+			emptyCells.add(moveLeft);
+		} if (maze[i][j + 1].getType() == 'E') {
+			int[] moveRight = {i, j + 1};
+			emptyCells.add(moveRight);
+		}
+		return emptyCells;
+	}
+			
+	private int[] sortearMovimento() {
+		ArrayList<int[]> emptyCells = getEmptySpaces();
+		Random r = new Random();
+		int[] celulaSorteada = emptyCells.get(r.nextInt(emptyCells.size()));
+		return celulaSorteada;
+	}
+	
+	public void moverCachorro() {
+		if (control.isRunning()) {
+			int[] newCoord = sortearMovimento();
+			control.moverCachorro(dog.getCoordLinha(), dog.getCoordColuna(), newCoord[0], newCoord[1]);
+			dog.setCoordLinha(newCoord[0]);
+			dog.setCoordColuna(newCoord[1]);
+		}
+	}
+
 }
