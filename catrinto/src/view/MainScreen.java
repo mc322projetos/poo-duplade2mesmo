@@ -29,6 +29,7 @@ public class MainScreen extends ScreenAdapter {
 		panel = super.getPanel();
 		panel.setLayout(new GridLayout(20, 20, 0, 0));
 		panel.setMaximumSize(new Dimension(400, 400));
+		panel.setBackground(Color.GRAY);
 		generate();
 
 		hud = new HUD();
@@ -36,15 +37,17 @@ public class MainScreen extends ScreenAdapter {
 		dogLabel  = new DogLabel(this);
 		
 		super.getFrame().remove(panel);
+
 		super.addToFrame(catLabel);
+		super.addToFrame(dogLabel);
 		super.addToFrame(hud);
 		super.addToFrame(panel);
 		
-		panel.setBounds(300, 60, 410, 410);
-		panel.setBackground(Color.GRAY);
-		hud.setBounds(425, 10, 150, 25);
 		catLabel.setBounds(305, 65, 20, 20);
-		
+		dogLabel.setBounds(305, 65, 20, 20);
+		panel.setBounds(300, 60, 410, 410);
+		hud.setBounds(425, 10, 150, 25);
+
 		super.getFrame().setLayout(null);
 
 		catLabel.requestFocus();
@@ -73,6 +76,9 @@ public class MainScreen extends ScreenAdapter {
                 	case 'W':
                 		panel.add(new JLabel(new ImageIcon("src/view/wall.png")));
                 		break;
+					// case 'C':
+					// 	panel.add(new JLabel(new ImageIcon("src/view/dog.png")));
+					// 	break;
                 	case 'T':
                 		panel.add(new JLabel(new ImageIcon("src/view/linhaChegada.png")));
 						break;					

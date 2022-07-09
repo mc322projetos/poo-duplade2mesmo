@@ -87,7 +87,7 @@ public class Labirinto {
 			return false;
 		}
 
-		if (maze[novaLinhaGato][novaColunaGato].getType() != 'W' && maze[novaLinhaGato][novaColunaGato] != null) {
+		if (maze[novaLinhaGato][novaColunaGato].getType() != 'W') {
 			podeMover = true;
 			cat.setCoordLinha(novaLinhaGato);
 			cat.setCoordColuna(novaColunaGato);
@@ -109,6 +109,7 @@ public class Labirinto {
 	private ArrayList<int[]> getEmptySpaces() {
 		int i = dog.getCoordLinha();
 		int j = dog.getCoordColuna();
+
 		if (maze[i - 1][j].getType() == 'E') {
 			int[] moveUp = {i - 1, j};
 			emptyCells.add(moveUp);
@@ -122,6 +123,7 @@ public class Labirinto {
 			int[] moveRight = {i, j + 1};
 			emptyCells.add(moveRight);
 		}
+
 		return emptyCells;
 	}
 			
