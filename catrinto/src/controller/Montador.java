@@ -1,5 +1,6 @@
 package controller;
 
+import model.Cachorro;
 import model.Empty;
 import model.Gato;
 import model.Labirinto;
@@ -9,16 +10,18 @@ import model.Wall;
 public class Montador {
 	private Labirinto maze;
 	private Gato cat;
+	private Cachorro dog;
 	private Wall wall;
 	private Empty empty;
 	private Toca toca;
 	
 	public Montador(Control control) {
 		this.cat = new Gato(maze, 'G', 0, 0);
+		this.dog = new Cachorro(maze, 'C', 16, 9);
 		this.wall = new Wall(maze, 'W');
 		this.empty = new Empty(maze, 'E');
 		this.toca = new Toca(maze, 'T');
-		this.maze = new Labirinto(control, cat, wall, empty, toca); 
+		this.maze = new Labirinto(control, cat, wall, dog, empty, toca); 
 	}
 
 	public Labirinto getLabirinto() {

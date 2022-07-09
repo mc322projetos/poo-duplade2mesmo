@@ -20,11 +20,10 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 		super(view);
 		
 		JPanel panel = super.getPanel();
-		panel.setBackground(Color.CYAN);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
 		logo = new JLabel("CatRinto", new ImageIcon("src/view/cat.png"), 0);
 		logo.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		logo.setAlignmentY(JLabel.CENTER_ALIGNMENT);
 		logo.setFont(new Font("Roboto", Font.ITALIC, 30));
 		logo.setVerticalTextPosition(JLabel.BOTTOM);
         logo.setHorizontalTextPosition(JLabel.CENTER);

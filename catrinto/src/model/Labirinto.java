@@ -35,9 +35,10 @@ public class Labirinto {
 			{'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'T'}		
 	};
 	
-	public Labirinto(Control control, Gato cat, Wall wall, Empty empty, Toca toca) {
+	public Labirinto(Control control, Gato cat, Wall wall, Cachorro dog, Empty empty, Toca toca) {
 		this.control = control;
 		this.cat = cat;
+		this.dog = dog;
 		this.maze = new Celula[20][20];
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
@@ -45,6 +46,8 @@ public class Labirinto {
 					maze[i][j] = new Celula(cat);
 				} else if (mazeChar[i][j] == 'W') {
 					maze[i][j] = new Celula(wall);
+				} else if (mazeChar[i][j] == 'C') {
+					maze[i][j] = new Celula(dog);
 				} else if (mazeChar[i][j] == 'E') {
 					maze[i][j] = new Celula(empty);
 				} else if (mazeChar[i][j] == 'T') {

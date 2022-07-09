@@ -25,7 +25,7 @@ public abstract class ScreenAdapter {
 		frame.setVisible(true);
 		
 		panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.CYAN);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		frame.add(panel);
 	}

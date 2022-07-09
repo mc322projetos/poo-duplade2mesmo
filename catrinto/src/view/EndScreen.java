@@ -1,11 +1,10 @@
 package view;
 
-import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -17,52 +16,35 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 
 	EndScreen(View view, boolean ganhou) {
 		super(view);
-
-		JPanel panel = super.getPanel();
-		panel.setBackground(Color.CYAN);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		if (ganhou == true) {
-			resultado = new JLabel("Você ganhou :)", new ImageIcon("src/view/youWin.png"), 0);
-			resultado.setSize(100, 100);
-			resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
-			resultado.setVerticalTextPosition(JLabel.BOTTOM);
-			resultado.setHorizontalTextPosition(JLabel.CENTER);
-			resultado.setIconTextGap(10);
-			
-			int timeTaken = view.getControl().getTimer().getTempoLevado();
-			JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
-			
-			restart = new JButton("Play Again");
-			restart.addActionListener(this);
-			// restart.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		JPanel panel = super.getPanel();
+		
+		if (ganhou)
+			resultado = new JLabel("VocÃª ganhou :)", new ImageIcon("src/view/youWin.png"), 0);
+		else
+			resultado = new JLabel("VocÃª perdeu :(", new ImageIcon("src/view/Game_Over.png"), 0);
 
-			panel.add(resultado);
-			panel.add(tempo);
-			panel.add(restart);
-			super.getFrame().setContentPane(panel);
-			super.getFrame().revalidate();
-			super.getFrame().repaint();
-		}
-		else {
-			resultado = new JLabel("Você perdeu :(", new ImageIcon("src/view/Game_Over.png"), 0);
-			resultado.setSize(100, 100);
-			resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
-			resultado.setVerticalTextPosition(JLabel.BOTTOM);
-			resultado.setHorizontalTextPosition(JLabel.CENTER);
-			resultado.setIconTextGap(10);
+		resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
+		resultado.setSize(100, 100);
+		resultado.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		resultado.setVerticalTextPosition(JLabel.BOTTOM);
+		resultado.setHorizontalTextPosition(JLabel.CENTER);
+
+		int timeTaken = view.getControl().getTimer().getTempoLevado();
+		JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
+		tempo.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		
+		restart = new JButton("Play Again");
+		restart.addActionListener(this);
+		restart.setAlignmentX(JButton.CENTER_ALIGNMENT);
 			
-			restart = new JButton("Play Again");
-			restart.addActionListener(this);
-			// restart.setAlignmentX(JLabel.CENTER);
+		panel.add(resultado);
+		panel.add(tempo);
+		panel.add(restart);
 
-			panel.add(resultado);
-			panel.add(restart);
-			super.getFrame().setContentPane(panel);
-			super.getFrame().revalidate();
-			super.getFrame().repaint();
-
-		}
+		super.getFrame().setContentPane(panel);
+		super.getFrame().revalidate();
+		super.getFrame().repaint();
 	}
 
 	@Override

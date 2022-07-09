@@ -26,13 +26,12 @@ public class Cronometro {
 					if (contador == 0) {
 						tm.cancel();
 						rodando = false;
-						contador = 20;
+						tempoLevado = 20;
 						control.tempoAcabou(false);
 					} else if (control.win()) {
 						tm.cancel();
 						rodando = false;
 						tempoLevado = 20 - contador;
-						contador = 20;
 						control.tempoAcabou(true);
 					}
 					control.getMaze().moverCachorro();
@@ -40,10 +39,6 @@ public class Cronometro {
 				}		
 			}, 1000, 1000);
 		}
-	}
-	
-	public int getContador() {
-		return contador;
 	}
 
 	public int getTempoLevado() {
