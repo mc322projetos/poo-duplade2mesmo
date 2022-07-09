@@ -35,6 +35,7 @@ public class Cronometro {
 						contador = 20;
 						control.tempoAcabou(true);
 					}
+					control.getMaze().moverCachorro();
 					control.setCountdown(contador);
 				}		
 			}, 1000, 1000);
