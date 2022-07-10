@@ -34,25 +34,26 @@ public class MainScreen extends ScreenAdapter {
 
 		hud = new HUD();
 		catLabel = new CatLabel(this);
-		dogLabel  = new DogLabel(this);
 		
 		super.getFrame().remove(panel);
 
 		super.addToFrame(catLabel);
-		super.addToFrame(dogLabel);
 		super.addToFrame(hud);
 		super.addToFrame(panel);
 		
 		catLabel.setBounds(305, 65, 20, 20);
-		dogLabel.setBounds(305, 65, 20, 20);
 		panel.setBounds(300, 60, 410, 410);
 		hud.setBounds(425, 10, 150, 25);
 
 		super.getFrame().setLayout(null);
 
 		catLabel.requestFocus();
-		catLabel.addKeyListener(catLabel);;
+		catLabel.addKeyListener(catLabel);
 
+	}
+
+	public DogLabel getDogLabel(){
+		return dogLabel;
 	}
 	
 	public void setCountdown(int time) {
@@ -76,9 +77,12 @@ public class MainScreen extends ScreenAdapter {
                 	case 'W':
                 		panel.add(new JLabel(new ImageIcon("src/view/wall.png")));
                 		break;
-					// case 'C':
-					// 	panel.add(new JLabel(new ImageIcon("src/view/dog.png")));
-					// 	break;
+					case 'C':
+						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
+						dogLabel = new DogLabel(this);
+						super.getFrame().add(dogLabel);
+						dogLabel.setBounds(305 + j * 20, 65 + i * 20, 20, 20);
+						break;
                 	case 'T':
                 		panel.add(new JLabel(new ImageIcon("src/view/linhaChegada.png")));
 						break;					
@@ -86,11 +90,7 @@ public class MainScreen extends ScreenAdapter {
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
                 		break;
               }
+
 	}
 
-
-
-	public void moverCachorro(int old_i, int old_j, int i, int j) {
-		dogLabel.moverCachorro(old_i, old_j, i, j);
-	}
 }

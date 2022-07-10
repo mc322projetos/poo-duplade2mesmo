@@ -15,12 +15,11 @@ public class Control{
         timer = new Cronometro(this);
     }
 
-    // @Override
     public void play() {
         montador = new Montador(this);
         model = montador.getLabirinto();
-        view.changeScreen(1, ganhou);
         timer.start();
+        view.changeScreen(1, ganhou);
 
     }
 
@@ -46,15 +45,12 @@ public class Control{
 	}
 
     public boolean moveAttempt(char key) {
-        if (model.moverGato(key)) {
-            if (model.ganhouJogo()) {
-                this.win();
-            }
-            return true;
-        }
-        else
-            return false;
+        return model.moverGato(key);
             
+    }
+
+    public int[] moveAttempt() {
+        return model.moverCachorro();
     }
 
     public boolean win() {
@@ -73,9 +69,17 @@ public class Control{
        return timer.getRodando();
    }
 
-   public void moverCachorro(int old_i, int old_j, int i, int j) {
-    view.getMainScreen().moverCachorro(old_i, old_j, i, j);
-}
+    public View getView() {
+        return view;
+    }
 
+    public boolean gatoMorto() {
+        if (model.gatoMorto()) {
+            timer.cancel();
+            return true;
+        }
+        return false;
+
+    }
     
 }

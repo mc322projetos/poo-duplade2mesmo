@@ -15,7 +15,7 @@ public class Cronometro {
 	}
 
 	public void start() {
-		contador = 20;
+		contador = 30;
 		if (!rodando) {
 			tm = new Timer();
 			rodando = true;
@@ -33,9 +33,11 @@ public class Cronometro {
 						rodando = false;
 						tempoLevado = 20 - contador;
 						control.tempoAcabou(true);
+					} else {
+						tempoLevado = 20 - contador;
+						control.getView().getMainScreen().getDogLabel().moverCachorro();
+						control.setCountdown(contador);
 					}
-					control.getMaze().moverCachorro();
-					control.setCountdown(contador);
 				}		
 			}, 1000, 1000);
 		}
@@ -47,5 +49,10 @@ public class Cronometro {
 
 	public boolean getRodando() {
 		return rodando;
+	}
+
+	public void cancel() {
+		tm.cancel();
+		rodando = false;
 	}
 }

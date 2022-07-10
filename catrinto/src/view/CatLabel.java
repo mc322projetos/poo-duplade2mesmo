@@ -6,27 +6,27 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class CatLabel extends JLabel implements KeyListener{
+public class CatLabel extends JLabel implements KeyListener {
     MainScreen mainScreen;
 
     CatLabel(MainScreen mainScreen) {
-        super(new ImageIcon
-        (new ImageIcon("src/view/cat.png").getImage().getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH)));
+        super(new ImageIcon(
+                new ImageIcon("src/view/cat.png").getImage().getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH)));
         this.mainScreen = mainScreen;
 
     }
 
     @Override
-	public void keyPressed(KeyEvent e) {
-		
-	}
+    public void keyPressed(KeyEvent e) {
 
-	@Override
-	public void keyReleased(KeyEvent e) {
-		
-	}
+    }
 
-	@Override
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
 	public void keyTyped(KeyEvent e) {
         char key = e.getKeyChar();
         if (mainScreen.getView().getControl().moveAttempt(key)) {
@@ -45,9 +45,13 @@ public class CatLabel extends JLabel implements KeyListener{
                         break;
                 default:
                     	break;
-            } if (mainScreen.getView().getControl().win()) {
-                mainScreen.getView().changeScreen(2, true);
             }
+
+            if (mainScreen.getView().getControl().win())
+                mainScreen.getView().changeScreen(2, true);
+            else
+                if (mainScreen.getView().getControl().gatoMorto())
+                    mainScreen.getView().changeScreen(2, false);
         } 
 	}
 }

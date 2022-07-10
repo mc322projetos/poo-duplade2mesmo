@@ -16,8 +16,8 @@ public class Montador {
 	private Toca toca;
 	
 	public Montador(Control control) {
-		this.cat = new Gato(maze, 'G', 0, 0);
-		this.dog = new Cachorro(maze, 'C', 16, 9);
+		this.cat = new Gato(maze, 'G');
+		this.dog = new Cachorro(maze, 'C');
 		this.wall = new Wall(maze, 'W');
 		this.empty = new Empty(maze, 'E');
 		this.toca = new Toca(maze, 'T');

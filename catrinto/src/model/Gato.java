@@ -6,11 +6,11 @@ public class Gato extends Atores{
 	private int coordLinha;
 	private int coordColuna;
 	
-	public Gato(Labirinto labirinto, char tipo, int coordLinha, int coordColuna) {
+	public Gato(Labirinto labirinto, char tipo) {
 		this.tipo = tipo;
 		this.labirinto = labirinto;
-		this.coordLinha = coordLinha;
-		this.coordColuna = coordColuna;
+		this.coordLinha = 0;
+		this.coordColuna = 0;
 	}
 	
 	@Override

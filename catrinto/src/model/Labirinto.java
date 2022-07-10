@@ -10,7 +10,6 @@ public class Labirinto {
 	private Celula maze[][];
 	private Gato cat;
 	private Cachorro dog;
-	private ArrayList<int[]> emptyCells = new ArrayList<int[]> ();
 
 	char[][] mazeChar = {
 			{'G', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E'},
@@ -22,7 +21,7 @@ public class Labirinto {
 			{'E', 'E', 'W', 'E', 'W', 'W', 'E', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'W', 'E', 'E', 'W', 'W'},
 			{'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'W', 'W', 'E', 'E', 'E'},
 			{'W', 'W', 'E', 'W', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'E', 'E', 'W', 'E', 'E', 'W', 'W', 'E'},
-			{'E', 'W', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E', 'W', 'E'},
+			{'E', 'W', 'E', 'E', 'W', 'E', 'E', 'C', 'E', 'E', 'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E', 'W', 'E'},
 			{'E', 'E', 'E', 'W', 'W', 'W', 'W', 'W', 'E', 'W', 'W', 'W', 'W', 'W', 'E', 'E', 'W', 'E', 'W', 'E'},
 			{'W', 'W', 'E', 'E', 'W', 'E', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'W', 'E', 'W', 'E', 'E'},
 			{'W', 'W', 'E', 'E', 'E', 'E', 'W', 'W', 'W', 'W', 'W', 'W', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'W'},
@@ -47,6 +46,8 @@ public class Labirinto {
 				} else if (mazeChar[i][j] == 'W') {
 					maze[i][j] = new Celula(wall);
 				} else if (mazeChar[i][j] == 'C') {
+					dog.setCoordLinha(i);
+					dog.setCoordColuna(j);
 					maze[i][j] = new Celula(dog);
 				} else if (mazeChar[i][j] == 'E') {
 					maze[i][j] = new Celula(empty);
@@ -110,17 +111,19 @@ public class Labirinto {
 		int i = dog.getCoordLinha();
 		int j = dog.getCoordColuna();
 
-		if (maze[i - 1][j].getType() == 'E') {
-			int[] moveUp = {i - 1, j};
+		ArrayList<int[]> emptyCells = new ArrayList<int[]> ();
+
+		if (maze[i - 1][j].getType() != 'W') {
+			int[] moveUp = {-1, 0};
 			emptyCells.add(moveUp);
-		} if (maze[i + 1][j].getType() == 'E') {
-			int[] moveDown = {i + 1, j};
+		} if (maze[i + 1][j].getType() != 'W') {
+			int[] moveDown = {1, 0};
 			emptyCells.add(moveDown);
-		} if (maze[i][j - 1].getType() == 'E') {
-			int[] moveLeft = {i, j - 1};
+		} if (maze[i][j - 1].getType() != 'W') {
+			int[] moveLeft = {0, -1};
 			emptyCells.add(moveLeft);
-		} if (maze[i][j + 1].getType() == 'E') {
-			int[] moveRight = {i, j + 1};
+		} if (maze[i][j + 1].getType() != 'W') {
+			int[] moveRight = {0, 1};
 			emptyCells.add(moveRight);
 		}
 
@@ -134,13 +137,20 @@ public class Labirinto {
 		return celulaSorteada;
 	}
 	
-	public void moverCachorro() {
+	public int[] moverCachorro() {
 		if (control.isRunning()) {
 			int[] newCoord = sortearMovimento();
-			control.moverCachorro(dog.getCoordLinha(), dog.getCoordColuna(), newCoord[0], newCoord[1]);
-			dog.setCoordLinha(newCoord[0]);
-			dog.setCoordColuna(newCoord[1]);
+			dog.setCoordLinha(dog.getCoordLinha() + newCoord[0]);
+			dog.setCoordColuna(dog.getCoordColuna() + newCoord[1]);
+
+			return newCoord;
 		}
+		return null;
+	}
+
+	public boolean gatoMorto() {
+		return (cat.getCoordLinha() == dog.getCoordLinha() &&
+		cat.getCoordColuna() == dog.getCoordColuna());
 	}
 
 }

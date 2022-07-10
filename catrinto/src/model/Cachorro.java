@@ -6,9 +6,7 @@ public class Cachorro extends Atores {
 	private int linhaCachorro;
 	private int colunaCachorro;
 	
-	public Cachorro(Labirinto maze, char tipo, int linhaCachorro, int colunaCachorro) {
-		this.linhaCachorro = linhaCachorro;
-		this.colunaCachorro = colunaCachorro;
+	public Cachorro(Labirinto maze, char tipo) {
 		this.maze = maze;
 		this.tipo = tipo;
 	}
@@ -28,14 +26,6 @@ public class Cachorro extends Atores {
 	
 	public void setCoordColuna(int coordColuna) {
 		this.colunaCachorro = coordColuna;
-	}
-	
-	public boolean matarGato(int linhaGato, int colunaGato) {
-		if (maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'C' && maze.getMaze()[linhaCachorro][colunaCachorro].getType() == 'G') {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	@Override
