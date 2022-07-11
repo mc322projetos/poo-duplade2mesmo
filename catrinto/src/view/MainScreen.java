@@ -18,6 +18,7 @@ public class MainScreen extends ScreenAdapter {
 	HUD hud;
 	CatLabel catLabel;
 	DogLabel dogLabel;
+	FinishLineLabel finishLineLabel;
 
 	MainScreen(View view) {
 		super(view);
@@ -34,14 +35,17 @@ public class MainScreen extends ScreenAdapter {
 
 		hud = new HUD();
 		catLabel = new CatLabel(this);
+		finishLineLabel = new FinishLineLabel(this);
 		
 		super.getFrame().remove(panel);
 
 		super.addToFrame(catLabel);
+		super.addToFrame(finishLineLabel);
 		super.addToFrame(hud);
 		super.addToFrame(panel);
 		
 		catLabel.setBounds(305, 65, 20, 20);
+		finishLineLabel.setBounds(685, 445, 20, 20);
 		panel.setBounds(300, 60, 410, 410);
 		hud.setBounds(425, 10, 150, 25);
 
@@ -84,7 +88,6 @@ public class MainScreen extends ScreenAdapter {
 						dogLabel.setBounds(305 + j * 20, 65 + i * 20, 20, 20);
 						break;
                 	case 'T':
-                		panel.add(new JLabel(new ImageIcon("src/view/linhaChegada.png")));
 						break;					
 					default:
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));

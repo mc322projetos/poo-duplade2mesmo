@@ -26,15 +26,15 @@ public class Cronometro {
 					if (contador == 0) {
 						tm.cancel();
 						rodando = false;
-						tempoLevado = 20;
+						tempoLevado = 30;
 						control.tempoAcabou(false);
 					} else if (control.win()) {
-						tm.cancel();
-						rodando = false;
-						tempoLevado = 20 - contador;
 						control.tempoAcabou(true);
+						rodando = false;
+						tempoLevado = 30 - contador;
+						tm.cancel();
 					} else {
-						tempoLevado = 20 - contador;
+						tempoLevado = 30 - contador;
 						control.getView().getMainScreen().getDogLabel().moverCachorro();
 						control.setCountdown(contador);
 					}

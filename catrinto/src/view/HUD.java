@@ -13,7 +13,7 @@ public class HUD extends JPanel {
 		this.setLayout(new FlowLayout());
 		countdownLabel = new JLabel();
 		this.add(countdownLabel);
-		setCountdown(20);
+		setCountdown(30);
 		
 	}
 	

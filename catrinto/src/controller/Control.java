@@ -3,7 +3,7 @@ package controller;
 import model.Labirinto;
 import view.View;
 
-public class Control{
+public class Control implements IControlView, IControlModel{
     private Labirinto model; // classe principal do modelo
     private View view;
     private Cronometro timer;
@@ -45,12 +45,19 @@ public class Control{
 	}
 
     public boolean moveAttempt(char key) {
-        return model.moverGato(key);
-            
+        try {
+            return model.moverGato(key);
+        } catch (IndexOutOfBoundsException erro) {
+            return false;
+        } 
     }
 
     public int[] moveAttempt() {
-        return model.moverCachorro();
+        try {
+            return model.moverCachorro();
+        } catch (IndexOutOfBoundsException erro) {
+            return null;
+        }
     }
 
     public boolean win() {
