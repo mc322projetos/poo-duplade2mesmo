@@ -44,16 +44,15 @@ public class MainScreen extends ScreenAdapter {
 		super.addToFrame(hud);
 		super.addToFrame(panel);
 		
-		catLabel.setBounds(305, 65, 20, 20);
-		finishLineLabel.setBounds(685, 445, 20, 20);
-		panel.setBounds(300, 60, 410, 410);
-		hud.setBounds(425, 10, 150, 25);
+		catLabel.setBounds(455, 155, 20, 20);
+		finishLineLabel.setBounds(835, 530, 20, 20);
+		panel.setBounds(450, 150, 410, 410);
+		hud.setBounds(590, 110, 150, 25);
 
 		super.getFrame().setLayout(null);
 
 		catLabel.requestFocus();
 		catLabel.addKeyListener(catLabel);
-
 	}
 
 	public DogLabel getDogLabel(){
@@ -85,10 +84,8 @@ public class MainScreen extends ScreenAdapter {
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
 						dogLabel = new DogLabel(this);
 						super.getFrame().add(dogLabel);
-						dogLabel.setBounds(305 + j * 20, 65 + i * 20, 20, 20);
-						break;
-                	case 'T':
-						break;					
+						dogLabel.setBounds(455 + j * 20, 155 + i * 20, 20, 20);
+						break;				
 					default:
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
                 		break;
