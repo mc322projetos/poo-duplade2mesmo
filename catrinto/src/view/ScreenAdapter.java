@@ -28,6 +28,9 @@ public abstract class ScreenAdapter {
 		panel.setBackground(Color.CYAN);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		frame.add(panel);
+
+		frame.revalidate();
+		frame.repaint();
 	}
 	
 	protected void changeScreen(int screen) {
