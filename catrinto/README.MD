@@ -8,6 +8,9 @@
 * Anderson Murillo Tito Lira Leite, 248221
 * Isaac do Nascimento Oliveira, 247175
 
+# Arquivo executável do jogo
+> [Link jogo](https://github.com/mc322projetos/poo-duplade2mesmo/blob/main/catrinto/src/catrinto.jar)
+
 # Slides do projeto
 
 ## Link slides prévia

@@ -1,5 +1,3 @@
-// falta arrumar o caminho dos pacotes
-
 import java.awt.EventQueue;
 
 import controller.Control;
