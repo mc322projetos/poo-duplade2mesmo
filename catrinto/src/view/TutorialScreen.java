@@ -20,7 +20,7 @@ public class TutorialScreen extends ScreenAdapter implements ActionListener{
         JPanel panel = super.getPanel();
         
         teclado = new JLabel("Comandos:", new ImageIcon
-        (new ImageIcon("src/view/keyBoard.png").getImage().getScaledInstance(400, 400,  java.awt.Image.SCALE_SMOOTH)), 0);
+        (new ImageIcon(getClass().getResource("/view/keyBoard.png")).getImage().getScaledInstance(400, 400,  java.awt.Image.SCALE_SMOOTH)), 0);
         teclado.setFont(new Font("Roboto", Font.BOLD, 30));
 		teclado.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 		teclado.setVerticalTextPosition(JLabel.TOP);

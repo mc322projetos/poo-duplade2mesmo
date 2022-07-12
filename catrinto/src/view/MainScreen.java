@@ -73,19 +73,19 @@ public class MainScreen extends ScreenAdapter {
 	    	for (int j = 0; j < n; j++)
 	    		switch(charMap[i][j]) {
                 	case 'E': 
-                		panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
+                		panel.add(new JLabel(new ImageIcon(getClass().getResource("/view/empty.png"))));
                 		break;
                 	case 'W':
-                		panel.add(new JLabel(new ImageIcon("src/view/wall.png")));
+                		panel.add(new JLabel(new ImageIcon(getClass().getResource("/view/wall.png"))));
                 		break;
 					case 'C':
-						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
-						dogLabel = (new DogLabel(this));
+						panel.add(new JLabel(new ImageIcon(getClass().getResource("/view/empty.png"))));
+						dogLabel = new DogLabel(this);
 						super.getFrame().add(dogLabel);
 						dogLabel.setBounds(305 + j * 20, 65 + i * 20, 20, 20);
 						break;		
 					default:
-						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
+						panel.add(new JLabel(new ImageIcon(getClass().getResource("/view/empty.png"))));
                 		break;
               }
 

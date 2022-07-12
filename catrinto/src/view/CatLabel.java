@@ -7,11 +7,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class CatLabel extends JLabel implements KeyListener {
-    MainScreen mainScreen;
+	private static final long serialVersionUID = 4241422920485530291L;
+	MainScreen mainScreen;
 
     CatLabel(MainScreen mainScreen) {
-        super(new ImageIcon(
-                new ImageIcon("src/view/cat.png").getImage().getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH)));
+    	super.setIcon(new ImageIcon
+    			(new ImageIcon(getClass().getResource("/view/cat.png")).getImage().getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH)));
         this.mainScreen = mainScreen;
 
     }

@@ -4,11 +4,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class DogLabel extends JLabel{
-    MainScreen mainScreen;
+  	private static final long serialVersionUID = -5963824921145628309L;
+	MainScreen mainScreen;
 
     DogLabel(MainScreen mainScreen) {
-        super(new ImageIcon
-        (new ImageIcon("src/view/dog.png").getImage().getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH)));
+    	super.setIcon(new ImageIcon
+    			(new ImageIcon(getClass().getResource("/view/dog.png")).getImage().getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH)));
         this.mainScreen = mainScreen;
     }
 

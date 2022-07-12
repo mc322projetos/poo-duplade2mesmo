@@ -11,3 +11,13 @@ public interface IControlView {
     public boolean moveAttempt(char key);
     public int[] moveAttempt();
 }
+
+
+
+
+
+
+
+
+
+
