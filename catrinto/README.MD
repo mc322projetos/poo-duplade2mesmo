@@ -20,7 +20,7 @@
 > [Slides da apresentação final](https://www.canva.com/design/DAFFFVv_KqQ/cfWruzL7y53D38RErGeRlA/edit?utm_content=DAFFFVv_KqQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## Relatório de Evolução
-* Neste projeto, aprendemos a implementar uma arquitetura fundamental para qualquer programador(MVC), o qual foi muito importante para que pudessemos concluir o jogo, pois além de dar mais consistência ao código, nos deu uma visão mais clara do que estavamos fazendo durante a produção do jogo. 
+Neste projeto, aprendemos a implementar uma arquitetura fundamental para qualquer programador(MVC), o qual foi muito importante para que pudessemos concluir o jogo, pois além de dar mais consistência ao código, nos deu uma visão mais clara do que estavamos fazendo durante a produção do jogo. 
 
 Em relação às dificuldades enfrentadas, tivemos em fazer a comunicação entre os componentes, principalmente em o View e os outros os dois, além disso, também tivemos dificuldade em adicionar um design pattern ao nosso jogo e de implementar a View com o JFrame, ou seja, sem um FrameWork como o LibGDX, o qual também tivemos dificuldade em aprender a implementar.
 
