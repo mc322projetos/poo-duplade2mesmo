@@ -26,5 +26,5 @@ Em relação às dificuldades enfrentadas, tivemos em fazer a comunicação entr
 
 Agora em relação às melhorias, podemos listar varias, mas as mais importantes seriam implementar a view com o LibGDX, adicionar outros atores no jogo, como por exemplo mais cachorros. Por fim, podemos dizer que aprendemos diversas coisas, uma delas é começar pelo mais dificil no código, que no caso foi a View, pois nunca tinhamos estudado sobre isso antes.
 
-## Destaques de código
+# Destaques de código
 
