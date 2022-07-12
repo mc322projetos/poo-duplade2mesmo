@@ -39,7 +39,6 @@ public class Labirinto {
 		this.control = control;
 		this.cat = cat;
 		this.dog = dog;
-		// this.dogArr = dogArr;
 		this.maze = new Celula[20][20];
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
@@ -118,24 +117,27 @@ public class Labirinto {
 			if (maze[i - 1][j].getType() != 'W') {
 				int[] moveUp = {-1, 0};
 				emptyCells.add(moveUp);
-			} if (maze[i + 1][j].getType() != 'W') {
+			}
+		} catch (IndexOutOfBoundsException erro) {}
+		try {
+			if (maze[i + 1][j].getType() != 'W') {
 				int[] moveDown = {1, 0};
 				emptyCells.add(moveDown);
-			} if (maze[i][j - 1].getType() != 'W') {
+			}
+		} catch (IndexOutOfBoundsException erro) {}
+		try {
+			if (maze[i][j - 1].getType() != 'W') {
 				int[] moveLeft = {0, -1};
 				emptyCells.add(moveLeft);
-			} if (maze[i][j + 1].getType() != 'W') {
+			}
+		} catch (IndexOutOfBoundsException erro) {}
+		try {
+			if (maze[i][j + 1].getType() != 'W') {
 				int[] moveRight = {0, 1};
 				emptyCells.add(moveRight);
 			}
+		} catch(IndexOutOfBoundsException erro) {}
 
-		} catch (IndexOutOfBoundsException erro) {
-			int[] parado = {0,0};
-			emptyCells.add(parado);
-			return emptyCells;
-		}
-			// catch index: retorna {0,0}
-		
 		int[] lastMove = dog.getLastMove();
 		int oppositeLastMove[] = {(-lastMove[0]), (-lastMove[1])};
 		boolean igual = true;

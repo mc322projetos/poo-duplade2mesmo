@@ -3,8 +3,6 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -46,9 +44,9 @@ public class MainScreen extends ScreenAdapter {
 		super.addToFrame(panel);
 		
 		catLabel.setBounds(305, 65, 20, 20);
-		finishLineLabel.setBounds(835, 535, 20, 20);
-		panel.setBounds(305, 65, 410, 410);
-		hud.setBounds(590, 110, 150, 25);
+		finishLineLabel.setBounds(685, 445, 20, 20);
+        panel.setBounds(300, 60, 410, 410);
+        hud.setBounds(425, 10, 150, 25);
 
 		super.getFrame().setLayout(null);
 
@@ -85,7 +83,7 @@ public class MainScreen extends ScreenAdapter {
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
 						dogLabel = (new DogLabel(this));
 						super.getFrame().add(dogLabel);
-						dogLabel.setBounds(455 + j * 20, 155 + i * 20, 20, 20);
+						dogLabel.setBounds(305 + j * 20, 65 + i * 20, 20, 20);
 						break;		
 					default:
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));

@@ -14,16 +14,8 @@ public class DogLabel extends JLabel{
 
     public void moverCachorro() {
         int[] move = mainScreen.getView().getControl().moveAttempt();
-        
-        try {
-            this.setLocation(this.getX() + move[1] * 20, this.getY() + move[0] * 20);
-        } catch (NullPointerException erro) {
-            System.err.println("Erro: " + erro.getMessage());
-        } finally {
-            if (mainScreen.getView().getControl().gatoMorto())
-                mainScreen.getView().changeScreen(2, false);
-        }
-
-            
+        this.setLocation(this.getX() + move[1] * 20, this.getY() + move[0] * 20);
+        if (mainScreen.getView().getControl().gatoMorto()) 
+            mainScreen.getView().changeScreen(2, false);
     }
 } 

@@ -23,7 +23,7 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 		else
 			resultado = new JLabel("Você perdeu :(", new ImageIcon("src/view/Game_Over.png"), 0);
 
-		resultado.setFont(new Font("Roboto", Font.ITALIC, 30));
+		resultado.setFont(new Font("Roboto", Font.BOLD, 30));
 		resultado.setSize(100, 100);
 		resultado.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 		resultado.setVerticalTextPosition(JLabel.BOTTOM);
@@ -31,6 +31,7 @@ public class EndScreen extends ScreenAdapter implements ActionListener{
 
 		int timeTaken = view.getControl().getTimer().getTempoLevado();
 		JLabel tempo = new JLabel(String.format("Tempo levado: %02d", timeTaken));
+		tempo.setFont(new Font("Roboto", Font.BOLD, 25));
 		tempo.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 		
 		restart = new JButton("Play Again");
