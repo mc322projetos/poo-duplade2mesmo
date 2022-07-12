@@ -17,6 +17,6 @@
 > [Slides Prévia](https://github.com/mc322projetos/poo-duplade2mesmo/blob/main/catrinto/assets/duplade2mesmo.pdf)
 
 ## Slides da apresentação final
-> [Slides da apresentação final](file:///C:/Users/CeltC/Downloads/Apresenta%C3%A7%C3%A3o%20projeto%20final.pdf)
+> [Slides da apresentação final](https://www.canva.com/design/DAFFFVv_KqQ/cfWruzL7y53D38RErGeRlA/edit)
 
 # Diagramas
