@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,11 +19,11 @@ public class MainScreen extends ScreenAdapter {
 	HUD hud;
 	CatLabel catLabel;
 	DogLabel dogLabel;
+	// ArrayList<DogLabel> dogLabelArr = new ArrayList<DogLabel>();
 	FinishLineLabel finishLineLabel;
 
 	MainScreen(View view) {
 		super(view);
-		
 		
 		setMontador(super.getView().getControl().getMontador());
 		super.getFrame().getContentPane().setBackground(Color.CYAN);
@@ -44,9 +45,9 @@ public class MainScreen extends ScreenAdapter {
 		super.addToFrame(hud);
 		super.addToFrame(panel);
 		
-		catLabel.setBounds(455, 155, 20, 20);
-		finishLineLabel.setBounds(835, 530, 20, 20);
-		panel.setBounds(450, 150, 410, 410);
+		catLabel.setBounds(305, 65, 20, 20);
+		finishLineLabel.setBounds(835, 535, 20, 20);
+		panel.setBounds(305, 65, 410, 410);
 		hud.setBounds(590, 110, 150, 25);
 
 		super.getFrame().setLayout(null);
@@ -82,10 +83,10 @@ public class MainScreen extends ScreenAdapter {
                 		break;
 					case 'C':
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
-						dogLabel = new DogLabel(this);
+						dogLabel = (new DogLabel(this));
 						super.getFrame().add(dogLabel);
 						dogLabel.setBounds(455 + j * 20, 155 + i * 20, 20, 20);
-						break;				
+						break;		
 					default:
 						panel.add(new JLabel(new ImageIcon("src/view/empty.png")));
                 		break;

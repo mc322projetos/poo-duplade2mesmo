@@ -5,10 +5,13 @@ public class Cachorro extends Atores {
 	private Labirinto maze;
 	private int linhaCachorro;
 	private int colunaCachorro;
+	private int[] lastMove = new int[2];
 	
 	public Cachorro(Labirinto maze, char tipo) {
 		this.maze = maze;
 		this.tipo = tipo;
+		int[] initial = {0,0};
+		this.setLastMove(initial);
 	}
 	
 	
@@ -31,5 +34,13 @@ public class Cachorro extends Atores {
 	@Override
 	public char getType() {
 		return tipo;
+	}
+
+	public int[] getLastMove() {
+		return this.lastMove;
+	}
+
+	public void setLastMove(int[] move) {
+		this.lastMove = move;
 	}
 }

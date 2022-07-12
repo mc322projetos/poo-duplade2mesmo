@@ -48,7 +48,7 @@ public class CatLabel extends JLabel implements KeyListener {
             }
 
             if (mainScreen.getView().getControl().win())
-                mainScreen.getView().changeScreen(2, true);
+                mainScreen.getView().getControl().tempoAcabou(true);
             else
                 if (mainScreen.getView().getControl().gatoMorto())
                     mainScreen.getView().changeScreen(2, false);

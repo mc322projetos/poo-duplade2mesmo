@@ -18,8 +18,8 @@ public class Control implements IControlView, IControlModel{
     public void play() {
         montador = new Montador(this);
         model = montador.getLabirinto();
-        timer.start();
         view.changeScreen(1, ganhou);
+        timer.start();
 
     }
 
@@ -33,6 +33,7 @@ public class Control implements IControlView, IControlModel{
 
 
     public void tempoAcabou(boolean ganhou) {
+        timer.cancel();
         view.changeScreen(2, ganhou);
     }
 
@@ -53,11 +54,7 @@ public class Control implements IControlView, IControlModel{
     }
 
     public int[] moveAttempt() {
-        try {
-            return model.moverCachorro();
-        } catch (IndexOutOfBoundsException erro) {
-            return null;
-        }
+        return model.moverCachorro();
     }
 
     public boolean win() {

@@ -20,8 +20,8 @@ public abstract class ScreenAdapter {
 		frame.getContentPane().removeAll();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		frame.setSize(1000, 600);
 		frame.setTitle("CatRinto");
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
 		
 		panel = new JPanel();

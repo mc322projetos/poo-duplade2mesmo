@@ -19,28 +19,33 @@ public class Cronometro {
 		if (!rodando) {
 			tm = new Timer();
 			rodando = true;
+			this.startDog();
 			tm.scheduleAtFixedRate(new TimerTask() {
 				@Override
 				public void run() {
 					contador -= 1;
 					if (contador == 0) {
-						tm.cancel();
 						rodando = false;
 						tempoLevado = 30;
 						control.tempoAcabou(false);
-					} else if (control.win()) {
-						control.tempoAcabou(true);
-						rodando = false;
-						tempoLevado = 30 - contador;
-						tm.cancel();
 					} else {
 						tempoLevado = 30 - contador;
-						control.getView().getMainScreen().getDogLabel().moverCachorro();
 						control.setCountdown(contador);
 					}
 				}		
 			}, 1000, 1000);
 		}
+	}
+
+
+	public void startDog() {
+		tm = new Timer();
+			tm.scheduleAtFixedRate(new TimerTask() {
+				@Override
+				public void run() {
+					control.getView().getMainScreen().getDogLabel().moverCachorro();
+				}		
+			}, 350, 350);
 	}
 
 	public int getTempoLevado() {

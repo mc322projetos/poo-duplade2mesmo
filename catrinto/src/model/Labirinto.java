@@ -10,6 +10,7 @@ public class Labirinto {
 	private Celula maze[][];
 	private Gato cat;
 	private Cachorro dog;
+	// private ArrayList<Cachorro> dogArr;
 
 	char[][] mazeChar = {
 			{'G', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E'},
@@ -38,6 +39,7 @@ public class Labirinto {
 		this.control = control;
 		this.cat = cat;
 		this.dog = dog;
+		// this.dogArr = dogArr;
 		this.maze = new Celula[20][20];
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
@@ -110,23 +112,47 @@ public class Labirinto {
 	private ArrayList<int[]> getEmptySpaces() {
 		int i = dog.getCoordLinha();
 		int j = dog.getCoordColuna();
-
 		ArrayList<int[]> emptyCells = new ArrayList<int[]> ();
+		
+		try {
+			if (maze[i - 1][j].getType() != 'W') {
+				int[] moveUp = {-1, 0};
+				emptyCells.add(moveUp);
+			} if (maze[i + 1][j].getType() != 'W') {
+				int[] moveDown = {1, 0};
+				emptyCells.add(moveDown);
+			} if (maze[i][j - 1].getType() != 'W') {
+				int[] moveLeft = {0, -1};
+				emptyCells.add(moveLeft);
+			} if (maze[i][j + 1].getType() != 'W') {
+				int[] moveRight = {0, 1};
+				emptyCells.add(moveRight);
+			}
 
-		if (maze[i - 1][j].getType() != 'W') {
-			int[] moveUp = {-1, 0};
-			emptyCells.add(moveUp);
-		} if (maze[i + 1][j].getType() != 'W') {
-			int[] moveDown = {1, 0};
-			emptyCells.add(moveDown);
-		} if (maze[i][j - 1].getType() != 'W') {
-			int[] moveLeft = {0, -1};
-			emptyCells.add(moveLeft);
-		} if (maze[i][j + 1].getType() != 'W') {
-			int[] moveRight = {0, 1};
-			emptyCells.add(moveRight);
+		} catch (IndexOutOfBoundsException erro) {
+			int[] parado = {0,0};
+			emptyCells.add(parado);
+			return emptyCells;
 		}
-
+			// catch index: retorna {0,0}
+		
+		int[] lastMove = dog.getLastMove();
+		int oppositeLastMove[] = {(-lastMove[0]), (-lastMove[1])};
+		boolean igual = true;
+		if (emptyCells.size() > 1) {
+			for (int[] move: emptyCells) {
+				igual = true;
+				for (int k = 0; k < move.length; k++)
+					if (move[k] != oppositeLastMove[k]) {
+						igual = false;
+						break;
+				}
+				if (igual) {
+					emptyCells.remove(move);
+					break;
+				}
+			}
+		}
 		return emptyCells;
 	}
 			
@@ -142,6 +168,7 @@ public class Labirinto {
 			int[] newCoord = sortearMovimento();
 			dog.setCoordLinha(dog.getCoordLinha() + newCoord[0]);
 			dog.setCoordColuna(dog.getCoordColuna() + newCoord[1]);
+			dog.setLastMove(newCoord);
 
 			return newCoord;
 		}

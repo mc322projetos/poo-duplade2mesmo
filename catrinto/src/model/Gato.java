@@ -33,12 +33,4 @@ public class Gato extends Atores{
 	public int getCoordColuna() {
 		return coordColuna;
 	}
-	
-	public boolean verificarMovimento(char move) {
-		if (labirinto.moverGato(move) == true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 }
