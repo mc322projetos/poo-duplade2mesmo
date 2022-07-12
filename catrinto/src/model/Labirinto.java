@@ -10,7 +10,6 @@ public class Labirinto {
 	private Celula maze[][];
 	private Gato cat;
 	private Cachorro dog;
-	// private ArrayList<Cachorro> dogArr;
 
 	char[][] mazeChar = {
 			{'G', 'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'W', 'E', 'E', 'E', 'E', 'E'},
