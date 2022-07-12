@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import controller.Control;
 
 public class View {
-	JFrame frame;
+	private JFrame frame;
 	public Control control;
 	private MainScreen mainScreen;
 
