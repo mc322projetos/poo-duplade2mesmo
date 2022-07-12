@@ -30,6 +30,9 @@ public class View {
 			case 2:
 				new EndScreen(this, ganhou);
 				break;
+			case 3:
+				new TutorialScreen(this);
+				break;
 		}
 	}
 

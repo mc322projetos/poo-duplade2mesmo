@@ -49,7 +49,7 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
             super.getView().getControl().play();
             super.changeScreen(1);
 		} else if (e.getSource() == tutorial) {
-			super.changeScreen(4);
+			super.changeScreen(3);
 		}
 		
 	}
