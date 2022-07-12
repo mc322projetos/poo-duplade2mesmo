@@ -2,13 +2,11 @@ package model;
 
 public class Cachorro extends Atores {
 	private char tipo;
-	private Labirinto maze;
 	private int linhaCachorro;
 	private int colunaCachorro;
 	private int[] lastMove = new int[2];
 	
 	public Cachorro(Labirinto maze, char tipo) {
-		this.maze = maze;
 		this.tipo = tipo;
 		int[] initial = {0,0};
 		this.setLastMove(initial);

@@ -2,13 +2,11 @@ package model;
 
 public class Gato extends Atores{
 	private char tipo;
-	private Labirinto labirinto;
 	private int coordLinha;
 	private int coordColuna;
 	
 	public Gato(Labirinto labirinto, char tipo) {
 		this.tipo = tipo;
-		this.labirinto = labirinto;
 		this.coordLinha = 0;
 		this.coordColuna = 0;
 	}

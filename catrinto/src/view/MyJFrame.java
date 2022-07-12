@@ -3,7 +3,8 @@ package view;
 import javax.swing.JFrame;
 
 public class MyJFrame extends JFrame{
-    private static MyJFrame myFrame;
+    private static final long serialVersionUID = 5744458576894912268L;
+	private static MyJFrame myFrame;
 
     private MyJFrame() {
         
