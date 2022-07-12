@@ -11,7 +11,8 @@ import javax.swing.JPanel;
 
 public class MenuScreen extends ScreenAdapter implements ActionListener{
 	JButton play;
-	JLabel logo; 
+	JButton tutorial;
+	JLabel logo;
 
 	public MenuScreen(View view) {
 		super(view);
@@ -30,8 +31,13 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 		play.setAlignmentX(JButton.CENTER_ALIGNMENT);
 		play.addActionListener(this);
 		
+		tutorial = new JButton("Tutorial");
+		tutorial.setAlignmentX(JButton.CENTER_ALIGNMENT);
+		tutorial.addActionListener(this);
+
 		panel.add(logo);
 		panel.add(play);
+		panel.add(tutorial);
 		// super.getFrame().getContentPane().add(panel);
 
 		super.getFrame().repaint();
@@ -43,7 +49,8 @@ public class MenuScreen extends ScreenAdapter implements ActionListener{
 		if (e.getSource() == play) {
             super.getView().getControl().play();
             super.changeScreen(1);
-			
+		} else if (e.getSource() == tutorial) {
+			super.changeScreen(4);
 		}
 		
 	}

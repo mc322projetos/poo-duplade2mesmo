@@ -17,7 +17,6 @@ public class MainScreen extends ScreenAdapter {
 	HUD hud;
 	CatLabel catLabel;
 	DogLabel dogLabel;
-	// ArrayList<DogLabel> dogLabelArr = new ArrayList<DogLabel>();
 	FinishLineLabel finishLineLabel;
 
 	MainScreen(View view) {
