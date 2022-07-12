@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public abstract class ScreenAdapter {
 	private JFrame frame;
-	protected View view;
+	private View view;
 	
 	private JPanel panel;
 	
