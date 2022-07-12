@@ -9,7 +9,7 @@
 * Isaac do Nascimento Oliveira, 247175
 
 # Arquivo executável do jogo
-> [Link jogo](https://github.com/mc322projetos/poo-duplade2mesmo/blob/main/catrinto/src/src/CatRinto.jar)
+> [Link jogo](https://github.com/mc322projetos/poo-duplade2mesmo/blob/main/catrinto/src/CatRinto.jar)
 
 # Slides do projeto
 
