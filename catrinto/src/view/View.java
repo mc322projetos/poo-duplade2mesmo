@@ -11,7 +11,7 @@ public class View {
 
 	public View(Control control) {
 		this.control = control;
-		frame = new JFrame();
+		frame = MyJFrame.getMyFrame();
 		new MenuScreen(this);
 	}
 
@@ -30,8 +30,6 @@ public class View {
 			case 2:
 				new EndScreen(this, ganhou);
 				break;
-			case 4:
-				new TutorialScreen(this);
 		}
 	}
 
