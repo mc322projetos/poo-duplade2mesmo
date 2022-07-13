@@ -27,13 +27,16 @@ Em relação às dificuldades enfrentadas, tivemos em fazer a comunicação entr
 Agora em relação às melhorias, podemos listar varias, mas as mais importantes seriam implementar a view com o LibGDX, adicionar outros atores no jogo, como por exemplo mais cachorros. Por fim, podemos dizer que aprendemos diversas coisas, uma delas é começar pelo mais dificil no código, que no caso foi a View, pois nunca tinhamos estudado sobre isso antes.
 
 # Destaques de código
+```
 @Override
 public void actionPerformed(ActionEvent e) { // metodo que recebe evento vindo do usuario e volta para a tela desejada
     if (e.getSource() == back) {
         super.changeScreen(0);
     }
 }
+```
 
+```
 ...
 
 public interface IControlView { // interface que é implementada pela Classe Control e que se comunica diretamente com a view
@@ -45,5 +48,6 @@ public interface IControlView { // interface que é implementada pela Classe Con
     public boolean moveAttempt(char key);
     public int[] moveAttempt();
  }
+ ```
 
 
