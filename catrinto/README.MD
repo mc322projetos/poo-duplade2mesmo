@@ -24,7 +24,7 @@ Neste projeto, aprendemos a implementar uma arquitetura fundamental para qualque
 
 Em relação às dificuldades enfrentadas, tivemos em fazer a comunicação entre os componentes, principalmente em o View e os outros os dois, além disso, também tivemos dificuldade em adicionar um design pattern ao nosso jogo e de implementar a View com o JFrame, ou seja, sem um FrameWork como o LibGDX, o qual também tivemos dificuldade em aprender a implementar.
 
-Agora em relação às melhorias, podemos listar varias, mas as mais importantes seriam implementar a view com o LibGDX, adicionar outros atores no jogo, como por exemplo mais cachorros. Por fim, podemos dizer que aprendemos diversas coisas, uma delas é começar pelo mais dificil no código, que no caso foi a View, pois nunca tinhamos estudado sobre isso antes.
+Agora em relação às melhorias, podemos listar varias, mas as mais importantes seriam implementar a view com o LibGDX, fazer mais labirintos(de forma aleatória) e adicionar outros atores no jogo, como por exemplo mais cachorros. Por fim, podemos dizer que aprendemos diversas coisas, uma delas é começar pelo mais dificil no código, que no caso foi a View, pois nunca tinhamos estudado sobre isso antes.
 
 # Destaques de código
 ```
