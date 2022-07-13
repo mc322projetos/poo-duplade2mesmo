@@ -151,6 +151,7 @@ TutorialScreen(View view) {
     ...
 }
 ```
+```
 // Factory
 back = new JButton("Back");
 back.addActionListener(this);
