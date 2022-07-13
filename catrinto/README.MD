@@ -84,3 +84,83 @@ public abstract class Atores { // uso de classe abstrata para representar todos 
     public abstract char getType();
 }
 ```
+
+# Destaques de Pattern
+## Código do Pattern
+```
+// Singleton
+public class View {
+    JFrame frame;
+    ...
+    public View(Control control) {
+        ...
+        frame = MyJFrame.getMyFrame();
+        ...
+    }
+}
+```
+```
+// Singleton
+public class MyJFrame extends JFrame {
+    private static MyJFrame myFrame;
+    
+    private MyJFrame() {
+        ...
+    }
+    
+    public static MyJFrame getMyFrame() { 
+        if (myFrame == null) {
+            myFrame = new MyJFrame();
+        return myFrame;
+        }
+   }
+}
+```
+
+```
+// Factory
+public abstract class ScreenAdapter {
+    private JFrame
+    private View view;
+	
+	private JPanel panel;
+	
+	ScreenAdapter(View view) {
+		this.view = view;
+
+		frame = view.getFrame();
+		frame.getContentPane().removeAll();
+		...
+		panel = new JPanel();
+		...
+		frame.add(panel);
+	}
+    
+    protected void changeScreen(int screen) {
+		...
+		view.changeScreen(screen, false);
+        ...
+	}
+}
+```
+```
+// Factory
+...
+TutorialScreen(View view) {
+	super(view);
+    ...
+}
+```
+// Factory
+back = new JButton("Back");
+back.addActionListener(this);
+```
+```
+// Factory
+ @Override
+ public void actionPerformed(ActionEvent e) {
+     if (e.getSource() == back) {
+         super.changeScreen(0);
+     } 
+ }
+ ```
