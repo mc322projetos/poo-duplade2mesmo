@@ -165,3 +165,5 @@ back.addActionListener(this);
      } 
  }
  ```
+# Conclusões e Trabalhos Futuros
+Uma possível melhoria que poderia ser aplicada no nosso jogo seria a implementação do pattern observer, pois temos um objeto que se move aleatoriamente no jogo(cachorro) e o seu movimento poderia ser notificado para o gato o tempo todo, porém por questão de tempo não foi possível implementá-lo e com certeza em um trabalho futuro nós o usariamos
