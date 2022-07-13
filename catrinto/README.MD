@@ -51,3 +51,36 @@ public interface IControlView { // interface que é implementada pela Classe Con
  ```
  
  # Destaques de Orientação a Objetos
+ ## Código de Destaque OO
+ ```
+ public class MainScreen extends ScreenAdapter { // uso de herança para todas as telas da view, que herdam da classe abstrata ScreenAdapter
+ ...
+    MainScreen(View view) {
+        super(view);
+        ...
+        super.getFrame().getContentPane().setBackground(Color,CYAN);
+        ...
+    }
+}
+```
+
+public class Control implements IControlView, IControlModel { // classe que implementa essas duas interfaces
+    ...
+    
+    public boolean moveAttempt(char key) {
+        // tratamento da exceção de quando o gato tenta sair da grid
+        try {
+            return model.moverGato(key);
+        } catch (IndexOutOfBounds erro) {
+            return false;
+        }
+    }
+}
+```
+```
+...
+public abstract class Atores { // uso de classe abstrata para representar todos os atores do jogo, que no caso herdam dessa classe genérica e
+/// implementam esse método getType()
+    public abstract char getType();
+}
+```
