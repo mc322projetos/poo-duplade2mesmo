@@ -63,7 +63,7 @@ public interface IControlView { // interface que é implementada pela Classe Con
     }
 }
 ```
-
+```
 public class Control implements IControlView, IControlModel { // classe que implementa essas duas interfaces
     ...
     
